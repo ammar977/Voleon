@@ -23,26 +23,26 @@ app.get('/', (req, res) => {
 
 app.get('/api/customers', (req, res) => {
 
-  res.json(customers);
+    res.json(customers);
 });
 
 app.post('/api/customers', (req, res) => {
-  // const newCustomer = {
-  //   id: customers.length + 1,
-  //   firstName: req.body.firstName,
-  //   lastName: req.body.lastName
-  // }
+    // const newCustomer = {
+    //   id: customers.length + 1,
+    //   firstName: req.body.firstName,
+    //   lastName: req.body.lastName
+    // }
 
-  // customers.push(newCustomer);
-  // res.json(newCustomer);
+    // customers.push(newCustomer);
+    // res.json(newCustomer);
 
 
-  // Password validation
-  // Insert passport JS here
+    // Password validation
+    // Insert passport JS here
 
-  const retval = {success: req.body.pass === 'avocado'}
+    const retval = {success: req.body.pass === 'avocado'}
 
-  res.json(retval);
+    res.json(retval);
 
 });
 

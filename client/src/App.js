@@ -9,21 +9,21 @@ import Main from './components/main/main'
 
 class App extends Component {
 
-  render () {
-    return (
-      <Provider store={ store }>
-        <div className="App">
-          <header className="App-header">
-            <img src={ logo } className="App-logo" alt="logo"/>
-            <h1 className="App-title">Voleon dummy homepage</h1>
-          </header>
+    render () {
+        return (
+            <Provider store={ store }>
+                <div className="App">
+                    <header className="App-header">
+                        <img src={ logo } className="App-logo" alt="logo"/>
+                        <h1 className="App-title">Voleon dummy homepage</h1>
+                    </header>
 
-          <Main />
-        
-        </div>
-      </Provider>
-    )
-  }
+                    <Main />
+                
+                </div>
+            </Provider>
+        )
+    }
 }
 
 export default App;

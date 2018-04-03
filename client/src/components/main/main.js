@@ -6,25 +6,25 @@ import AddCustomer from '../addCustomer/addCustomer'
 
 class Main extends Component {
 
-  static propTypes = {
-    logged: PropTypes.object
-  }
+    static propTypes = {
+        logged: PropTypes.object
+    }
 
-  static defaultProps = {
-    logged: {success: false}
-  }
+    static defaultProps = {
+        logged: {success: false}
+    }
 
-  render () {
-    return (
-      <div className="Main">
-        { !this.props.logged.success ? <AddCustomer/> : <Customers/> }
-      </div>
-    )
-  }
+    render () {
+        return (
+            <div className="Main">
+                { !this.props.logged.success ? <AddCustomer/> : <Customers/> }
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => ({
-  logged: state.logged
+    logged: state.logged
 })
 
 const dispatchToProps = (dispatch) => ({
