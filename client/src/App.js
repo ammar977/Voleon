@@ -7,19 +7,19 @@ import Customers from './components/Customer/customers'
 
 class App extends Component {
 
-  render () {
-    return (
-      <Provider store={ store }>
-        <div className="App">
-          <header className="App-header">
-            <img src={ logo } className="App-logo" alt="logo"/>
-            <h1 className="App-title">Voleon dummy homepage</h1>
-          </header>
-          <Customers/>
-        </div>
-      </Provider>
-    )
-  }
+    render () {
+        return (
+            <Provider store={ store }>
+                <div className="App">
+                    <header className="App-header">
+                        <img src={ logo } className="App-logo" alt="logo"/>
+                        <h1 className="App-title">Voleon dummy homepage</h1>
+                    </header>
+                    <Customers/>
+                </div>
+            </Provider>
+        )
+    }
 }
 
 export default App
