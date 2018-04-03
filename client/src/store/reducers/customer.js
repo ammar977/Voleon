@@ -1,12 +1,17 @@
-import {GET_CUSTOMERS} from '../actions/constants'
+import {GET_CUSTOMERS, ADD_CUSTOMER} from '../actions/constants';
 
-const customerReducer = (state = [], {type, payload}) => {
+export const customerReducer = (state = [], {type, payload}) => {
     switch (type) {
       case GET_CUSTOMERS:
         return payload
+      case ADD_CUSTOMER:
+        return [
+            ...state,
+            payload
+        ]
       default:
         return state
     }
 }
 
-export default customerReducer;
+// export default customerReducer;
