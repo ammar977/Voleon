@@ -2,6 +2,12 @@ const express = require('express');
 
 const app = express();
 
+app.get('/', (req, res) => {
+    const message = '<h4>No route is defined for \'/\'</h4>'
+
+    res.send(message);
+})
+
 app.get('/api/customers', (req, res) => {
   const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
