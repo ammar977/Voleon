@@ -1,10 +1,8 @@
-# React/Redux Express Starter Pack
+# Voleon
 
-> Create full stack apps with React/Redux and Express. Run your client and server with a single command
+> Online application for student council elections at LUMS
 
-### Version Without Redux
-This version includes Redux
-[Click Here For the Version WITHOUT Redux](https://github.com/bradtraversy/react_express_starter) 
+Made as part of the course project for CS360 - Software Engineering. 
 
 ## Quick Start
 
@@ -31,7 +29,11 @@ npm run client
 
 ### Authors
 
-Brad Traversy & Gregory Assasie
+- Ammar Ahmed
+- Rabeez Riaz
+- Taha Bin Amir
+- Kinza Habib
+- Tooba Mukhtar
 
 ### Version
 
