@@ -6,9 +6,7 @@ import './loginForm.css';
 import {sendUser} from '../../store/actions/customer'
 
 
-
 class LoginForm extends Component {
-
 
     static propTypes = {
         sendUser: PropTypes.func.isRequired,
