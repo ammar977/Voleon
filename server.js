@@ -35,34 +35,13 @@ app.get('/', (req, res) => {
 
 
 app.get('/api/customers', (req, res) => {
+    const customers = [
+        {id: 1, firstName: 'John', lastName: 'Doe'},
+        {id: 2, firstName: 'Brad', lastName: 'Traversy'},
+        {id: 3, firstName: 'Mary', lastName: 'Swanson'},
+    ];
 
     res.json(customers);
-});
-
-app.post('/api/customers', (req, res) => {
-    // const newCustomer = {
-    //   id: customers.length + 1,
-    //   firstName: req.body.firstName,
-    //   lastName: req.body.lastName
-    // }
-
-    // customers.push(newCustomer);
-    // res.json(newCustomer);
-
-
-    // Password validation
-    // Insert passport JS here
-
-    const retval = {success: req.body.pass === 'avocado'}
-
-    res.json(retval);
-
-});
-
-// set up listener
-const port = process.env.PORT || 5000;
-app.listen(port,()=>{
-    console.log(`Server Started at port ${port} `)
 });
 
 

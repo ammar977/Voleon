@@ -4,11 +4,6 @@ export const customerReducer = (state = [], {type, payload}) => {
     switch (type) {
         case GET_CUSTOMERS:
             return payload
-        case ADD_CUSTOMER:
-            return [
-                ...state,
-                payload
-            ]
         default:
             return state
     }
