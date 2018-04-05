@@ -19,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
+// Load routes
+const users = require('./routes/users');
+
 const customers = [
     {id: 1, firstName: 'John', lastName: 'Doe'},
     {id: 2, firstName: 'Brad', lastName: 'Traversy'},
@@ -27,11 +30,11 @@ const customers = [
 
 
 // Home Page
-app.get('/', (req, res) => {
-    const message = '<h4>No route is defined for \'/\'</h4>'
+// app.get('/', (req, res) => {
+//     const message = '<h4>No route is defined for \'/\'</h4>'
 
-    res.send(message);
-})
+//     res.send(message);
+// })
 
 
 app.get('/api/customers', (req, res) => {
@@ -46,3 +49,8 @@ app.get('/api/customers', (req, res) => {
 
 const port = 5000;
 app.listen(port, () => console.log(`Server is running on ${port}`));
+
+// use routes
+
+app.use('/',users); 
+app.use('/user',users);
