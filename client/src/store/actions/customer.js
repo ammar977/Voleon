@@ -1,4 +1,4 @@
-import {GET_CUSTOMERS, ADD_CUSTOMER, LOGIN_TEST} from './constants';
+import {GET_CUSTOMERS, ADD_CUSTOMER, LOGIN_TEST, REGISTER} from './constants';
 
 export const getCustomers = () => dispatch => {
     return fetch('/api/customers')
@@ -29,4 +29,8 @@ export const sendUser = (user) => dispatch => {
     })
     .then(res => res.json())
     .then(successLogin => dispatch({type: LOGIN_TEST, payload: successLogin}));
+}
+
+export const register = () => dispatch => {
+    dispatch({type: REGISTER, payload: {test: "Signup"}});
 }

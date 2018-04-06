@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Button} from 'react-materialize';
 import './loginForm.css';
-import {sendUser} from '../../store/actions/customer'
+import {sendUser,register} from '../../store/actions/customer'
 
 
 class LoginForm extends Component {
 
     static propTypes = {
         sendUser: PropTypes.func.isRequired,
-        logged: PropTypes.object
+        register: PropTypes.func.isRequired,
+        logged: PropTypes.object,
     }
 
     static defaultProps = {
@@ -20,12 +21,18 @@ class LoginForm extends Component {
     formSubmit(e) {
         e.preventDefault();
 
+        console.log(e.target.username.value);
         const user = {
             username:e.target.username.value,
             pass:e.target.password.value
         };
 
         this.props.sendUser(user);
+    }
+
+    signup(e) {
+        e.preventDefault();
+        this.props.register();
     }
 
 
@@ -66,7 +73,7 @@ class LoginForm extends Component {
                         </div>
 
                         <div className="card-action">
-                            Need an account? <a href="#" className="blue-text text-lighten-3">Register</a>
+                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick = {this.props.cardTypeChanger}>Register</a>
                         </div>
                     </form>
                 </div>
@@ -81,7 +88,8 @@ const mapStateToProps = (state) => ({
 })
 
 const dispatchToProps = (dispatch) => ({
-     sendUser: user => dispatch(sendUser(user))
+     sendUser: user => dispatch(sendUser(user)),
+     register: () => dispatch(register())
 })
 
 export default connect(mapStateToProps,dispatchToProps)(LoginForm);
