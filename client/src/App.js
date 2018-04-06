@@ -6,8 +6,6 @@ import store from './store';
 // import Customers from './components/Customer/customers';
 import CardContainer from './components/Card/card';
 
-
-
 class App extends Component {
     
     constructor(props) {
@@ -32,7 +30,6 @@ class App extends Component {
 
                     {/*<Customers/>*/}
                     <CardContainer cardType={this.state.cardType} cardTypeChanger = {this.cardTypeChanger} />
-                    {/* <CardContainer cardType="Signup"/> */}
                 </div>
             </Provider>
         )

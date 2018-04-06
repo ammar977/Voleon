@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const bcrypt = require('bcryptjs');
+
 
 // database to connect - local or cloud 
 const db = require('./config/database');
@@ -18,6 +21,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// passport middleware
+require('./config/passport')(passport);
+app.use(passport.initialize());
+// app.use(passport.session());
+
 
 // Load routes
 const users = require('./routes/users');
@@ -30,11 +38,11 @@ const customers = [
 
 
 // Home Page
-// app.get('/', (req, res) => {
-//     const message = '<h4>No route is defined for \'/\'</h4>'
+app.get('/', (req, res) => {
+    const message = '<h4>No route is defined for \'/\'</h4>'
 
-//     res.send(message);
-// })
+    res.send(message);
+});
 
 
 app.get('/api/customers', (req, res) => {
@@ -51,6 +59,6 @@ const port = 5000;
 app.listen(port, () => console.log(`Server is running on ${port}`));
 
 // use routes
-
-app.use('/',users); 
 app.use('/user',users);
+
+

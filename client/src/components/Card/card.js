@@ -10,8 +10,7 @@ import './card.css';
 class CardContainer extends Component {
 
     render() {
-        console.log(' in render');
-        console.log(this.props.cardType);
+
         let cardElement = '';
         switch(this.props.cardType) {
             case 'Login':

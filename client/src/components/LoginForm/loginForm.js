@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Button} from 'react-materialize';
 import './loginForm.css';
-import {sendUser,register} from '../../store/actions/customer'
+import {sendUser,register} from '../../store/actions/form'
 
 
 class LoginForm extends Component {
@@ -21,10 +21,9 @@ class LoginForm extends Component {
     formSubmit(e) {
         e.preventDefault();
 
-        console.log(e.target.username.value);
         const user = {
             username:e.target.username.value,
-            pass:e.target.password.value
+            password:e.target.password.value
         };
 
         this.props.sendUser(user);
@@ -37,6 +36,8 @@ class LoginForm extends Component {
 
 
     render() {
+
+        console.log(this.props.logged);
 
         return (
             <div className='form-page__wrapper'>

@@ -1,41 +1,51 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const passport = require('passport');
+
 
 // Load user model
 require('../models/User');
 const User = mongoose.model('User');
-
-// Home Page
-router.get('/', (req, res) => {
-    const message = '<h4>No route is defined for \'/\'</h4>'
-    res.send(message);
-});
 
 // User register Route
 router.post('/signup',(req,res,next)=>{
     res.send('user registered');
 });
 
-// User Login request Route
-router.post('/feed',(req,res,next)=>{
-    
-    // Password validation
-    // Insert passport JS here
-    let retval = {success:false};
-    User.find({lumsId:req.body.username})
-    .then(user => {
-        retval = {success: req.body.pass === user.passHash};
-        res.json(retval);        
-    });
+
+// dummy request comes after failed authentication from passport
+router.get('/loginfalse',(req,res) => {
+
+    // send false to client
+    retval = {success:false};
+    res.json(retval);
 });
+
+
+router.post('/login',(req,res,next)=>{
+
+    // passport authentication
+    passport.authenticate('local',{
+        successRedirect: '/user/feed',
+        failureRedirect: '/user/loginfalse',
+    })(req,res,next); // weird passport syntax
+
+});
+
+// dummy request from passport authetication
+router.get('/feed',(req,res)=>{
+    console.log('successful');
+    retval = {success:true};
+    res.json(retval);
+})
 
 // Logout User
 router.get('/logout',(req,res)=> {
-    // req.logout();
-    // req.flash('success_msg','You are logged out');
-    // res.redirect('/users/login');
-    res.send('logout');
+
+    req.logout();
+    res.redirect('/users/loginfalse');
+
 });
 
 module.exports = router;
