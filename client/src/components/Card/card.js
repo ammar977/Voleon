@@ -24,7 +24,7 @@ class CardContainer extends Component {
         }
 
         return (
-            <div className="cardContainer">
+            <div className="card-container">
                 <Col m={6} s={6}>
                     <Card className='white darken-1 z-depth-3' title={this.props.cardType}>
                         {cardElement}
