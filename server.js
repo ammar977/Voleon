@@ -30,29 +30,11 @@ app.use(passport.initialize());
 // Load routes
 const users = require('./routes/users');
 
-const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-];
-
-
 // Home Page
 app.get('/', (req, res) => {
     const message = '<h4>No route is defined for \'/\'</h4>'
 
     res.send(message);
-});
-
-
-app.get('/api/customers', (req, res) => {
-    const customers = [
-        {id: 1, firstName: 'John', lastName: 'Doe'},
-        {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-        {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-    ];
-
-    res.json(customers);
 });
 
 const port = 5000;
