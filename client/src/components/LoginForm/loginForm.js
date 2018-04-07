@@ -65,7 +65,7 @@ class LoginForm extends Component {
                         </div>
 
                         <div className="card-action">
-                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
+                            Need an account? <a className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
                         </div>
                     </form>
                 </div>

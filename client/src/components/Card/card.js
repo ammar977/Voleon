@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
+// import PropTypes from 'prop-types'
+// import { connect } from 'react-redux';
 import {Card, Col} from 'react-materialize';
 import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';

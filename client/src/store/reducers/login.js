@@ -5,10 +5,8 @@ export const loginReducer = (state = {success: false, pageType: "Login"}, {type,
     switch (type) {
         case LOGIN_TEST:
             return {...state, ...payload};
-            break;
         case REGISTER:
             return {...state, ...payload};
-            break;
         default:
             return state;
     }
