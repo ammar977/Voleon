@@ -1,4 +1,4 @@
-import {GET_CUSTOMERS, ADD_CUSTOMER, LOGIN_TEST} from './constants';
+import {GET_CUSTOMERS, ADD_CUSTOMER, LOGIN_TEST, REGISTER} from './constants';
 
 export const getCustomers = () => dispatch => {
     return fetch('/api/customers')

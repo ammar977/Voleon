@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types'
-// import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
 import {Card, Col} from 'react-materialize';
 import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';
@@ -10,13 +10,14 @@ import './card.css';
 class CardContainer extends Component {
 
     render() {
+
         let cardElement = '';
         switch(this.props.cardType) {
             case 'Login':
-                cardElement = <LoginForm/>;
+                cardElement = <LoginForm cardTypeChanger={this.props.cardTypeChanger}/>;
                 break;
-            case 'Signup':
-                cardElement = <SignupForm/>;
+            case 'Signup':       
+                cardElement = <SignupForm cardTypeChanger={this.props.cardTypeChanger}/>;
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;

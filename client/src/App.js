@@ -7,6 +7,17 @@ import store from './store';
 import CardContainer from './components/Card/card';
 
 class App extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {cardType:"Login"}
+        this.cardTypeChanger = this.cardTypeChanger.bind(this);
+    }
+
+    cardTypeChanger(e, destinationCard) {
+        e.preventDefault();
+        this.setState({cardType: destinationCard})
+    }
 
     render () {
         return (
@@ -18,12 +29,12 @@ class App extends Component {
                     </header>
 
                     {/*<Customers/>*/}
-                    <CardContainer cardType="Login"/>
-                    <CardContainer cardType="Signup"/>
+                    <CardContainer cardType={this.state.cardType} cardTypeChanger = {this.cardTypeChanger} />
                 </div>
             </Provider>
         )
     }
 }
+
 
 export default App;
