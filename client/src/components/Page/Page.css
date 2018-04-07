@@ -1,0 +1,12 @@
+.page_container {
+    height: 100%;
+    
+    background-image: url("../../Background.png");
+    background-repeat: repeat-x;
+}
+
+.App-logo {
+    margin-top: 20px;
+    height: 80px;
+}
+

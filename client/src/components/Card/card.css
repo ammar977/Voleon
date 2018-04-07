@@ -1,8 +1,9 @@
-.cardContainer {
+.card-container {
     width: 300px;
     margin: 10px;
 }
 
+/*This class comes from react materialize*/
 .card-content {
     padding: 24px 0 24px 0 !important;
     border-radius: 0 0 2px 2px;

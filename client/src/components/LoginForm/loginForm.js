@@ -3,19 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Button} from 'react-materialize';
 import './loginForm.css';
-import {sendUser,register} from '../../store/actions/form'
+import {sendUser,changeCard} from '../../store/actions/form'
 
 
 class LoginForm extends Component {
 
     static propTypes = {
         sendUser: PropTypes.func.isRequired,
-        register: PropTypes.func.isRequired,
+        changeCard: PropTypes.func.isRequired,
         logged: PropTypes.object,
-    }
-
-    static defaultProps = {
-        logged: {success: false}
     }
 
     formSubmit(e) {
@@ -29,13 +25,13 @@ class LoginForm extends Component {
         this.props.sendUser(user);
     }
 
-    signup(e) {
+    gotoSignup(e) {
         e.preventDefault();
-        this.props.register();
+        this.props.changeCard('Signup');
     }
 
     render() {
-        // console.log(this.props.logged);
+        console.log('in signupform', this.props);
 
         return (
             <div className='form-page__wrapper'>
@@ -64,12 +60,15 @@ class LoginForm extends Component {
                                 Password
                             </label>
                         </div>
+                        <div className="loginErrMsg">
+                            { (this.props.logged.success === false) ? "Incorrect Username or Password" : ""  }
+                        </div>
                         <div className='form__submit-btn-wrapper'>
                             <Button className='blue lighten-1' waves='light' >Login</Button>
                         </div>
 
                         <div className="card-action">
-                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick={(e) => this.props.cardTypeChanger(e, 'Signup')}>Register</a>
+                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
                         </div>
                     </form>
                 </div>
@@ -80,12 +79,12 @@ class LoginForm extends Component {
 
 
 const mapStateToProps = (state) => ({
-    logged: state.logged
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
      sendUser: user => dispatch(sendUser(user)),
-     register: () => dispatch(register())
+     changeCard: (destinationCard) => dispatch(changeCard(destinationCard))
 })
 
 export default connect(mapStateToProps,dispatchToProps)(LoginForm);
