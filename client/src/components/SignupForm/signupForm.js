@@ -9,8 +9,7 @@ class SignupForm extends Component {
     
     static propTypes = {
         changeCard: PropTypes.func.isRequired,
-        lun: PropTypes.object,
-        // test: PropTypes.object,
+        logged: PropTypes.object,
     }
 
     gotoLogin(e) {
@@ -62,8 +61,7 @@ class SignupForm extends Component {
 
 
 const mapStateToProps = (state) => ({
-    lun: state.lun,
-    // test: state.test
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
@@ -71,5 +69,3 @@ const dispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps,dispatchToProps)(SignupForm);
-
-// export default SignupForm;

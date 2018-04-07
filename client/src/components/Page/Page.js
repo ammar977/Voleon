@@ -10,18 +10,14 @@ import './Page.css';
 class Page extends Component {
     
     static propTypes = {
-        lun: PropTypes.object,
+        logged: PropTypes.object,
     }
-
-    // static defaultProps = {
-    //     lun: {success: false, pageType: "Login"}
-    // }
 
     render() {
         console.log('in page', this.props);
 
         let pageElement = '';
-        switch(this.props.lun.pageType) {
+        switch(this.props.logged.pageType) {
             case 'Login':
                 pageElement = <LoginPage/>;
                 break;
@@ -41,11 +37,9 @@ class Page extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    lun: state.lun
+    logged: state.logged
 })
 
 const dispatchToProps = (dispatch) => ({})
 
 export default connect(mapStateToProps, dispatchToProps)(Page);
-
-// export default Page;

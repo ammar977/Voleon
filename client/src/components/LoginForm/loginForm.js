@@ -11,14 +11,8 @@ class LoginForm extends Component {
     static propTypes = {
         sendUser: PropTypes.func.isRequired,
         changeCard: PropTypes.func.isRequired,
-        lun: PropTypes.object,
-        // test: PropTypes.object,
+        logged: PropTypes.object,
     }
-
-    // static defaultProps = {
-    //     lun: {success: false, pageType: "Login"},
-    //     // test: {pageType: "Login"}
-    // }
 
     formSubmit(e) {
         e.preventDefault();
@@ -82,8 +76,7 @@ class LoginForm extends Component {
 
 
 const mapStateToProps = (state) => ({
-    lun: state.lun,
-    // test: state.test
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
