@@ -14,9 +14,9 @@ class App extends Component {
         this.cardTypeChanger = this.cardTypeChanger.bind(this);
     }
 
-    cardTypeChanger(e) {
+    cardTypeChanger(e, destinationCard) {
         e.preventDefault();
-        this.setState({cardType:'Signup'})
+        this.setState({cardType: destinationCard})
     }
 
     render () {

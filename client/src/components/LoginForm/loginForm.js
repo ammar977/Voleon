@@ -34,17 +34,12 @@ class LoginForm extends Component {
         this.props.register();
     }
 
-
     render() {
-
-        console.log(this.props.logged);
+        // console.log(this.props.logged);
 
         return (
             <div className='form-page__wrapper'>
                 <div className='form-page__form-wrapper'>
-                    {/*<div className='form-page__form-header'>
-                      <h2 className='form-page__form-heading'>Login</h2>
-                    </div>*/}
                     <form className='form' onSubmit = {this.formSubmit.bind(this)} >
                         <div className='form__field-wrapper'>
                             <input
@@ -74,7 +69,7 @@ class LoginForm extends Component {
                         </div>
 
                         <div className="card-action">
-                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick = {this.props.cardTypeChanger}>Register</a>
+                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick={(e) => this.props.cardTypeChanger(e, 'Signup')}>Register</a>
                         </div>
                     </form>
                 </div>
@@ -94,4 +89,3 @@ const dispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps,dispatchToProps)(LoginForm);
-// export default LoginForm;

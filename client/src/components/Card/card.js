@@ -17,7 +17,7 @@ class CardContainer extends Component {
                 cardElement = <LoginForm cardTypeChanger={this.props.cardTypeChanger}/>;
                 break;
             case 'Signup':       
-                cardElement = <SignupForm/>;
+                cardElement = <SignupForm cardTypeChanger={this.props.cardTypeChanger}/>;
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
