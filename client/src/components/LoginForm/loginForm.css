@@ -145,3 +145,8 @@
         transform: translateX(0);
     }
 }
+
+.loginErrMsg {
+    color: #f44336; /*red*/
+    font-size: 12px;
+}

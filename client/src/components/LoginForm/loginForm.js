@@ -60,12 +60,15 @@ class LoginForm extends Component {
                                 Password
                             </label>
                         </div>
+                        <div className="loginErrMsg">
+                            { (this.props.logged.success === false) ? "Incorrect Username or Password" : ""  }
+                        </div>
                         <div className='form__submit-btn-wrapper'>
                             <Button className='blue lighten-1' waves='light' >Login</Button>
                         </div>
 
                         <div className="card-action">
-                            Need an account? <a className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
+                            Need an account? <a href="#" className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
                         </div>
                     </form>
                 </div>
