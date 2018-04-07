@@ -5,7 +5,7 @@ import {Card, Col} from 'react-materialize';
 // import LoginForm from '../LoginForm/loginForm';
 import CardContainer from '../Card/card';
 // import SignupForm from '../SignupForm/signupForm';
-import './LoginPage.css';
+import './SignupPage.css';
 
 
 class LoginPage extends Component {
@@ -13,9 +13,9 @@ class LoginPage extends Component {
     render() {
         return (
             <div className='loginPage_container'>
-                <h1>loginpage</h1>
+                <h1>signup</h1>
 
-                <CardContainer cardType='Login'/>
+                <CardContainer cardType='Signup'/>
             </div>
         );
     }

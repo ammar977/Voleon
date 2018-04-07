@@ -6,6 +6,7 @@ import Card from 'react-materialize/lib/Card';
 
 export default combineReducers({
     customers: customerReducer,
-    logged: loginReducer,
+    lun: loginReducer,
+    // test: loginReducer,
     cardtype: cardTypeReducer
 })

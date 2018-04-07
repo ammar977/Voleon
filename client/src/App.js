@@ -9,23 +9,23 @@ import Page from './components/Page/Page';
 
 class App extends Component {
     
-    constructor(props) {
-        super(props);
-        this.state = {cardType:"Login"}
-        this.cardTypeChanger = this.cardTypeChanger.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     // this.state = {cardType:"Login"}
+    //     this.cardTypeChanger = this.cardTypeChanger.bind(this);
+    // }
 
-    cardTypeChanger(e, destinationCard) {
-        e.preventDefault();
-        this.setState({cardType: destinationCard})
-    }
+    // cardTypeChanger(e, destinationCard) {
+    //     e.preventDefault();
+    //     this.setState({cardType: destinationCard})
+    // }
 
     render () {
         return (
             <Provider store={ store }>
                 <div className="App">
 
-                    <Page pageType='Login' />
+                    <Page />
 
                     {/*<header className="App-header">
                         <img src={ logo } className="App-logo" alt="logo"/>

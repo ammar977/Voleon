@@ -1,11 +1,18 @@
-import {LOGIN_TEST} from '../actions/constants';
+import {LOGIN_TEST, REGISTER} from '../actions/constants';
 
-export const loginReducer = (state = {}, {type, payload}) => {
+export const loginReducer = (state = {success: false, pageType: "Login"}, {type, payload}) => {
+    console.log('in login reducer', state, payload);
     switch (type) {
         case LOGIN_TEST:
-            return payload
+            // return Object.assign({}, state, payload);
+            return {...state, ...payload};
+            break;
+        case REGISTER:
+            // return Object.assign({}, state, payload);
+            return {...state, ...payload};
+            break;
         default:
-            return state
+            return state;
     }
 }
 

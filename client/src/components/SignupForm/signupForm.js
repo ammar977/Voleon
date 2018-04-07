@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {Button} from 'react-materialize';
 import './signupForm.css';
+import {changeCard} from '../../store/actions/form'
 
 class SignupForm extends Component {
     
+    static propTypes = {
+        changeCard: PropTypes.func.isRequired,
+        lun: PropTypes.object,
+        // test: PropTypes.object,
+    }
+
+    gotoLogin(e) {
+        e.preventDefault();
+        this.props.changeCard('Login');
+    }
+
     render() {
         return (
             <div className='form-page__wrapper'>
@@ -39,7 +51,7 @@ class SignupForm extends Component {
                         </div>
 
                         <div className="card-action">
-                            <a className="btn-flat"><i className="large material-icons" onClick={(e) => this.props.cardTypeChanger(e, 'Login')}>arrow_back</i></a>
+                            <a className="btn-flat"><i className="large material-icons" onClick={this.gotoLogin.bind(this)}>arrow_back</i></a>
                         </div>
                     </form>
                 </div>
@@ -48,4 +60,16 @@ class SignupForm extends Component {
     }
 }
 
-export default SignupForm;
+
+const mapStateToProps = (state) => ({
+    lun: state.lun,
+    // test: state.test
+})
+
+const dispatchToProps = (dispatch) => ({
+     changeCard: (destinationCard) => dispatch(changeCard(destinationCard))
+})
+
+export default connect(mapStateToProps,dispatchToProps)(SignupForm);
+
+// export default SignupForm;

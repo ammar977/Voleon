@@ -12,6 +12,7 @@ export const sendUser = (user) => dispatch => {
     .then(successLogin => dispatch({type: LOGIN_TEST, payload: successLogin}));
 }
 
-export const register = () => dispatch => {
-    dispatch({type: REGISTER, payload: {test: "Signup"}});
+export const changeCard = (destinationCard) => dispatch => {
+    console.log('changeCard action to ', destinationCard);
+    dispatch({type: REGISTER, payload: {pageType: destinationCard}});
 }
