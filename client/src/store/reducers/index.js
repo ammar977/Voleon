@@ -1,5 +1,4 @@
 import {combineReducers} from 'redux';
-import {customerReducer} from './customer';
 import {loginReducer} from './login';
 // import {cardTypeReducer} from './cardType';
 
