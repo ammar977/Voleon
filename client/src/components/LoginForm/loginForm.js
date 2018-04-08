@@ -67,7 +67,7 @@ class LoginForm extends Component {
                             <Button className='blue lighten-1' waves='light' >Login</Button>
                         </div>
 
-                        <div className="card-action">
+                        <div className="card-action center-align">
                             Need an account? <a href="#" className="blue-text text-lighten-3" onClick={this.gotoSignup.bind(this)}>Register</a>
                         </div>
                     </form>

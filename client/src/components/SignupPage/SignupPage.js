@@ -4,11 +4,11 @@ import CardContainer from '../Card/card';
 import './SignupPage.css';
 
 
-class LoginPage extends Component {
+class SignupPage extends Component {
 
     render() {
         return (
-            <div className='loginPage_container'>
+            <div className='signupPage_container'>
                 <img src={ logo } className="App-logo" alt="logo"/>
 
                 <CardContainer cardType='Signup'/>
@@ -17,4 +17,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+export default SignupPage;

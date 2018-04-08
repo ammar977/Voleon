@@ -1,0 +1,19 @@
+.formRow {
+    display: flex;
+}
+
+.left_child {
+    flex: 0 0 48%; /*Hack to center allign*/
+}
+
+.right_child {
+    flex: 1;
+}
+
+.left_child {
+    margin: 0 5px 0 10px;
+}
+
+.right_child {
+    margin: 0 10px 0 5px;
+}
