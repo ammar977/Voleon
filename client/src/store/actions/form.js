@@ -14,5 +14,5 @@ export const sendUser = (user) => dispatch => {
 
 export const changeCard = (destinationCard) => dispatch => {
     console.log('changeCard action to ', destinationCard);
-    dispatch({type: REGISTER, payload: {pageType: destinationCard}});
+    dispatch({type: REGISTER, payload: {success: null, pageType: destinationCard}});
 }
