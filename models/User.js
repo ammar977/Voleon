@@ -22,6 +22,10 @@ const userSchema = new Schema({
         type:String
     },
 
+    gender:{
+        type:String
+    },
+
     voteStatus : {
         type:String,
         default: 'N'
