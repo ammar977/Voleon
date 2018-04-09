@@ -1,6 +1,6 @@
 import {LOGIN_TEST, REGISTER} from '../actions/constants';
 
-export const loginReducer = (state = {success: null, pageType: "Feed"}, {type, payload}) => {
+export const loginReducer = (state = {success: null, pageType: "Login"}, {type, payload}) => {
     console.log('in login reducer', state, payload);
     switch (type) {
         case LOGIN_TEST:
