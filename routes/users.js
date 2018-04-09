@@ -61,7 +61,7 @@ router.post('/login',(req,res,next)=>{
 
 // dummy request from passport authetication
 router.get('/feed',(req,res)=>{
-    
+
     retval = {success:true};
     res.json(retval);
 });
@@ -157,12 +157,14 @@ router.get('/verify:URL',(req,res) => {
         // user was found! 
         if (user) {
             // optional 
-            nev.sendConfirmationEmail(user['email'], function(err, info) {
-            //     // redirect to their profile... 
-                console.log('Sending confirmation email');
+            // nev.sendConfirmationEmail(user['email'], function(err, info) {
+            // //     // redirect to their profile... 
+            //     console.log('Sending confirmation email');
+            console.log('User added successfully');
             });
 
-            console.log('User added successfully');
+           
+            res.send('User added');
         }
      
         // user's data probably expired... 
