@@ -27,8 +27,9 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 // app.use(passport.session());
 
-
 // email-verification configure 
+require('./models/User')
+const User = mongoose.model('User');
 nev.configure({
     verificationURL: 'http://localhost:5000/user/verify${URL}',
     persistentUserModel: User,
@@ -50,8 +51,9 @@ nev.configure({
 }, function(error, options){
 });
 
-const User = require('./models/User');
-nev.generateTempUserModel(User);
+nev.generateTempUserModel(User,(temp) => {
+    console.log('Temp User created');
+});
 
 // Load routes
 const users = require('./routes/users');

@@ -117,6 +117,33 @@ router.post('/singup',(req,res) => {
 
 
 });
+
+
+
+// verification link opened 
+router.get('/verify:id',(req,res) => {
+    
+    url = nev.options.verificationURL + req.params.id;
+    nev.confirmTempUser(url, function(err, user) {
+        if (err)
+            // handle error... 
+     
+        // user was found! 
+        if (user) {
+            // optional 
+            // nev.sendConfirmationEmail(user['email_field_name'], function(err, info) {
+            //     // redirect to their profile... 
+            // });
+
+            console.log('User added successfully');
+        }
+     
+        // user's data probably expired... 
+        else
+            // redirect to sign-up 
+            console.log('User not added');
+    });
+})
 // Logout User
 router.get('/logout',(req,res)=> {
 
