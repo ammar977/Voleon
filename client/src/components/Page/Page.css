@@ -1,6 +1,13 @@
 .page_container {
     height: 100%;
-    
+}
+
+.loginPage_container {
+    background-image: url("../../Background.png");
+    background-repeat: repeat-x;
+}
+
+.signupPage_container {
     background-image: url("../../Background.png");
     background-repeat: repeat-x;
 }

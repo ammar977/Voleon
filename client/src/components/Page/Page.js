@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
+import FeedPage from '../FeedPage/FeedPage';
 import './Page.css';
 
 
@@ -22,6 +23,9 @@ class Page extends Component {
                 break;
             case 'Signup':
                 pageElement = <SignupPage/>;
+                break;
+            case 'Feed':
+                pageElement = <FeedPage/>;
                 break;
             default:
                 pageElement = <p>Invalid page type passed.</p>;
