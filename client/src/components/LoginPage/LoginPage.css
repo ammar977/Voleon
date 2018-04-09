@@ -1,3 +1,7 @@
+.loginPage_container {
+    text-align: center;
+}
+
 .loginPage_container > .card-container {
     margin: 0 auto;
     margin-top: 50px;

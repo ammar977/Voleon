@@ -18,7 +18,7 @@ router.post('/signup',(req,res,next)=>{
 router.get('/loginfalse',(req,res) => {
 
     // send false to client
-    retval = {success:false};
+    retval = {success: false};
     res.json(retval);
 });
 
@@ -36,7 +36,7 @@ router.post('/login',(req,res,next)=>{
 // dummy request from passport authetication
 router.get('/feed',(req,res)=>{
     console.log('successful');
-    retval = {success:true};
+    retval = {success: true, pageType: 'Feed'};
     res.json(retval);
 })
 
