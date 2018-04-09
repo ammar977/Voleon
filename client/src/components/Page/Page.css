@@ -7,13 +7,17 @@
     background-repeat: repeat-x;
 }
 
+.loginPage_container.App-logo {
+    margin-top: 20px;
+    height: 80px;
+}
+
 .signupPage_container {
     background-image: url("../../Background.png");
     background-repeat: repeat-x;
 }
 
-.App-logo {
+.signupPage_container.App-logo {
     margin-top: 20px;
     height: 80px;
 }
-
