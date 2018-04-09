@@ -26,7 +26,8 @@ nev.configure({
         subject: 'Please confirm account',
         html: 'Click the following link to confirm your account:</p><p>${URL}</p>',
         text: 'Please confirm your account by clicking the following link: ${URL}'
-    }
+    },
+    shouldSendConfirmation: false
 }, function(error, options){
 });
 
@@ -126,7 +127,7 @@ router.post('/signup',(req,res) => {
 
                     if (err) throw err;
 
-                    retVal = {verificationSent : true};
+                    retVal = {verificationSent : true, pageType:'Verification'};
                     res.json(retVal);
 
                 });
@@ -161,17 +162,16 @@ router.get('/verify:URL',(req,res) => {
             // //     // redirect to their profile... 
             //     console.log('Sending confirmation email');
             console.log('User added successfully');
-            });
-
-           
             res.send('User added');
         }
      
         // user's data probably expired... 
-        else
+        else {
             // redirect to sign-up 
             console.log('User not added');
             res.send('User not added');
+        }
+            
     });
 })
 // Logout User
