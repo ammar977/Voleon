@@ -10,9 +10,33 @@ const nev = require('email-verification')(mongoose);
 require('../models/User');
 const User = mongoose.model('User');
 
-// User register Route
-router.post('/signup',(req,res,next)=>{
-    res.send('user registered');
+nev.configure({
+    verificationURL: 'http://localhost:5000/user/verify${URL}',
+    persistentUserModel: User,
+ 
+    transportOptions: {
+        service: 'Outlook',
+        auth: {
+            user: '19100176@lums.edu.pk',
+            pass: '0344Telenor'
+        }
+    },
+    verifyMailOptions: {
+        from: 'Do Not Reply <19100176@lums.edu.pk>',
+        subject: 'Please confirm account',
+        html: 'Click the following link to confirm your account:</p><p>${URL}</p>',
+        text: 'Please confirm your account by clicking the following link: ${URL}'
+    }
+}, function(error, options){
+});
+
+nev.generateTempUserModel(User, function(err, tempUserModel) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
+    console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
 
 
@@ -37,15 +61,14 @@ router.post('/login',(req,res,next)=>{
 
 // dummy request from passport authetication
 router.get('/feed',(req,res)=>{
-    console.log('successful');
+    
     retval = {success:true};
     res.json(retval);
 });
 
 
 // signup request from user 
-router.post('/singup',(req,res) => {
-    
+router.post('/signup',(req,res) => {
     // server side validation
     let errors = [];
 
@@ -61,54 +84,57 @@ router.post('/singup',(req,res) => {
 
     if(errors.length > 0) {
         // send response to notify of incorrect information
-        retVal = {verificationSent: true, err: errors};
+        retVal = {verificationSent: false, err: errors};
         res.json(retVal);
 
     } else {
         // create newUser
-        const newUser = User({
+        const newUser = new User({
             lumsId:req.body.lumsId,
-            password:req.body.password,
+            passHash:req.body.password,
             firstName:req.body.firstName,
             lastName:req.body.lastName,
-            gender:req.body.gender
+            gender:req.body.gender,
+            email:req.body.lumsId + "@lums.edu.pk"
         });
 
         // Add password hash to password field
         bcrypt.genSalt(10,(err,salt)=>{
-            bcrypt.hash(newUser.password,salt,(err,hash)=>{
+            bcrypt.hash(newUser.passHash,salt,(err,hash)=>{
                 if (err) throw err;
-                newUser.password = hash;
+                newUser.passHash = hash;
             });
         });
-    
 
-        nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
-            // some sort of error 
-            if (err)
-                // handle error... 
-                console.log('Some sort of error');
-         
-            // user already exists in persistent collection... 
-            if (existingPersistentUser)
-                // handle user's existence... violently.
-                errors.push({text:"User with this id already exists"}); 
-         
+
+        nev.createTempUser(newUser, function(err, existingPersistentUser,newTempUser) {
+
+            if (err) throw err;
+            
+            // user already exists in persistent collection...
+            if (existingPersistentUser) {
+
+                errors.push({text:"User already exists"});
+            }
+
             // a new user 
-            if (newTempUser) {
+            if (newTempUser && errors.length < 1) {
 
-                const URL = newUser.lumsId ;
-                nev.sendVerificationEmail(email, URL, function(err, info) {
-                    if (err)
-                        // handle error... 
-                retVal = {verificationSent : true};
-                res.json(retVal);
-                    // flash message of success 
+                console.log('in newTempUser');
+                var URL = newTempUser[nev.options.URLFieldName];
+                nev.sendVerificationEmail(newUser.email, URL, function(err, info) {
+
+                    if (err) throw err;
+
+                    retVal = {verificationSent : true};
+                    res.json(retVal);
+
                 });
          
             // user already exists in temporary collection... 
             } else {
-                retVal = {verificationSent: true, err:errors};
+
+                retVal = {verificationSent: false, err:errors};
                 res.json(retVal);
             }
         });
@@ -121,19 +147,20 @@ router.post('/singup',(req,res) => {
 
 
 // verification link opened 
-router.get('/verify:id',(req,res) => {
+router.get('/verify:URL',(req,res) => {
     
-    url = nev.options.verificationURL + req.params.id;
+    url = req.params.URL;
     nev.confirmTempUser(url, function(err, user) {
-        if (err)
+        if (err) throw err;
             // handle error... 
-     
+
         // user was found! 
         if (user) {
             // optional 
-            // nev.sendConfirmationEmail(user['email_field_name'], function(err, info) {
+            nev.sendConfirmationEmail(user['email'], function(err, info) {
             //     // redirect to their profile... 
-            // });
+                console.log('Sending confirmation email');
+            });
 
             console.log('User added successfully');
         }
@@ -142,6 +169,7 @@ router.get('/verify:id',(req,res) => {
         else
             // redirect to sign-up 
             console.log('User not added');
+            res.send('User not added');
     });
 })
 // Logout User

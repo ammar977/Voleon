@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-const nev = require('email-verification')(mongoose);
 
 
 // database to connect - local or cloud 
@@ -28,32 +27,6 @@ app.use(passport.initialize());
 // app.use(passport.session());
 
 // email-verification configure 
-require('./models/User')
-const User = mongoose.model('User');
-nev.configure({
-    verificationURL: 'http://localhost:5000/user/verify${URL}',
-    persistentUserModel: User,
-    tempUserCollection: 'Voleon_tempusers',
- 
-    transportOptions: {
-        service: 'Outlook',
-        auth: {
-            user: '19100176@lums.edu.pk',
-            pass: '0344Telenor'
-        }
-    },
-    verifyMailOptions: {
-        from: 'Do Not Reply <19100176@lums.edu.pk>',
-        subject: 'Please confirm account',
-        html: 'Click the following link to confirm your account:</p><p>${URL}</p>',
-        text: 'Please confirm your account by clicking the following link: ${URL}'
-    }
-}, function(error, options){
-});
-
-nev.generateTempUserModel(User,(temp) => {
-    console.log('Temp User created');
-});
 
 // Load routes
 const users = require('./routes/users');
