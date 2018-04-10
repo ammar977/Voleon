@@ -3,7 +3,6 @@ import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
 import './FeedPage.css';
 
-
 class FeedPage extends Component {
 
     render() {
@@ -16,6 +15,15 @@ class FeedPage extends Component {
 
 	                <div id="dummy"></div>
                 </div>
+
+                
+                <div className='oneButtonContainer'>
+                    <CardContainer cardType = "One Button"/>
+                </div>
+
+
+
+
             </div>
         );
     }

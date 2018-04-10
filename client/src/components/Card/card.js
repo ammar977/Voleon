@@ -6,6 +6,8 @@ import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';
 import NewPost from '../NewPost/NewPost';
 import './card.css';
+import OneButton from '../OneButton/OneButton';
+
 
 
 class CardContainer extends Component {
@@ -25,6 +27,9 @@ class CardContainer extends Component {
                 break;
             case 'New Post':       
                 cardElement = <NewPost/>;
+                break;
+            case 'One Button':
+                cardElement = <OneButton cardText = 'Archive'/>
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
