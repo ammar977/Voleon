@@ -75,16 +75,16 @@ router.post('/signup',(req,res) => {
 
     // check if fields are empty 
     if (req.body.lumsId==="" || req.body.password==="" || req.body.password2 === "" || req.body.firstName==="" || req.body.lastName==="") {
-        errors.push({text:"Please fill all fields"});
+        errors.push({text:"Please fill all fields."});
     }
     // check if passwords match
     if(req.body.password!= req.body.password2){
-        errors.push({text:'passwords do not match'});
+        errors.push({text:'Passwords do not match.'});
     }
 
     // check password restrictions
     if(req.body.password.length < 4){
-        errors.push({text:'password must be atleast 4 characters'});
+        errors.push({text:'Password must be atleast 4 characters.'});
     }
 
     if(errors.length > 0) {
@@ -119,7 +119,7 @@ router.post('/signup',(req,res) => {
             // user already exists in persistent collection...
             if (existingPersistentUser) {
 
-                errors.push({text:"User already exists"});
+                errors.push({text:"User already exists."});
             }
 
             // a new user 

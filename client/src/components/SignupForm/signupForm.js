@@ -34,8 +34,14 @@ class SignupForm extends Component {
         this.props.sendNewUser(newUser);
     }
     render() {
+        console.log(this.props.logged.err);
         return (
             <div className='form-page__wrapper'>
+                {
+                    (this.props.logged.err) ? 
+                        this.props.logged.err.map((errObj => window.Materialize.toast(errObj.text, 3000)))
+                        : ''
+                }
                 <div className='form-page__form-wrapper'>
                     <form className='form' onSubmit = {this.formSubmit.bind(this)}>
                         <div className="formRow">
