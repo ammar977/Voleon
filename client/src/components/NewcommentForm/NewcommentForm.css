@@ -1,3 +1,12 @@
 .newcomment_container {
     padding: 10px;
 }
+.comment-content {
+	border-radius: 15px;
+	float: right;
+}
+.card-image {
+	width:40px;
+	height:40px;
+	float: left;
+}
