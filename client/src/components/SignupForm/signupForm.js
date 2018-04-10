@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {Button} from 'react-materialize';
+import {Button, Input} from 'react-materialize';
 import './signupForm.css';
 import {changeCard,sendNewUser} from '../../store/actions/form'
 
@@ -49,20 +49,16 @@ class SignupForm extends Component {
                                     autoCapitalize='off'
                                     spellCheck='false' />
                                 <label className='form__field-label' htmlFor='username'>
-                                    lums Id
+                                    LUMS ID
                                 </label>
                             </div>
                             <div className='form__field-wrapper right_child'>
-                                <input
-                                    className='form__field-input'
-                                    type='text'
-                                    id='gender'
-                                    placeholder='M'
-                                    autoCorrect='off'
-                                    autoCapitalize='on'
-                                    spellCheck='false' />
+                                <Input type='select' defaultValue='M' id="gender">
+                                    <option value='M'>Male</option>
+                                    <option value='F'>Female</option>
+                                </Input>
                                 <label className='form__field-label' htmlFor='gender'>
-                                    Gender (M/F)
+                                    Gender
                                 </label>
                             </div>
                         </div>

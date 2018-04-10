@@ -41,13 +41,13 @@ class LoginForm extends Component {
                             <input
                                 className='form__field-input'
                                 type='text'
-                                id='username'
+                                id='lumsId'
                                 placeholder='19100044'
                                 autoCorrect='off'
                                 autoCapitalize='off'
                                 spellCheck='false' />
                             <label className='form__field-label' htmlFor='username'>
-                                Username
+                                LUMS ID
                             </label>
                         </div>
                         <div className='form__field-wrapper'>
