@@ -13,13 +13,19 @@ class FeedPage extends Component {
 				<div className="page_contents">
 					<CardContainer cardType="New Post"/>
 
-	                <div id="dummy"></div>
+
+
+
+                    <div className='oneButtonContainer'>
+                         <CardContainer cardType = "One Button"/>
+                    </div>
+
+
                 </div>
 
                 
-                <div className='oneButtonContainer'>
-                    <CardContainer cardType = "One Button"/>
-                </div>
+                
+
 
 
 
