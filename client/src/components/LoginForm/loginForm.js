@@ -18,7 +18,7 @@ class LoginForm extends Component {
         e.preventDefault();
 
         const user = {
-            username:e.target.username.value,
+            username:e.target.lumsId.value,
             password:e.target.password.value
         };
 
