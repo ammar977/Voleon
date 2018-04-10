@@ -13,6 +13,7 @@ class FeedPage extends Component {
 				
 				<div className="page_contents">
 					<CardContainer cardType="New Post"/>
+                    <CardContainer cardType="New Comment"/>
 
 	                <div id="dummy"></div>
                 </div>
