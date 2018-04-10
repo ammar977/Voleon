@@ -26,6 +26,7 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 // app.use(passport.session());
 
+// email-verification configure 
 
 // Load routes
 const users = require('./routes/users');

@@ -27,6 +27,9 @@ class Page extends Component {
             case 'Feed':
                 pageElement = <FeedPage/>;
                 break;
+            case 'Verification':
+                pageElement = <LoginPage/>;
+                break;
             default:
                 pageElement = <p>Invalid page type passed.</p>;
         }

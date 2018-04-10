@@ -18,7 +18,7 @@ class LoginForm extends Component {
         e.preventDefault();
 
         const user = {
-            username:e.target.username.value,
+            username:e.target.lumsId.value,
             password:e.target.password.value
         };
 
@@ -35,19 +35,24 @@ class LoginForm extends Component {
 
         return (
             <div className='form-page__wrapper'>
+                {
+                    (this.props.logged.verificationSent) ? 
+                        window.Materialize.toast('Verification email has been sent to your LUMS email account.', 3000)
+                        : ''
+                }
                 <div className='form-page__form-wrapper'>
                     <form className='form' onSubmit = {this.formSubmit.bind(this)} >
                         <div className='form__field-wrapper'>
                             <input
                                 className='form__field-input'
                                 type='text'
-                                id='username'
+                                id='lumsId'
                                 placeholder='19100044'
                                 autoCorrect='off'
                                 autoCapitalize='off'
                                 spellCheck='false' />
                             <label className='form__field-label' htmlFor='username'>
-                                Username
+                                LUMS ID
                             </label>
                         </div>
                         <div className='form__field-wrapper'>
