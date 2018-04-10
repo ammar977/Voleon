@@ -73,6 +73,10 @@ router.post('/signup',(req,res) => {
     // server side validation
     let errors = [];
 
+    // check if fields are empty 
+    if (req.body.lumsId==="" || req.body.password==="" || req.body.password2 === "" || req.body.firstName==="" || req.body.lastName==="") {
+        errors.push({text:"Please fill all fields"});
+    }
     // check if passwords match
     if(req.body.password!= req.body.password2){
         errors.push({text:'passwords do not match'});
