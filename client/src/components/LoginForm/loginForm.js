@@ -35,6 +35,11 @@ class LoginForm extends Component {
 
         return (
             <div className='form-page__wrapper'>
+                {
+                    (this.props.logged.verificationSent) ? 
+                        window.Materialize.toast('Verification email has been sent to your LUMS email account.', 3000)
+                        : ''
+                }
                 <div className='form-page__form-wrapper'>
                     <form className='form' onSubmit = {this.formSubmit.bind(this)} >
                         <div className='form__field-wrapper'>

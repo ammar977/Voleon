@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import {Card, Col} from 'react-materialize';
 import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';
+import NewPost from '../NewPost/NewPost';
 import './card.css';
 
 
@@ -12,21 +13,27 @@ class CardContainer extends Component {
     render() {
 
         let cardElement = '';
+        let cardTitle = '';
         switch(this.props.cardType) {
             case 'Login':
-                cardElement = <LoginForm cardTypeChanger={this.props.cardTypeChanger}/>;
+                cardElement = <LoginForm/>;
+                cardTitle = 'Login';
                 break;
             case 'Signup':       
-                cardElement = <SignupForm cardTypeChanger={this.props.cardTypeChanger}/>;
+                cardElement = <SignupForm/>;
+                cardTitle = 'Signup';
+                break;
+            case 'New Post':       
+                cardElement = <NewPost/>;
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
         }
-
+        
         return (
             <div className="card-container">
                 <Col m={6} s={6}>
-                    <Card className='white darken-1 z-depth-3' title={this.props.cardType}>
+                    <Card className='white darken-1 z-depth-3' title={cardTitle}>
                         {cardElement}
                     </Card>
                 </Col>
