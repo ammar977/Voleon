@@ -1,55 +1,61 @@
 .newpost_container {
 
-	min-height: 30px;
+	min-height: 100px;
     height: 60px;
     margin: 10px;
     position: relative;
 }
 
 .card-image {
-	width:40px;
-	height:40px;
+	width:70px;
+	height:70px;
 	padding: 5px;
 	display: inline-block;
 }
 .post-content {
 	display: inline-block;
-	width: 700px;
 }
-.button {
+
+.Post-button{
 	width: 10px;
 	height: 10px;
 	display: inline-block;
 	position: absolute;
 }
+
 .btn {
 
 	bottom: 0;
 	right: 0;
-	margin-top: 50px;
+	margin-top: 80px;
 	float: right;
 	margin-right: 10px; 
 
 }
+
 .image-upload {
   	width:1px;
   	height:1px;
   	position:absolute;
   	visibility: hidden;
 }
+
 .material-icons {
-	margin-left: 305px; 
+	margin-left: 295px; 
 	float: left;
 	
 }
+
 .camera-icon {
-	margin-left: 305px; 
+	margin-left: 295px; 
 	float: left;
-	margin-top: 12px;
+	margin-top: 18px;
 	
 }
 
 textarea {
 	border: solid 5px #e0e0e0;
-
+	resize: none;
+	width: 650px;
+	height: 58px;
 }
