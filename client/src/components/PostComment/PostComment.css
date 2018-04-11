@@ -23,17 +23,22 @@
 font-weight: bold;
 
 }
+.time {
+	margin-left: 20px;
+	margin-top: 5px;	
+
+}
 .post {
-	margin-left: 9px;
+	margin-left: 20px;
 	margin-top: 5px;
 
 }
 .comments {
-	margin-left: 9px;
+	margin-left: 20px;
 	margin-top: 5px;
 }
 .comment-link {
-	margin-left: 9px;
+	margin-left: 20px;
 
 }
 
