@@ -12,14 +12,24 @@ class Navbar extends Component {
     constructor() {
         super();
         this.gotoPage.bind(this);
+        this.getActiveClass.bind(this);
     }
 
     static propTypes = {
+        logged: PropTypes.object,
         changePage: PropTypes.func.isRequired,
     }
 
     gotoPage(destinationPage) {
         this.props.changePage(destinationPage);
+    }
+
+    getActiveClass(item) {
+        // Accounts for 'ElectionsList', 'ElectionsVote', 'ElectionsResults' etc
+        if (item.startsWith(item) && this.props.logged.pageType.startsWith(item))
+            return 'active';
+        else
+            return 'inactive';
     }
 
     render() {
@@ -29,9 +39,9 @@ class Navbar extends Component {
                     <div className="nav-wrapper blue lighten-1">
                         <img src={ logo } className="App-logo" alt="logo"/>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
-                            <li><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
-                            <li><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
+                            <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
+                            <li className={this.getActiveClass('Feed')}><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
+                            <li className={this.getActiveClass('ElectionsList')}><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
                             <li><a href="#" onClick={(e) => this.gotoPage('Login')}>Logout</a></li>
                         </ul>
                     </div>
@@ -42,6 +52,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
