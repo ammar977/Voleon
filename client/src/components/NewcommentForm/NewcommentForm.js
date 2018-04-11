@@ -19,6 +19,12 @@ class NewcommentForm extends Component {
                 	<p>
                 	    <span class="glyphicon">&#x270f;</span>
                 	</p>
+                </div>
+                <div className="camera-icon">
+                	<label for="file-input">
+                		<i class="material-icons blue-text text-lighten-3">&#xe439;</i>
+                	</label>
+                	<input accept="image/*" id="file-input" type="file" class="image-upload"></input>
                 </div>	
             </div>
         );
