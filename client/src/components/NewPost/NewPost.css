@@ -1,47 +1,48 @@
 .newpost_container {
 
-    min-height: 30px;
+	min-height: 30px;
+    height: 60px;
     margin: 10px;
+    position: relative;
 }
-.uibutton-group	{
 
-	bottom: 0;
-	right: 0;
-	position:relative;
-	/*float: left;*/
+.card-image {
+	width:40px;
+	height:40px;
+	padding: 5px;
+	display: inline-block;
+}
+.post-content {
+	display: inline-block;
+	width: 700px;
+}
+.button {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	position: absolute;
 }
 .btn {
 
-	/*position: absolute;
-	right:50px;*/
 	bottom: 0;
 	right: 0;
-	float:right;
+	margin-top: 48px;
+	float: right;
+	margin-right: 10px; 
 
 }
 .image-upload {
-  	width:0;
-  	height:0;
+  	width:1px;
+  	height:1px;
   	position:absolute;
   	visibility: hidden;
-  	/*bottom: 0;*/
-	/*right: 0;*/
-	/*position: absolute;*/
 }
 .material-icons {
-
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	/*z-index: -1;*/
+	margin-right: 5px; 
+	float: right;
+	
 }
-.new_text {
 
-	min-height: 30px;
-    margin: 10px;
-    position:relative;
-
-}
 textarea {
 	border: solid 5px #e0e0e0;
 
