@@ -1,8 +1,9 @@
 .newcomment_container {
     padding: 10px;
+    position: relative;
 }
 .comment-content {
-	width:700px;
+	width:680px;
 	padding: 5px;
 	display: inline-block;
 }
@@ -14,7 +15,24 @@
 }
 .edit-post{
 	display: inline-block;
-	padding: 5px;
-	/*vertical-align: top;*/
+	margin-top: 10px;
+	position: absolute;
+	/*padding: 5px;*/
 
+}
+
+.camera-icon{
+	padding: 5px;
+	margin-right: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+}
+
+.image-upload {
+    width:4px;
+    height:10px;
+    margin-top: 3px;
+    margin-right: 3px;
+    visibility: hidden;
 }
