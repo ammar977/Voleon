@@ -25,7 +25,8 @@ font-weight: bold;
 }
 .time {
 	margin-left: 20px;
-	margin-top: 5px;	
+	margin-top: 2px;
+	font-weight: bold;	
 
 }
 .post {

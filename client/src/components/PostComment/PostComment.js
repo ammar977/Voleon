@@ -18,7 +18,7 @@ class PostComment extends Component {
                     <p class="name"> Profile Name </p>
                 </div>
                 <div className= 'time'>
-                    <p> Time </p>
+                    <p> 6:53 pm </p>
                 </div>
                 <div className= 'post'>
                     <p> This is the post </p>
