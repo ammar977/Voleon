@@ -28,9 +28,6 @@ class CardContainer extends Component {
             case 'New Post':       
                 cardElement = <NewPost/>;
                 break;
-            case 'New Comment':       
-                cardElement = <NewcommentForm/>;
-                break;
             case 'Post Comment':
                 cardElement = <PostComment/>;
                 break;            
