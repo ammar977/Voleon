@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import FeedPage from '../FeedPage/FeedPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
+import ElectionsListPage from '../ElectionsListPage/ElectionsListPage';
 import './Page.css';
 
 
@@ -29,6 +31,12 @@ class Page extends Component {
                 break;
             case 'Verification':
                 pageElement = <LoginPage/>;
+                break;
+            case 'Profile':
+                pageElement = <ProfilePage/>;
+                break;
+            case 'ElectionsList':
+                pageElement = <ElectionsListPage/>;
                 break;
             default:
                 pageElement = <p>Invalid page type passed.</p>;

@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 // import CardContainer from '../Card/card';
 import logo from '../../Voleon.png';
 import './Navbar.css';
+import {changePage} from '../../store/actions/form'
 
 
 class Navbar extends Component {
+    
+    constructor() {
+        super();
+        this.gotoPage.bind(this);
+        this.getActiveClass.bind(this);
+    }
+
+    static propTypes = {
+        logged: PropTypes.object,
+        changePage: PropTypes.func.isRequired,
+    }
+
+    gotoPage(destinationPage) {
+        this.props.changePage(destinationPage);
+    }
+
+    getActiveClass(item) {
+        // Accounts for 'ElectionsList', 'ElectionsVote', 'ElectionsResults' etc
+        if (item.startsWith(item) && this.props.logged.pageType.startsWith(item))
+            return 'active';
+        else
+            return 'inactive';
+    }
 
     render() {
         return (
@@ -13,10 +39,10 @@ class Navbar extends Component {
                     <div className="nav-wrapper blue lighten-1">
                         <img src={ logo } className="App-logo" alt="logo"/>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Newsfeed</a></li>
-                            <li><a href="#">Elections</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
+                            <li className={this.getActiveClass('Feed')}><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
+                            <li className={this.getActiveClass('ElectionsList')}><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
+                            <li><a href="#" onClick={(e) => this.gotoPage('Login')}>Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -25,4 +51,12 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    logged: state.logged,
+})
+
+const dispatchToProps = (dispatch) => ({
+    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+})
+
+export default connect(mapStateToProps,dispatchToProps)(Navbar);
