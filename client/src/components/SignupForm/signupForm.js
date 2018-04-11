@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Button, Input} from 'react-materialize';
 import './signupForm.css';
-import {changeCard,sendNewUser} from '../../store/actions/form'
+import {changePage,sendNewUser} from '../../store/actions/form'
 
 
 class SignupForm extends Component {
     
     static propTypes = {
-        changeCard: PropTypes.func.isRequired,
+        changePage: PropTypes.func.isRequired,
         sendNewUser:PropTypes.func.isRequired,
         logged: PropTypes.object,
     }
 
     gotoLogin(e) {
         e.preventDefault();
-        this.props.changeCard('Login');
+        this.props.changePage('Login');
     }
 
     formSubmit(e) {
@@ -138,8 +138,8 @@ const mapStateToProps = (state) => ({
 })
 
 const dispatchToProps = (dispatch) => ({
-     changeCard: (destinationCard) => dispatch(changeCard(destinationCard)),
-     sendNewUser: (newUser) => dispatch(sendNewUser(newUser))
+    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    sendNewUser: (newUser) => dispatch(sendNewUser(newUser))
 })
 
 export default connect(mapStateToProps,dispatchToProps)(SignupForm);

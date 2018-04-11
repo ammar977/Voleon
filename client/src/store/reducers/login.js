@@ -1,11 +1,11 @@
-import {LOGIN_TEST, REGISTER, SIGNUP} from '../actions/constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP} from '../actions/constants';
 
-export const loginReducer = (state = {success: null, pageType: "Login"}, {type, payload}) => {
+export const loginReducer = (state = {success: null, pageType: "Feed"}, {type, payload}) => {
     console.log('in login reducer', state, payload);
     switch (type) {
         case LOGIN_TEST:
             return {...state, ...payload};
-        case REGISTER:
+        case VIEW_CHANGE:
             return {...state, ...payload};
         case SIGNUP:
             return {...state, ...payload};

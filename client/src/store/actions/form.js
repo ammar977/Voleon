@@ -1,4 +1,4 @@
-import {LOGIN_TEST, REGISTER, SIGNUP} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -12,11 +12,10 @@ export const sendUser = (user) => dispatch => {
     .then(successLogin => dispatch({type: LOGIN_TEST, payload: successLogin}));
 }
 
-export const changeCard = (destinationCard) => dispatch => {
-    console.log('changeCard action to ', destinationCard);
-    dispatch({type: REGISTER, payload: {success: null, pageType: destinationCard}});
+export const changePage = (destinationCard) => dispatch => {
+    console.log('changePage action to ', destinationCard);
+    dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard}});
 }
-
 
 export const sendNewUser = (newUser) => dispatch => {
     console.log('hey');
