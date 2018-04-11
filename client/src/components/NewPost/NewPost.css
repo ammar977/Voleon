@@ -26,7 +26,7 @@
 
 	bottom: 0;
 	right: 0;
-	margin-top: 48px;
+	margin-top: 50px;
 	float: right;
 	margin-right: 10px; 
 
@@ -38,8 +38,14 @@
   	visibility: hidden;
 }
 .material-icons {
-	margin-right: 5px; 
-	float: right;
+	margin-left: 305px; 
+	float: left;
+	
+}
+.camera-icon {
+	margin-left: 305px; 
+	float: left;
+	margin-top: 12px;
 	
 }
 
