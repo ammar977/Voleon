@@ -3,10 +3,22 @@
 }
 .comment-content {
 	border-radius: 15px;
-	float: right;
+	width:700px;
+	/*float: right;*/
+	padding: 5px;
+	display: inline-block;
 }
 .card-image {
 	width:40px;
 	height:40px;
-	float: left;
+	/*float: left;*/
+	padding: 5px;
+	display: inline-block;
+}
+.edit-post{
+	display: inline-block;
+	padding: 5px;
+	/*vertical-align: centre;*/
+	/*float:right;*/
+
 }

@@ -15,6 +15,11 @@ class NewcommentForm extends Component {
             	<div className="comment-content">
                 	<textarea placeholder="Write a comment..."></textarea>
                 </div>
+                <div className="edit-post">
+                	<p>
+                	    <span class="glyphicon">&#x270f;</span>
+                	</p>
+                </div>	
             </div>
         );
     }
