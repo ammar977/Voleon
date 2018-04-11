@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import profile from '../../profile.png';
-// import CardContainer from '../Card/card';
 import './NewcommentForm.css';
 
 
 class NewcommentForm extends Component {
-
-
-    // click_icon(e) {
-    //     // e.preventDefault();
-    //     <input accept="image/*" id="file-input" type="file" class="image-upload"></input>
-    //      console.log('in click');
-    // }
 
     render() {
         return (
