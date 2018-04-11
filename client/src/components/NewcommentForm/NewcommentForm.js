@@ -12,17 +12,14 @@ class NewcommentForm extends Component {
             		<img src={ profile} alt="profile-image"/>
             	</div>
             	<div className="comment-content">
-                	<textarea placeholder="Write a comment..."></textarea>
-                </div>
-                <div className="edit-post">
-                    <i class="material-icons black-text">create</i>
+                	<textarea id="new_comment" placeholder="Write a comment..."></textarea>
                 </div>
                 <div className="camera-icon">
                     <label for="file-input">
-                        <i class="material-icons black-text">add_a_photo</i>
+                        <i class="material-icons grey-text text-darken-3">add_a_photo</i>
                     </label>
                     <input accept="image/*" id="file-input" type="file" class="image-upload"></input>
-                </div>	
+                </div>  
             </div>
         );
     }

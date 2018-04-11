@@ -15,7 +15,7 @@
 }
 .edit-post{
 	display: inline-block;
-	margin-top: 14px;
+	margin-top: 12px;
 	position: absolute;
 	/*padding: 5px;*/
 
@@ -27,7 +27,7 @@
 	position: absolute;
 	margin-bottom: 22px;
 	bottom: 0;
-	right: 5px;
+	right: 30px;
 }
 
 .image-upload {
@@ -35,4 +35,14 @@
     height:10px;
     /*margin-right: 3px;*/
     visibility: hidden;
+}
+
+#new_comment {
+	resize: none;
+	border-radius: 12px;
+	border-style: solid;
+}
+
+#new_comment:focus {
+	outline: none;
 }

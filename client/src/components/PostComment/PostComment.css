@@ -2,16 +2,42 @@
     margin-top: 800px;
 }
 
-.main-card > .comment > .card-container {
+/*.main-card > .comment > .card-container {
     margin: 0 auto;
     margin-top: 50px;
     width: 800px;
     padding: 0;
 }
-
-.card-image{
+*/
+.card-pic{
 	display: inline-block;
+	margin-left: 5px;
 }
-.Name {
+.profile-name {
 	display: inline-block;
+	margin-left: 5px;
+	position: relative;
+	bottom: 20px;
+}
+.name {
+font-weight: bold;
+
+}
+.post {
+	margin-left: 9px;
+	margin-top: 5px;
+
+}
+.comments {
+	margin-left: 9px;
+	margin-top: 5px;
+}
+.comment-link {
+	margin-left: 9px;
+
+}
+
+.myimage{
+	width: 60px;
+	height: 60px;
 }
