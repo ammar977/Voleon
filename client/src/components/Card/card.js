@@ -5,6 +5,7 @@ import {Card, Col} from 'react-materialize';
 import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';
 import NewPost from '../NewPost/NewPost';
+import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import './card.css';
 
@@ -29,7 +30,10 @@ class CardContainer extends Component {
                 break;
             case 'New Comment':       
                 cardElement = <NewcommentForm/>;
-                break;        
+                break;
+            case 'Post Comment':
+                cardElement = <PostComment/>;
+                break;            
             default:
                 cardElement = <p>Invalid card items passed.</p>;
         }

@@ -12,8 +12,7 @@ class FeedPage extends Component {
 				<Navbar/>
 				
 				<div className="page_contents">
-					<CardContainer cardType="New Post"/>
-                    <CardContainer cardType="New Comment"/>
+                    <CardContainer cardType="Post Comment"/>
 
 	                <div id="dummy"></div>
                 </div>
