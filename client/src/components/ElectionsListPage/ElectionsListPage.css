@@ -1,0 +1,10 @@
+#dummy {
+    margin-top: 800px;
+}
+
+.electionsListPage_container > .page_contents > .card-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 800px;
+    padding: 0;
+}
