@@ -17,12 +17,11 @@ class NewPost extends Component {
                 <div className="post-content">
                     <textarea placeholder="Enter your message here"></textarea> 
                 </div>
-                <div className= "button">
+                <div className= "Post-button">
                     <button class="btn blue lighten-1 waves-effect waves-light" type="submit">
                         <span class="">Post</span>
                     </button>
                 </div>
-
                 <div className="camera-icon">
                     <label for="file-input">
                         <i class="material-icons blue-text text-lighten-3">&#xe439;</i>
