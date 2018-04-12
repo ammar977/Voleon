@@ -26,10 +26,9 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 // app.use(passport.session());
 
-// email-verification configure 
-
 // Load routes
 const users = require('./routes/users');
+const posts = require('./routes/posts');
 
 // Home Page
 app.get('/', (req, res) => {
@@ -43,5 +42,6 @@ app.listen(port, () => console.log(`Server is running on ${port}`));
 
 // use routes
 app.use('/user',users);
+app.use('/post',posts);
 
 
