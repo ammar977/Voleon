@@ -10,24 +10,26 @@ class NewPost extends Component {
     render() {
         return (
            <div className= "newpost_container">
-                <div className="card-image">
-                        <img src={ profile} alt="profile-image"/>
-                 </div>
+               <form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
 
-                <div className="post-content">
-                    <textarea placeholder="Enter your message here"></textarea> 
-                </div>
-                <div className= "Post-button">
-                    <button className="btn blue lighten-1 waves-effect waves-light" type="submit">
-                        <span className="">APPLICATION</span>
-                    </button>
-                </div>
-                <div className="camera-icon">
-                    <label htmlFor="file-input">
-                        <i className="material-icons blue-text text-lighten-3">&#xe439;</i>
-                    </label>
-                    <input accept="image/*" id="file-input" type="file" className="image-upload"></input>
-                </div>
+               <fieldset>
+               <legend>HTML File Upload</legend>
+
+               <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+               <div>
+                <label for="fileselect">Files to upload:</label>
+                <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+                <div id="filedrag">or drop files here</div>
+               </div>
+
+               <div id="submitbutton">
+                <button type="submit">Submit</button>
+               </div>
+
+               </fieldset>
+
+               </form>
              
            </div>
         );

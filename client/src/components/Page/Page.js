@@ -6,6 +6,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import FeedPage from '../FeedPage/FeedPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import ElectionsListPage from '../ElectionsListPage/ElectionsListPage';
+import ApplicationPage from '../ApplicationPage/ApplicationPage';
 import './Page.css';
 
 
@@ -38,6 +39,10 @@ class Page extends Component {
             case 'ElectionsList':
                 pageElement = <ElectionsListPage/>;
                 break;
+            case 'ApplicationPage':
+                pageElement = <ApplicationPage/>;
+                break;
+                
             default:
                 pageElement = <p>Invalid page type passed.</p>;
         }
