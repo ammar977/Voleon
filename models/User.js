@@ -35,9 +35,9 @@ const userSchema = new Schema({
         default: 'N'
     },
 
-    isCandidate:{
-        type:Boolean,
-        default:false
+    securityLevel:{
+        type:Number,
+        default:0
     },
 
     postIds:{
