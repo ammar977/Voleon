@@ -12,7 +12,7 @@ class ElectionsListPage extends Component {
                 <Navbar/>
                 
                 <div className="page_contents">
-                    <p>this is the elections list page</p>
+                    <CardContainer cardType="Select Seat"/>
 
                     <div id="dummy"></div>
                 </div>
