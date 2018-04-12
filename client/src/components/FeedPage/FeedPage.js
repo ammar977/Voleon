@@ -13,8 +13,10 @@ class FeedPage extends Component {
 				
 				<div className="page_contents">
                     
-                    <CardContainer cardType= "Create Election"/>
+                   
                      <CardContainer cardType= "Candidates List"/>
+                     <CardContainer cardType= "Speech Dates"/>
+
 
 
 	                
