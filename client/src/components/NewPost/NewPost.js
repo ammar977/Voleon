@@ -10,7 +10,7 @@ class NewPost extends Component {
     render() {
         return (
            <div className= "newpost_container">
-                <div class="card-image">
+                <div className="card-image">
                         <img src={ profile} alt="profile-image"/>
                  </div>
 
@@ -18,15 +18,15 @@ class NewPost extends Component {
                     <textarea placeholder="Enter your message here"></textarea> 
                 </div>
                 <div className= "Post-button">
-                    <button class="btn blue lighten-1 waves-effect waves-light" type="submit">
-                        <span class="">Post</span>
+                    <button className="btn blue lighten-1 waves-effect waves-light" type="submit">
+                        <span className="">Post</span>
                     </button>
                 </div>
                 <div className="camera-icon">
-                    <label for="file-input">
-                        <i class="material-icons blue-text text-lighten-3">&#xe439;</i>
+                    <label htmlFor="file-input">
+                        <i className="material-icons blue-text text-lighten-3">&#xe439;</i>
                     </label>
-                    <input accept="image/*" id="file-input" type="file" class="image-upload"></input>
+                    <input accept="image/*" id="file-input" type="file" className="image-upload"></input>
                 </div>
              
            </div>

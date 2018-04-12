@@ -53,17 +53,34 @@ router.get('/loginfalse',(req,res) => {
 router.post('/login',(req,res,next)=>{
 
     // passport authentication
-    passport.authenticate('local',{
-        successRedirect: '/user/feed',
-        failureRedirect: '/user/loginfalse',
-    })(req,res,next); // weird passport syntax
+    // passport.authenticate('local',{
+    //     successRedirect: '/user/feed',
+    //     failureRedirect: '/user/loginfalse',
+    // })(req,res,next); // weird passport syntax
 
+    passport.authenticate('local', (err,user,info) => {
+
+        if (err)  
+            return next(err); 
+
+        if (!user) {
+             return res.redirect('/user/loginfalse'); 
+        }
+
+        req.logIn(user, function(err) {
+            if (err) { 
+              return next(err); 
+            }
+
+          return res.redirect('/user/feed' + user.securityLevel);
+        });
+    })(req,res,next);
 });
 
 // dummy request from passport authetication
-router.get('/feed',(req,res)=>{
+router.get('/feed:securityLevel',(req,res)=>{
     console.log('successful');
-    retval = {success: true, pageType: 'Feed'};
+    retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel};
     res.json(retval);
 });
 

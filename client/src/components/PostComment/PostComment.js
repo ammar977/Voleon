@@ -11,11 +11,11 @@ class PostComment extends Component {
     render() {
         return (
             <div className='main-card'>
-                <div class="card-pic">
-                    <img src={ profile} alt="profile-image" class= "myimage"/>
+                <div className="card-pic">
+                    <img src={ profile} alt="profile-image" className= "myimage"/>
                 </div>
                 <div className= 'profile-name'>
-                    <p class="name"> Profile Name </p>
+                    <p className="name"> Profile Name </p>
                 </div>
                 <div className= 'time'>
                     <p> 6:53 pm </p>
@@ -30,7 +30,7 @@ class PostComment extends Component {
                     <NewcommentForm/>
                 </div>
                 <div className="comment-link">
-                    <a class="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
+                    <a className="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
                 </div>
 
             </div>
