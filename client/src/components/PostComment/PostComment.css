@@ -1,0 +1,49 @@
+#dummy {
+    margin-top: 800px;
+}
+
+/*.main-card > .comment > .card-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 800px;
+    padding: 0;
+}
+*/
+.card-pic{
+	display: inline-block;
+	margin-left: 5px;
+}
+.profile-name {
+	display: inline-block;
+	margin-left: 5px;
+	position: relative;
+	bottom: 20px;
+}
+.name {
+font-weight: bold;
+
+}
+.time {
+	margin-left: 20px;
+	margin-top: 2px;
+	font-weight: bold;	
+
+}
+.post {
+	margin-left: 20px;
+	margin-top: 5px;
+
+}
+.comments {
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.comment-link {
+	margin-left: 20px;
+
+}
+
+.myimage{
+	width: 60px;
+	height: 60px;
+}
