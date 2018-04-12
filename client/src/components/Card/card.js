@@ -6,6 +6,7 @@ import LoginForm from '../LoginForm/loginForm';
 import SignupForm from '../SignupForm/signupForm';
 import NewPost from '../NewPost/NewPost';
 import './card.css';
+import SelectSeat from '../SelectSeat/SelectSeat';
 
 
 class CardContainer extends Component {
@@ -25,6 +26,10 @@ class CardContainer extends Component {
                 break;
             case 'New Post':       
                 cardElement = <NewPost/>;
+                break;
+            case 'Select Seat':
+                cardElement = <SelectSeat/>;
+                cardTitle = 'Select Seat';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
