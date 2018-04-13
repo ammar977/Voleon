@@ -12,8 +12,8 @@ class FeedPage extends Component {
 				<Navbar/>
 				
 				<div className="page_contents">
-                    <CardContainer cardType="New Post"/>
-                    <CardContainer cardType="New Election"/>
+                    <CardContainer cardType="Important Dates"/>
+                  
                     
 	                
                 </div>
