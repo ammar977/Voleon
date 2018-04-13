@@ -9,6 +9,7 @@ import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import './card.css';
 import SelectSeat from '../SelectSeat/SelectSeat';
+import NewElection from '../NewElection/NewElection';
 
 
 class CardContainer extends Component {
@@ -35,6 +36,10 @@ class CardContainer extends Component {
             case 'Select Seat':
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
+                break;
+            case 'New Election':
+                cardElement = <NewElection/>;
+                cardTitle = 'Create New Election';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
