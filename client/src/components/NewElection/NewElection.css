@@ -1,0 +1,18 @@
+.formRow {
+    display: flex;
+    margin: auto;
+}
+
+.left_child {
+    flex: 0 0 48%; /*Hack to center allign*/
+}
+.heading-field{
+ 	 display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: .85em;
+}
+
+.right_child {
+    margin: 0 10px 0 5px;
+}
