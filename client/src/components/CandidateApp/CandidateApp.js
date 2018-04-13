@@ -36,7 +36,7 @@ class CandidateApp extends Component {
                     <div className="upload-btn fileinput-new">
                         <button className="btn1">Upload a file</button>
                         <input type="file" name="myfile" />
-                        <span class="fileinput-new">No file chosen</span>
+                        <span className="fileinput-new">No file chosen</span>
                     </div>
 
                     <div id="submitform">
