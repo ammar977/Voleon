@@ -1,4 +1,4 @@
-.newpost_container {
+.CandidateApp_container {
 
 	min-height: 100px;
     height: 60px;
@@ -6,56 +6,23 @@
     position: relative;
 }
 
-.card-image {
-	width:70px;
-	height:70px;
-	padding: 5px;
-	display: inline-block;
-}
-.post-content {
-	display: inline-block;
-}
-
-.Post-button{
-	width: 10px;
-	height: 10px;
-	display: inline-block;
-	position: absolute;
+#filedrag
+{
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 1em 0;
+	margin: 1em 0;
+	color: #555;
+	border: 2px dashed #555;
+	border-radius: 7px;
+	cursor: default;
 }
 
-.btn {
-
-	bottom: 0;
-	right: 0;
-	margin-top: 80px;
-	float: right;
-	margin-right: 10px; 
-
-}
-
-.image-upload {
-  	width:1px;
-  	height:1px;
-  	position:absolute;
-  	visibility: hidden;
-}
-
-.material-icons {
-	margin-left: 295px; 
-	float: left;
-	
-}
-
-.camera-icon {
-	margin-left: 295px; 
-	float: left;
-	margin-top: 18px;
-	
-}
-
-textarea {
-	border: solid 5px #e0e0e0;
-	resize: none;
-	width: 650px;
-	height: 58px;
+#filedrag.hover
+{
+	color: #f00;
+	border-color: #f00;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
 }
