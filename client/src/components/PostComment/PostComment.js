@@ -14,6 +14,7 @@ class PostComment extends Component {
         logged: PropTypes.object,
     }
 
+    
     render() {
         console.log('in feed',this.props);
         const posts_list = this.props.logged.posts.map(post => {
