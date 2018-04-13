@@ -29,19 +29,19 @@ class CandidateApp extends Component {
                     <div id="download">
                         <button className="blue lighten-1 waves-effect waves-light btn" type="submit">
                             <span className="">Download</span>
-                            <i class="material-icons right">arrow_downward</i>
+                            <i className="material-icons right">arrow_downward</i>
                         </button>
                     </div>
 
-                    <div id="fileselect">
-                        <label htmlfor="fileselect"> </label>
-                        <input type="file" id="fileupload"/>
+                    <div className="upload-btn">
+                        <button className="btn1">Upload a file</button>
+                        <input type="file" name="myfile" />
                     </div>
 
                     <div id="submitform">
                         <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="submit">
                             <span className="">Submit</span>
-                            <i class="material-icons right">send</i>
+                            <i className="material-icons right">send</i>
                         </button>
                     </div>
 
@@ -53,3 +53,4 @@ class CandidateApp extends Component {
 }
 
 export default CandidateApp;
+
