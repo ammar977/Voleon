@@ -18,7 +18,7 @@ class NewPost extends Component {
                     <textarea placeholder="Enter your message here"></textarea> 
                 </div>
                 <div className= "Post-button">
-                    <button className="btn blue lighten-1 waves-effect waves-light" type="submit">
+                    <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="post">
                         <span className="">Post</span>
                     </button>
                 </div>
