@@ -27,38 +27,23 @@
 }
 #fileupload {
 	margin-left: 25px;
-
-}
-#submitform {
-	margin-top: 40px;
-	display: flex; 
-	justify-content: center; 
-	margin-right: 30px;
-}
-#fileupload {
 	width:200px;
 	height:20px;
-}
-	
 
-em {
-  font-family: 'EB Garamond', serif;
-  font-size: 0.5em;
-  text-transform: uppercase;
-  display: block;
-  font-style:normal;
-  text-align: center;
-  }
+}
 
 .upload-btn {
   position: relative;
   overflow: hidden;
-  display: inline-block;
-  
+  /*display: inline-block;*/
+  margin-left: 298px;
+  margin-top: 80px;
+
+
 }
 
 .btn1 {
-  border: 2px solid gray;
+  border: 2px solid powderblue;
   color: gray;
   background-color: white;
   padding: 8px 20px;
@@ -74,3 +59,20 @@ em {
   top: 0;
   opacity: 0;
 }
+
+#submitform {
+	margin-top: 30px;
+	display: flex; 
+	justify-content: center; 
+	margin-right: 30px;
+}
+
+em {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  font-style:normal;
+  text-align: center;
+  }
+
