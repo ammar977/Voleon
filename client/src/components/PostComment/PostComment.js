@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 import profile from '../../profile.png';
 import NewcommentForm from '../NewcommentForm/NewcommentForm'
@@ -8,23 +10,33 @@ import './PostComment.css';
 
 class PostComment extends Component {
 
+    static propTypes = {
+        logged: PropTypes.object,
+    }
+
     render() {
-        return (
-            <div className='main-card'>
+        console.log('in feed',this.props);
+        const posts_list = this.props.logged.posts.map(post => {
+            return <div className='main-card'>
                 <div className="card-pic">
                     <img src={ profile} alt="profile-image" className= "myimage"/>
                 </div>
                 <div className= 'profile-name'>
-                    <p className="name"> Profile Name </p>
+                    <p className="name"> {post.posterName} </p>
                 </div>
                 <div className= 'time'>
-                    <p> 6:53 pm </p>
+                    <p> {new Date(post.timeStamp).toLocaleDateString('en-US',   { 
+                                                                                    weekday: 'long', year: 'numeric', 
+                                                                                    month: 'long', day: 'numeric' ,
+                                                                                    hour:'numeric',minute:'numeric'
+                                                                                })}
+                    </p>
                 </div>
                 <div className= 'post'>
-                    <p> This is the post </p>
+                    <p> {post.textContent} </p>
                 </div>
                 <div className= 'comments'>
-                    <p> Comments </p>
+                    <p> {post.comments} </p>
                 </div>
 				<div className="new-comment">
                     <NewcommentForm/>
@@ -34,8 +46,18 @@ class PostComment extends Component {
                 </div>
 
             </div>
+        })
+        return (
+            <ul> {posts_list}</ul>
+
         );
     }
 }
 
-export default PostComment;
+const mapStateToProps = (state) => ({
+    logged: state.logged
+})
+
+const dispatchToProps = (dispatch) => ({})
+
+export default connect(mapStateToProps, dispatchToProps)(PostComment);

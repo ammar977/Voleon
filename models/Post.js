@@ -6,15 +6,15 @@ const User = mongoose.model('User');
 
 
 const postSchema = new Schema({
-    postId:{
-        type: String ,
-         required: true
-    },
 
     posterId:{
         type: mongoose.Schema.Types.ObjectId ,
          ref: 'User' , 
          required: true 
+    },
+
+    posterName:{
+        type:String
     },
 
     timeStamp:{

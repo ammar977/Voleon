@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
 import './FeedPage.css';
 
 
 class FeedPage extends Component {
+
+    static propTypes = {
+        logged: PropTypes.object,
+    }
 
     render() {
         return (
@@ -21,4 +27,10 @@ class FeedPage extends Component {
     }
 }
 
-export default FeedPage;
+const mapStateToProps = (state) => ({
+    logged: state.logged
+})
+
+const dispatchToProps = (dispatch) => ({})
+
+export default connect(mapStateToProps, dispatchToProps)(FeedPage);
