@@ -18,7 +18,7 @@ import SpeechDates from '../SpeechDates/SpeechDates';
 class CardContainer extends Component {
 
     render() {
-
+        // console.log('in card', this.props.post);
         let cardElement = '';
         let cardTitle = '';
         switch(this.props.cardType) {
@@ -34,7 +34,7 @@ class CardContainer extends Component {
                 cardElement = <NewPost/>;
                 break;
             case 'Post Comment':
-                cardElement = <PostComment/>;
+                cardElement = <PostComment post={this.props.post}/>;
                 break;            
             case 'Select Seat':
                 cardElement = <SelectSeat/>;

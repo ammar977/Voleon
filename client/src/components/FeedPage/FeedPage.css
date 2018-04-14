@@ -8,3 +8,10 @@
     width: 800px;
     padding: 0;
 }
+
+.post-cards-container .card-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 800px;
+    padding: 0;
+}
