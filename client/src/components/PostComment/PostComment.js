@@ -14,19 +14,18 @@ class PostComment extends Component {
         logged: PropTypes.object,
     }
 
-    
     render() {
-        console.log('in feed',this.props);
-        const posts_list = this.props.logged.posts.map(post => {
-            return <div className='main-card'>
+        // console.log('in PostComment', this.props.post);
+        return (
+            <div className='post-container'>
                 <div className="card-pic">
-                    <img src={ profile} alt="profile-image" className= "myimage"/>
+                    <img src={profile} alt="profile-image" className= "myimage"/>
                 </div>
                 <div className= 'profile-name'>
-                    <p className="name"> {post.posterName} </p>
+                    <p className="name"> {this.props.post.posterName} </p>
                 </div>
                 <div className= 'time'>
-                    <p> {new Date(post.timeStamp).toLocaleDateString('en-US',   { 
+                    <p> {new Date(this.props.post.timeStamp).toLocaleDateString('en-US',   { 
                                                                                     weekday: 'long', year: 'numeric', 
                                                                                     month: 'long', day: 'numeric' ,
                                                                                     hour:'numeric',minute:'numeric'
@@ -34,23 +33,17 @@ class PostComment extends Component {
                     </p>
                 </div>
                 <div className= 'post'>
-                    <p> {post.textContent} </p>
+                    <p> {this.props.post.textContent} </p>
                 </div>
                 <div className= 'comments'>
-                    <p> {post.comments} </p>
+                    <p> {this.props.post.comments} </p>
                 </div>
-				<div className="new-comment">
-                    <NewcommentForm/>
-                </div>
+                <NewcommentForm/>
                 <div className="comment-link">
                     <a className="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
                 </div>
 
             </div>
-        })
-        return (
-            <ul> {posts_list}</ul>
-
         );
     }
 }

@@ -13,14 +13,20 @@ class FeedPage extends Component {
     }
 
     render() {
+        // console.log('in feed', this.props.logged.posts);
+        const post_cards = this.props.logged.posts.map(p => 
+            <CardContainer cardType="Post Comment" post={p}/>
+        );
         return (
             <div className='feedPage_container'>
 				<Navbar/>
 				
 				<div className="page_contents">
                     <CardContainer cardType="New Post"/>
-                    <CardContainer cardType="Post Comment"/>
-	                <div id="dummy"></div>
+                    <div className="post-cards-container">
+                        {post_cards}
+                    </div>
+	                {/*<div id="dummy"></div>*/}
                 </div>
             </div>
         );
