@@ -1,11 +1,43 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import logo from '../../Voleon.png';
 import profile from '../../profile.png';
 import './CandidateApp.css';
+import axios from 'axios'
+// import fileSubmit from '../../store/actions/form';
 
 
 class CandidateApp extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {selectedFile: null}
+    }
+    // static propTypes = {
+    //     fileSubmit:PropTypes.func.isRequired
+    // }
+
+    // fileSubmit(e){
+    //     e.preventDefault();
+    //     console.log(e.target);
+    // }
+
+    fileChangedHandler = (event) => {
+        const file = event.target.files[0]
+        this.setState({selectedFile: event.target.files[0]})
+    };
+
+    uploadHandler = (e) => {
+        e.preventDefault();
+        console.log(this.state.selectedFile.name);
+        axios.post('http://localhost:5000/application/upload', this.state.selectedFile,{
+            onUploadProgress: progressEvent => {
+              console.log( (progressEvent.loaded / progressEvent.total) * 100)
+            }
+        })
+
+    }
     render() {
         return (
            <div className= "CandidateApp_container">
@@ -29,19 +61,15 @@ class CandidateApp extends Component {
                     <div id="download">
                         <button className="blue lighten-1 waves-effect waves-light btn" type="submit">
                             <span className="">Download</span>
-                            <i class="material-icons right">arrow_downward</i>
+                            <i className="material-icons right">arrow_downward</i>
                         </button>
                     </div>
 
-                    <div id="fileselect">
-                        <label htmlfor="fileselect"> </label>
-                        <input type="file" id="fileupload"/>
-                    </div>
-
-                    <div id="submitform">
-                        <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="submit">
+                    <div id="uploadFile">
+                        <input type="file" onChange={this.fileChangedHandler.bind(this)}/>
+                        <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="submit" onClick = {this.uploadHandler.bind(this)}>
                             <span className="">Submit</span>
-                            <i class="material-icons right">send</i>
+                            <i className="material-icons right">send</i>
                         </button>
                     </div>
 
@@ -52,4 +80,12 @@ class CandidateApp extends Component {
     }
 }
 
+// const mapStateToProps = ({});
+
+// const dispatchToProps = (dispatch) => ({
+//     //  fileSubmit: file => dispatch(fileSubmit(file))
+// });
 export default CandidateApp;
+
+// export default connect(mapStateToProps,dispatchToProps)(CandidateApp);
+

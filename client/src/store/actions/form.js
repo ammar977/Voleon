@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP,UPLOAD} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
