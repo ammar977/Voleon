@@ -9,6 +9,7 @@ import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import './card.css';
 import SelectSeat from '../SelectSeat/SelectSeat';
+import ImportantDates from '../ImportantDates/ImportantDates';
 import CandidatesList from '../CandidatesList/CandidatesList';
 import SpeechDates from '../SpeechDates/SpeechDates';
 
@@ -38,6 +39,10 @@ class CardContainer extends Component {
             case 'Select Seat':
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
+                break;
+            case 'Important Dates':
+                cardElement = <ImportantDates/>;
+                cardTitle = 'Important Dates';
                 break;
             case 'Candidates List':
                 cardElement = <CandidatesList/>;
