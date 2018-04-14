@@ -8,7 +8,7 @@ class NewcommentForm extends Component {
     render() {
         return (
             <div className="newcomment_container">
-            	<div className="card-image">
+            	<div className="card-image-comment">
             		<img src={ profile} alt="profile-image"/>
             	</div>
             	<div className="comment-content">
