@@ -16,7 +16,7 @@ class NewPost extends Component {
                  </div>
 
                 <div className="post-content">
-                    <textarea placeholder="What's on your mind?"></textarea> 
+                    <textarea id="text" placeholder="What's on your mind?"></textarea> 
                 </div>
                 <div className= "Post-button">
                     <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="post-btn">
