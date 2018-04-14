@@ -9,6 +9,9 @@ import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import './card.css';
 import SelectSeat from '../SelectSeat/SelectSeat';
+import CandidatesList from '../CandidatesList/CandidatesList';
+import SpeechDates from '../SpeechDates/SpeechDates';
+
 
 
 class CardContainer extends Component {
@@ -35,6 +38,14 @@ class CardContainer extends Component {
             case 'Select Seat':
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
+                break;
+            case 'Candidates List':
+                cardElement = <CandidatesList/>;
+                cardTitle = 'List of Candidates';
+                break;
+            case 'Speech Dates':
+                cardElement = <SpeechDates/>;
+                cardTitle = 'Speech Dates and Venues';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;

@@ -1,0 +1,17 @@
+.CandidatesList{
+		  
+		  color:black;
+		  text-align: left;
+		  margin:;
+		  font-size: 1.25em;
+		  line-height: 50px;
+}
+
+.CandidateBlock{
+	background-color:  #f2f2f2;
+	width:200px;
+	height:50px;
+	text-align: center;
+
+}
+
