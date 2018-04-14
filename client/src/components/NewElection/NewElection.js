@@ -7,8 +7,8 @@ class NewElection extends Component {
 	render() {
 		return(
 			<div className='form-page__form-wrapper'>
-			   <form>
-					/*<div className="formRow">
+			   <form className="form-style">
+					<div className="formRow">
 						<div className='form__field-wrapper left_child'>
 						  <label className="heading-field" htmlFor='gender'>
 	                           Batch
@@ -18,25 +18,10 @@ class NewElection extends Component {
 						    <option value='2'>2019</option>
 						    <option value='3'>2020</option>
 						    <option value='4'>2021</option>
+						    <option value='5'>Masters</option>
 						  </Input>
 						</div>
-					
-
-					
-
-					
-						<div className='form__field-wrapper right_child'>
-						<label className="heading-field" htmlFor='gender'>
-	                          School
-	                       </label>
-						  <Input s={12} type='select' defaultValue='2'>
-						    <option value='1'>SDSB</option>
-						    <option value='2'>SSE</option>
-						    <option value='3'>MGS/HSS</option>
-						    <option value='4'></option>
-						  </Input>
-						</div>
-					</div>*/
+					</div>
 
 					<div className="formRow">
 						<div className='form__field-wrapper left_child'>
