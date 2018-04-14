@@ -27,21 +27,45 @@
 }
 #fileupload {
 	margin-left: 25px;
+	width:200px;
+	height:20px;
 
 }
+
+.upload-btn {
+  position: relative;
+  overflow: hidden;
+  /*display: inline-block;*/
+  margin-left: 298px;
+  margin-top: 80px;
+
+
+}
+
+.btn1 {
+  border: 2px solid powderblue;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 #submitform {
-	margin-top: 40px;
+	margin-top: 30px;
 	display: flex; 
 	justify-content: center; 
 	margin-right: 30px;
 }
-#fileupload {
-	width:200px;
-	height:20px;
-	/*position:absolute;*/
-	/*visibility: hidden;*/
-}
-	
 
 em {
   font-family: 'EB Garamond', serif;
@@ -51,3 +75,4 @@ em {
   font-style:normal;
   text-align: center;
   }
+
