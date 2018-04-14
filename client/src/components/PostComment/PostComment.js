@@ -15,6 +15,12 @@ class PostComment extends Component {
         logged: PropTypes.object,
     }
 
+
+       // onClick(e) {
+       //     this.setState({
+       //         count: this.state.count + 1
+       //     });
+       // }
     render() {
         // console.log('in PostComment', this.props.post);
         return (
@@ -38,6 +44,7 @@ class PostComment extends Component {
                 <div className= 'comments'>
                     <p id="comment-text"> {this.props.post.comments} </p>
                 </div>
+
                 <NewcommentForm/>
                 <div className="comment-link">
                     <a className="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
@@ -56,4 +63,3 @@ const dispatchToProps = (dispatch) => ({})
 
 export default connect(mapStateToProps, dispatchToProps)(PostComment);
 
-<span class="timestampContent" id="js_188">9 April at 22:52</span>
