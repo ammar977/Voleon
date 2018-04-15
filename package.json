@@ -15,9 +15,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
+    "busboy-body-parser": "^0.3.2",
     "concurrently": "^3.5.1",
     "email-verification": "^0.4.6",
     "express": "^4.16.2",
+    "gridfs-stream": "^1.1.1",
     "mongoose": "5.0.12",
     "nodemon": "^1.14.7",
     "passport": "^0.4.0",

@@ -10,12 +10,16 @@ import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import CandidateApp from '../CandidateApp/CandidateApp'
 import './card.css';
 import SelectSeat from '../SelectSeat/SelectSeat';
+import ImportantDates from '../ImportantDates/ImportantDates';
+import CandidatesList from '../CandidatesList/CandidatesList';
+import SpeechDates from '../SpeechDates/SpeechDates';
+
 
 
 class CardContainer extends Component {
 
     render() {
-
+        // console.log('in card', this.props.post);
         let cardElement = '';
         let cardTitle = '';
         switch(this.props.cardType) {
@@ -31,7 +35,7 @@ class CardContainer extends Component {
                 cardElement = <NewPost/>;
                 break;
             case 'Post Comment':
-                cardElement = <PostComment/>;
+                cardElement = <PostComment post={this.props.post}/>;
                 break;            
             case 'Select Seat':
                 cardElement = <SelectSeat/>;
@@ -40,6 +44,18 @@ class CardContainer extends Component {
             case 'Application':
                 cardElement = <CandidateApp/>;
                 break;          
+            case 'Important Dates':
+                cardElement = <ImportantDates/>;
+                cardTitle = 'Important Dates';
+                break;
+            case 'Candidates List':
+                cardElement = <CandidatesList/>;
+                cardTitle = 'List of Candidates';
+                break;
+            case 'Speech Dates':
+                cardElement = <SpeechDates/>;
+                cardTitle = 'Speech Dates and Venues';
+                break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
         }

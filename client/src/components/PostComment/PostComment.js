@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 import profile from '../../profile.png';
 import NewcommentForm from '../NewcommentForm/NewcommentForm'
@@ -8,27 +10,35 @@ import './PostComment.css';
 
 class PostComment extends Component {
 
+    static propTypes = {
+        logged: PropTypes.object,
+    }
+
     render() {
+        // console.log('in PostComment', this.props.post);
         return (
-            <div className='main-card'>
+            <div className='post-container'>
                 <div className="card-pic">
-                    <img src={ profile} alt="profile-image" className= "myimage"/>
+                    <img src={profile} alt="profile-image" className= "myimage"/>
                 </div>
                 <div className= 'profile-name'>
-                    <p className="name"> Profile Name </p>
+                    <p className="name"> {this.props.post.posterName} </p>
                 </div>
                 <div className= 'time'>
-                    <p> 6:53 pm </p>
+                    <p> {new Date(this.props.post.timeStamp).toLocaleDateString('en-US',   { 
+                                                                                    weekday: 'long', year: 'numeric', 
+                                                                                    month: 'long', day: 'numeric' ,
+                                                                                    hour:'numeric',minute:'numeric'
+                                                                                })}
+                    </p>
                 </div>
                 <div className= 'post'>
-                    <p> This is the post </p>
+                    <p> {this.props.post.textContent} </p>
                 </div>
                 <div className= 'comments'>
-                    <p> Comments </p>
+                    <p> {this.props.post.comments} </p>
                 </div>
-				<div className="new-comment">
-                    <NewcommentForm/>
-                </div>
+                <NewcommentForm/>
                 <div className="comment-link">
                     <a className="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
                 </div>
@@ -38,4 +48,10 @@ class PostComment extends Component {
     }
 }
 
-export default PostComment;
+const mapStateToProps = (state) => ({
+    logged: state.logged
+})
+
+const dispatchToProps = (dispatch) => ({})
+
+export default connect(mapStateToProps, dispatchToProps)(PostComment);

@@ -10,6 +10,9 @@ const nev = require('email-verification')(mongoose);
 require('../models/User');
 const User = mongoose.model('User');
 
+require('../models/Post');
+const Post = mongoose.model('Post');
+
 nev.configure({
     verificationURL: 'http://localhost:5000/user/verify${URL}',
     persistentUserModel: User,
@@ -79,9 +82,31 @@ router.post('/login',(req,res,next)=>{
 
 // dummy request from passport authetication
 router.get('/feed:securityLevel',(req,res)=>{
-    console.log('successful');
-    retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel};
-    res.json(retval);
+    // console.log('successful');
+    // User.findOne({lumsId: 19100044})
+    // .then(user => {
+
+    //     newPost = new Post({
+    //         posterId: user._id,
+    //         timeStamp: Date.now(),
+    //         textContent: "People of SSE, Please vote wisely and do read the manifestos."
+    //     });
+    //     newPost.save();
+    // });
+   
+    // send posts on successful login 
+    Post.find()
+    .then(posts_list => {
+        if (posts_list) {
+
+            retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
+            res.json(retval);
+        }
+
+        retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+        res.json(retval);
+    })
+    
 });
 
 
