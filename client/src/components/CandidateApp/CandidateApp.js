@@ -31,11 +31,13 @@ class CandidateApp extends Component {
     uploadHandler = (e) => {
         e.preventDefault();
         console.log(this.state.selectedFile.name);
-        axios.post('http://localhost:5000/application/upload', this.state.selectedFile,{
+        const formData = new FormData()
+        formData.append('myFile', this.state.selectedFile, this.state.selectedFile.name)
+        axios.post('http://localhost:5000/application/upload', formData,{
             onUploadProgress: progressEvent => {
               console.log( (progressEvent.loaded / progressEvent.total) * 100)
             }
-        })
+        });
 
     }
     render() {
