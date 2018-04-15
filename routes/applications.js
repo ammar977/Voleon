@@ -18,7 +18,7 @@ conn.once('open',() => {
 
 
 router.get('/:fileName',(req,res)=>{
-    
+    console.log('searching file');
     gfs.files.findOne({ filename: req.params.fileName }, (err, file) => {
         if (err) return res.status(400).send(err);
         if (!file) return res.status(404).send('');
@@ -44,7 +44,7 @@ router.post('/upload',(req, res) => {
 
     let file = req.files.file;
     let writeStream = gfs.createWriteStream({
-        filename: 'application_' + file.name
+        filename: file.name
     });
 
     writeStream.on('close', (file_) => {

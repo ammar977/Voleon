@@ -5,6 +5,7 @@ import logo from '../../Voleon.png';
 import profile from '../../profile.png';
 import './CandidateApp.css';
 import axios from 'axios'
+import fileDownload from 'js-file-download';
 // import fileSubmit from '../../store/actions/form';
 
 
@@ -39,7 +40,20 @@ class CandidateApp extends Component {
             }
         });
 
-    }
+    };
+
+    downloadHandler = (e) => {
+        e.preventDefault();
+        // TODO //
+        // add a toast saying your download will start in a few seconds
+
+        axios.get('http://localhost:5000/application/Nomination-Form.docx')
+        .then(res => {
+            console.log('hey');
+            fileDownload(res.data,'Nomination-Form.docx');
+        });
+
+    };
     render() {
         return (
            <div className= "CandidateApp_container">
@@ -61,7 +75,7 @@ class CandidateApp extends Component {
                     </div>
 
                     <div id="download">
-                        <button className="blue lighten-1 waves-effect waves-light btn" type="submit">
+                        <button className="blue lighten-1 waves-effect waves-light btn" type="submit" onClick = {this.downloadHandler.bind(this)}>
                             <span className="">Download</span>
                             <i className="material-icons right">arrow_downward</i>
                         </button>
