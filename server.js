@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 
 // database to connect - local or cloud 
@@ -21,10 +22,30 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+
+// express-session middleware
+app.enable('trust proxy'); 
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    cookie:{
+        maxAge : 360000 // one hour in millis
+    }
+  }));
+
 // passport middleware
 require('./config/passport')(passport);
 app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.session());
+
+
+// Globals
+app.use(function(req,res,next){
+    res.locals.user = req.user || null;
+    next();
+});
+
 
 // Load routes
 const users = require('./routes/users');
@@ -43,5 +64,4 @@ app.listen(port, () => console.log(`Server is running on ${port}`));
 // use routes
 app.use('/user',users);
 app.use('/post',posts);
-
 

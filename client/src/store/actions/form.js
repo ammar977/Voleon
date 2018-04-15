@@ -6,6 +6,7 @@ export const sendUser = (user) => dispatch => {
         headers: {
         'content-type': 'application/json'
         },
+        credentials:'include',
         body: JSON.stringify(user)
     })
     .then(res => res.json())

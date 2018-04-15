@@ -1,13 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
+
 
 require('../models/Post')
 const Post = mongoose.model('Post');
 require('../models/User')
 const User = mongoose.model('User');
 
-router.get('/',(req,res) => {
+router.get('/',ensureAuthenticated,(req,res) => {
 
     Post.find()
     .then(posts_list=> {
@@ -17,7 +19,7 @@ router.get('/',(req,res) => {
 
 });
 
-router.get('/:username', (req,res) => {
+router.get('/:username', ensureAuthenticated,(req,res) => {
 
     User.findOne({lumsId : req.params.username})
     .then(user => {

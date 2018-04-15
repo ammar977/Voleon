@@ -4,8 +4,7 @@ module.exports = {
             return next();
         }
 
-        // req.flash('error_msg','Not Authorized');
-        res.redirect('/user/login');
+        res.redirect('/user/loginfalse');
 
     }
 }
