@@ -32,7 +32,7 @@ class CandidateApp extends Component {
         e.preventDefault();
         console.log(this.state.selectedFile.name);
         const formData = new FormData()
-        formData.append('myFile', this.state.selectedFile, this.state.selectedFile.name)
+        formData.append('file', this.state.selectedFile, this.state.selectedFile.name)
         axios.post('http://localhost:5000/application/upload', formData,{
             onUploadProgress: progressEvent => {
               console.log( (progressEvent.loaded / progressEvent.total) * 100)
