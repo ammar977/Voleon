@@ -2,50 +2,64 @@
     margin-top: 800px;
 }
 
-/*.post-container > .comment > .card-container {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 800px;
-    padding: 0;
-}
-*/
-.card-pic{
+.card-pic {
 	display: inline-block;
 	margin-left: 5px;
 }
-.profile-name {
+
+#myimage {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+
+}
+
+.profile-name-time {
 	display: inline-block;
 	margin-left: 5px;
-	position: relative;
+	/*position: relative;*/
 	bottom: 20px;
+	width: 400px;
+	height: 50px;
 }
-.name {
-font-weight: bold;
+#name {
+	font-weight: bold;
+	font-size: 20px;
+	/*color: #1e88e5;*/
+	color: #000000;
 
 }
-.time {
-	margin-left: 20px;
-	margin-top: 2px;
-	font-weight: bold;	
+
+#time-text {
+	width: 400px;
+	height: 21px;
+	font-size: 10px;
+	margin-left: 2px;
+	color: #616161;
 
 }
+
 .post {
 	margin-left: 20px;
-	margin-top: 5px;
+	margin: 5px;
 
 }
+
+#post-text {
+	font-size: 16px;
+	margin-left: 20px;
+
+}
+
 .comments {
 	margin-left: 20px;
 	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .comment-link {
 	margin-left: 20px;
+	margin-top: 5px;
 
-}
-
-.myimage{
-	width: 60px;
-	height: 60px;
 }
 
 .postSeparator{

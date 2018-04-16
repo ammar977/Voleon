@@ -2,47 +2,54 @@
     padding: 10px;
     position: relative;
 }
+
+.card-image-comment {
+	width:60px;
+	height:10px;
+	padding: 5px;
+	display: inline-block;
+	margin-top: 50px;
+}
+
+#profile-image-comment {
+	border-radius: 50%;
+	height: 45px;
+	width: 45px;
+
+}
+
 .comment-content {
-	width:680px;
+	width:500px;
+	height: 50px;
 	padding: 5px;
 	display: inline-block;
-}
-.card-image {
-	width:40px;
-	height:40px;
-	padding: 5px;
-	display: inline-block;
-}
-.edit-post{
-	display: inline-block;
-	margin-top: 12px;
-	position: absolute;
-	/*padding: 5px;*/
-
-}
-
-.camera-icon{
-	padding: 5px;
-	/*margin-right: 10px;*/
-	position: absolute;
-	margin-bottom: 22px;
-	bottom: 0;
-	right: 30px;
-}
-
-.image-upload {
-    width:4px;
-    height:10px;
-    /*margin-right: 3px;*/
-    visibility: hidden;
 }
 
 #new_comment {
 	resize: none;
 	border-radius: 12px;
-	border-style: solid;
+	border: solid 5px #e0e0e0;
+	font-size: 15px;
+	width: 650px;
+	height: 40px;
 }
 
 #new_comment:focus {
 	outline: none;
 }
+
+
+.camera-icon{
+	padding: 5px;
+	position: absolute;
+	margin-bottom: 15px;
+	bottom: 0;
+	right: 52px;
+}
+
+#image-upload {
+    width:4px;
+    height:10px;
+    visibility: hidden;
+}
+

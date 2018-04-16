@@ -12,50 +12,64 @@
 	padding: 5px;
 	display: inline-block;
 }
+
+#profile-image {
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+}
 .post-content {
 	display: inline-block;
 }
 
 .Post-button{
+
 	width: 10px;
 	height: 10px;
 	display: inline-block;
 	position: absolute;
+	margin-top: 90px;
 }
 
-.btn {
+#post-btn {
 
 	bottom: 0;
 	right: 0;
-	margin-top: 80px;
 	float: right;
 	margin-right: 10px; 
 
 }
 
-.image-upload {
+#camera {
+	margin-left: 295px; 
+	width: 5px;
+	height:5px;
+	margin-top: 18px;
+	
+}
+
+#file-input {
   	width:1px;
   	height:1px;
   	position:absolute;
+  	margin-left: 300px; 
+  /*	margin-top: 5px;*/
   	visibility: hidden;
 }
 
 .material-icons {
 	margin-left: 295px; 
-	float: left;
+	width: 10px;
+	height:10px;
 	
 }
 
-.camera-icon {
-	margin-left: 295px; 
-	float: left;
-	margin-top: 18px;
-	
-}
 
-textarea {
+
+#text{
 	border: solid 5px #e0e0e0;
 	resize: none;
+	font-size: 25px;
 	width: 650px;
-	height: 58px;
+	height: 80px;
 }
