@@ -8,6 +8,7 @@ import NewPost from '../NewPost/NewPost';
 import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
 import './card.css';
+import OneButton from '../OneButton/OneButton';
 import SelectSeat from '../SelectSeat/SelectSeat';
 import ImportantDates from '../ImportantDates/ImportantDates';
 import CandidatesList from '../CandidatesList/CandidatesList';
@@ -33,6 +34,9 @@ class CardContainer extends Component {
                 break;
             case 'New Post':       
                 cardElement = <NewPost/>;
+                break;
+            case 'One Button':
+                cardElement = <OneButton cardText = 'Archive'/>
                 break;
             case 'Post Comment':
                 cardElement = <PostComment post={this.props.post}/>;

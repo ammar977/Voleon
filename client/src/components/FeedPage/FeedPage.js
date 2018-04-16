@@ -5,7 +5,6 @@ import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
 import './FeedPage.css';
 
-
 class FeedPage extends Component {
 
     static propTypes = {
@@ -29,12 +28,28 @@ class FeedPage extends Component {
                         {post_cards}
                     </div>
 	                {/*<div id="dummy"></div>*/}
+
+
+
+                    <div className='oneButtonContainer'>
+                         <CardContainer cardType = "One Button"/>
+                    </div>
+
+
                 </div>
 
 
                 
                     
                 
+
+                
+                
+
+
+
+
+
             </div>
         );
     }
