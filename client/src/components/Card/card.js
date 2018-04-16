@@ -12,6 +12,7 @@ import SelectSeat from '../SelectSeat/SelectSeat';
 import ImportantDates from '../ImportantDates/ImportantDates';
 import CandidatesList from '../CandidatesList/CandidatesList';
 import SpeechDates from '../SpeechDates/SpeechDates';
+import VoteNow from '../VoteNow/VoteNow';
 
 
 
@@ -51,6 +52,10 @@ class CardContainer extends Component {
             case 'Speech Dates':
                 cardElement = <SpeechDates/>;
                 cardTitle = 'Speech Dates and Venues';
+                break;
+             case 'Vote Now':
+                cardElement = <VoteNow/>;
+                cardTitle = 'List of Candidates';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
