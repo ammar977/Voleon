@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const fs = require('fs');
 const grid = require("gridfs-stream");
-const bodyParser = require('body-parser');
 
 
 let conn = mongoose.connection;
@@ -41,7 +40,6 @@ router.get('/:fileName',(req,res)=>{
 
 
 router.post('/upload',(req, res) => {
-
     let file = req.files.file;
     let writeStream = gfs.createWriteStream({
         filename: file.name

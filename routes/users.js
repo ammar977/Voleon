@@ -82,19 +82,7 @@ router.post('/login',(req,res,next)=>{
 
 // dummy request from passport authetication
 router.get('/feed:securityLevel',(req,res)=>{
-    // console.log('successful');
-    // User.findOne({lumsId: 19100044})
-    // .then(user => {
 
-    //     newPost = new Post({
-    //         posterId: user._id,
-    //         timeStamp: Date.now(),
-    //         textContent: "People of SSE, Please vote wisely and do read the manifestos."
-    //     });
-    //     newPost.save();
-    // });
-   
-    // send posts on successful login 
     Post.find()
     .then(posts_list => {
         if (posts_list) {
