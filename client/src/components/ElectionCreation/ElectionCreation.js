@@ -14,7 +14,6 @@ class ElectionCreation extends Component {
                 <div className="page_contents">
                     <CardContainer cardType="New Election"/>
 
-                    <div id="dummy"></div>
                 </div>
             </div>
         );
