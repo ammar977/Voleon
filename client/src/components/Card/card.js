@@ -16,7 +16,8 @@ import CandidatesList from '../CandidatesList/CandidatesList';
 import SpeechDates from '../SpeechDates/SpeechDates';
 import VoteNow from '../VoteNow/VoteNow';
 import NewElection from '../NewElection/NewElection';
-
+import VoterCounts from '../VoterCounts/VoterCounts';
+import VoterTurnout from '../VoterTurnout/VoterTurnout';
 
 
 class CardContainer extends Component {
@@ -69,6 +70,14 @@ class CardContainer extends Component {
             case 'Vote Now':
                 cardElement = <VoteNow/>;
                 cardTitle = 'List of Candidates';
+                break;
+            case 'Voter Turnout':
+                cardElement = <VoterCounts/>;
+                cardTitle = 'Voter Turnout';
+                break;
+            case 'Voter Count':
+                cardElement = <VoterTurnout/>;
+                cardTitle = 'Voter Count';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
