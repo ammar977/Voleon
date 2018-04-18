@@ -7,6 +7,7 @@ import SignupForm from '../SignupForm/signupForm';
 import NewPost from '../NewPost/NewPost';
 import PostComment from '../PostComment/PostComment'
 import NewcommentForm from '../NewcommentForm/NewcommentForm';
+import CandidateApp from '../CandidateApp/CandidateApp'
 import './card.css';
 import OneButton from '../OneButton/OneButton';
 import SelectSeat from '../SelectSeat/SelectSeat';
@@ -45,6 +46,9 @@ class CardContainer extends Component {
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
                 break;
+            case 'Application':
+                cardElement = <CandidateApp/>;
+                break;          
             case 'Important Dates':
                 cardElement = <ImportantDates/>;
                 cardTitle = 'Important Dates';
