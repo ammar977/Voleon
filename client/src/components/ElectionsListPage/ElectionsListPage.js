@@ -14,7 +14,15 @@ class ElectionsListPage extends Component {
                 <div className="page_contents">
                     <CardContainer cardType="Select Seat"/>
 
-                    <div id="dummy"></div>
+                    <div className='oneButtonContainer'>
+                         <CardContainer cardType="One Button" cardText="Create New Election"/>
+                    </div>
+                    <div className='oneButtonContainer'>
+                         <CardContainer cardType="One Button" cardText="Election Archive"/>
+                    </div>
+                    <div className='oneButtonContainer'>
+                         <CardContainer cardType="One Button" cardText="Candidacy Application"/>
+                    </div>
                 </div>
             </div>
         );

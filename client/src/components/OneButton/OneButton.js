@@ -6,6 +6,7 @@ class OneButton extends Component{
 
     
     render(){
+        console.log('in onebutton', this.props.cardText);
         let text = "";
         let btn = "";
         switch(this.props.cardText){
@@ -26,16 +27,17 @@ class OneButton extends Component{
                 btn = 'NULL';
         }
 
+        console.log(text, btn);
+
         return (
             <div>
 
                 <div className = "one-button">
-                    <span class="card-title grey-text text-darken-4">{text}</span>
+                    <span className="card-title grey-text text-darken-4">{text}</span>
 
                     <br />
                     <Button className='blue lighten-1' waves='light' >{btn}</Button>
                 </div>
-
 
             </div>
 

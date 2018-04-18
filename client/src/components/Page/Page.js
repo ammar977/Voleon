@@ -7,6 +7,10 @@ import FeedPage from '../FeedPage/FeedPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import ElectionsListPage from '../ElectionsListPage/ElectionsListPage';
 import ApplicationPage from '../ApplicationPage/ApplicationPage';
+import ElectionCreation from '../ElectionCreation/ElectionCreation';
+import ElectionDashboard from '../ElectionDashboard/ElectionDashboard';
+import ElectionVoting from '../ElectionVoting/ElectionVoting';
+import ElectionResults from '../ElectionResults/ElectionResults';
 import './Page.css';
 
 
@@ -39,10 +43,21 @@ class Page extends Component {
             case 'ElectionsList':
                 pageElement = <ElectionsListPage/>;
                 break;
-            case 'ApplicationPage':
+            case 'ElectionApplicationPage':
                 pageElement = <ApplicationPage/>;
                 break;
-                
+            case 'ElectionCreation':
+                pageElement = <ElectionCreation/>;
+                break;
+            case 'ElectionDashboard':
+                pageElement = <ElectionDashboard/>;
+                break;
+            case 'ElectionVoting':
+                pageElement = <ElectionVoting/>;
+                break;
+            case 'ElectionResults':
+                pageElement = <ElectionResults/>;
+                break;
             default:
                 pageElement = <p>Invalid page type passed.</p>;
         }

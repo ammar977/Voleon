@@ -15,13 +15,14 @@ import ImportantDates from '../ImportantDates/ImportantDates';
 import CandidatesList from '../CandidatesList/CandidatesList';
 import SpeechDates from '../SpeechDates/SpeechDates';
 import VoteNow from '../VoteNow/VoteNow';
+import NewElection from '../NewElection/NewElection';
 
 
 
 class CardContainer extends Component {
 
     render() {
-        // console.log('in card', this.props.post);
+        console.log('in card', this.props.cardText);
         let cardElement = '';
         let cardTitle = '';
         switch(this.props.cardType) {
@@ -37,7 +38,7 @@ class CardContainer extends Component {
                 cardElement = <NewPost/>;
                 break;
             case 'One Button':
-                cardElement = <OneButton cardText = 'Archive'/>
+                cardElement = <OneButton cardText={this.props.cardText}/>
                 break;
             case 'Post Comment':
                 cardElement = <PostComment post={this.props.post}/>;
@@ -48,7 +49,11 @@ class CardContainer extends Component {
                 break;
             case 'Application':
                 cardElement = <CandidateApp/>;
-                break;          
+                break;    
+            case 'New Election':
+                cardElement = <NewElection/>;
+                cardTitle = 'New Election';
+                break;      
             case 'Important Dates':
                 cardElement = <ImportantDates/>;
                 cardTitle = 'Important Dates';

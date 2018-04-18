@@ -22,34 +22,11 @@ class FeedPage extends Component {
 				
 				<div className="page_contents">
                     <CardContainer cardType="New Post"/>
-                    <CardContainer cardType="Vote Now"/>
 
                     <div className="post-cards-container">
                         {post_cards}
                     </div>
-	                {/*<div id="dummy"></div>*/}
-
-
-
-                    <div className='oneButtonContainer'>
-                         <CardContainer cardType = "One Button"/>
-                    </div>
-
-
                 </div>
-
-
-                
-                    
-                
-
-                
-                
-
-
-
-
-
             </div>
         );
     }
