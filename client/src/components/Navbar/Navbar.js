@@ -41,7 +41,7 @@ class Navbar extends Component {
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
                             <li className={this.getActiveClass('Feed')}><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
-                            <li className={this.getActiveClass('ElectionsList')}><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
+                            <li className={this.getActiveClass('Election')}><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
                             <li><a href="#" onClick={(e) => this.gotoPage('Login')}>Logout</a></li>
                         </ul>
                     </div>
