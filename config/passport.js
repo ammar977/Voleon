@@ -32,11 +32,11 @@ module.exports = function(passport){
     
 
     passport.serializeUser(function(user, done) {
-        done(null, user.lumsId);
+        done(null, user.id);
       });
       
-      passport.deserializeUser(function(lumsId, done) {
-        User.findById(lumsId, function(err, user) { // findbyId is a mongoose function
+      passport.deserializeUser(function(id, done) {      
+        User.findById(id, function(err, user) { // findbyId is a mongoose function
           done(err, user);
         });
       });

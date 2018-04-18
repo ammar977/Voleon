@@ -4,6 +4,7 @@ const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const nev = require('email-verification')(mongoose);
+const {ensureAuthenticated} = require('../helpers/auth');
 
 
 // Load user model
@@ -40,13 +41,13 @@ nev.generateTempUserModel(User, function(err, tempUserModel) {
         return;
     }
 
-    console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
 
 
 // dummy request comes after failed authentication from passport
 router.get('/loginfalse',(req,res) => {
 
+    console.log('unsuccessful');
     // send false to client
     retval = {success: false};
     res.json(retval);
@@ -55,9 +56,9 @@ router.get('/loginfalse',(req,res) => {
 
 router.post('/login',(req,res,next)=>{
 
-    // passport authentication
+    // // passport authentication
     // passport.authenticate('local',{
-    //     successRedirect: '/user/feed',
+    //     successRedirect: '/user/feed0',
     //     failureRedirect: '/user/loginfalse',
     // })(req,res,next); // weird passport syntax
 
@@ -74,25 +75,28 @@ router.post('/login',(req,res,next)=>{
             if (err) { 
               return next(err); 
             }
-
+            
           return res.redirect('/user/feed' + user.securityLevel);
         });
     })(req,res,next);
 });
 
 // dummy request from passport authetication
-router.get('/feed:securityLevel',(req,res)=>{
+router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
+    console.log('successful');
 
     Post.find()
     .then(posts_list => {
-        if (posts_list) {
+        if (posts_list.length === 0) {
 
-            retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
+            retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
             res.json(retval);
+            
         }
 
-        retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+        retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
         res.json(retval);
+        
     })
     
 });

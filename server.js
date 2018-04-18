@@ -4,6 +4,7 @@ const busboyBodyParser = require('busboy-body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const session = require('express-session');
 
 
 // database to connect - local or cloud 
@@ -41,10 +42,30 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+// express-session middleware
+app.enable('trust proxy'); 
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    cookie:{
+        maxAge : 360000 // one hour in millis
+    }
+  }));
+
 // passport middleware
 require('./config/passport')(passport);
 app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.session());
+
+
+// Globals
+app.use(function(req,res,next){
+    res.locals.user = req.user || null;
+    next();
+});
+
 
 // Load routes
 const users = require('./routes/users');
