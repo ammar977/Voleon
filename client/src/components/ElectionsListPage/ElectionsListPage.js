@@ -15,13 +15,13 @@ class ElectionsListPage extends Component {
                     <CardContainer cardType="Select Seat"/>
 
                     <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Create New Election"/>
+                         <CardContainer cardType="One Button" cardText="New Election"/>
                     </div>
                     <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Election Archive"/>
+                         <CardContainer cardType="One Button" cardText="Archive"/>
                     </div>
                     <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Candidacy Application"/>
+                         <CardContainer cardType="One Button" cardText="Application"/>
                     </div>
                 </div>
             </div>

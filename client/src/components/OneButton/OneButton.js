@@ -6,10 +6,10 @@ class OneButton extends Component{
 
     
     render(){
-        console.log('in onebutton', this.props.cardText);
+        // console.log('in onebutton', this.props.cardText);
         let text = "";
         let btn = "";
-        switch(this.props.cardText){
+        switch(this.props.cardText) {
             case 'New Election':
                 text = 'Create New Election';
                 btn = 'CREATE';
@@ -22,7 +22,7 @@ class OneButton extends Component{
                 text = 'Candidacy Application';
                 btn = 'APPLY';
                 break;
-            deafult:
+            default:
                 text = 'No text given!';
                 btn = 'NULL';
         }

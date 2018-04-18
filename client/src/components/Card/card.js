@@ -22,7 +22,7 @@ import NewElection from '../NewElection/NewElection';
 class CardContainer extends Component {
 
     render() {
-        console.log('in card', this.props.cardText);
+        // console.log('in card', this.props.cardText);
         let cardElement = '';
         let cardTitle = '';
         switch(this.props.cardType) {
@@ -66,7 +66,7 @@ class CardContainer extends Component {
                 cardElement = <SpeechDates/>;
                 cardTitle = 'Speech Dates and Venues';
                 break;
-             case 'Vote Now':
+            case 'Vote Now':
                 cardElement = <VoteNow/>;
                 cardTitle = 'List of Candidates';
                 break;
