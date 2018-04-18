@@ -112,7 +112,7 @@ router.post('/upload',ensureAuthenticated,(req, res) => {
 
 
 // Upload application on reserved seat
-router.post('/upload',ensureAuthenticated,(req, res) => {
+router.post('/upload/reserved',ensureAuthenticated,(req, res) => {
     let file = req.files.file;
     let writeStream = gfs.createWriteStream({
         filename: req.user.lumsId + '_' + file.name
