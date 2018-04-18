@@ -15,7 +15,6 @@ class ElectionResults extends Component {
                     <CardContainer cardType="Voter Turnout"/>
                     <CardContainer cardType="Voter Count"/>
 
-                    <div id="dummy"></div>
                 </div>
             </div>
         );
