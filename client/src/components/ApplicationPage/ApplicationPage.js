@@ -13,7 +13,6 @@ class ApplicationPage extends Component {
 				
 				<div className="page_contents">
                     <CardContainer cardType="Application"/>
-	                <div id="dummy"></div>
                 </div>
             </div>
         );
