@@ -48,6 +48,10 @@ class CardContainer extends Component {
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
                 break;
+            case 'Archive':
+                cardElement = <SelectSeat/>;
+                cardTitle = 'Archived Elections';
+                break;
             case 'Application':
                 cardElement = <CandidateApp/>;
                 break;    
