@@ -19,17 +19,17 @@ class CandidateApp extends Component {
     //     fileSubmit:PropTypes.func.isRequired
     // }
 
-    // fileSubmit(e){
+    // fileSubmit(e) {
     //     e.preventDefault();
     //     console.log(e.target);
     // }
 
-    fileChangedHandler = (event) => {
+    fileChangedHandler(event) {
         const file = event.target.files[0]
         this.setState({selectedFile: event.target.files[0]})
     };
 
-    uploadHandler = (e) => {
+    uploadHandler(e) {
         e.preventDefault();
         console.log(this.state.selectedFile.name);
         const formData = new FormData()
@@ -42,7 +42,7 @@ class CandidateApp extends Component {
 
     };
 
-    downloadHandler = (e) => {
+    downloadHandler(e) {
         e.preventDefault();
         // TODO //
         // add a toast saying your download will start in a few seconds
@@ -54,6 +54,7 @@ class CandidateApp extends Component {
         });
 
     };
+
     render() {
         return (
            <div className= "CandidateApp_container">

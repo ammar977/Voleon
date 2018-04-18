@@ -15,13 +15,15 @@ import ImportantDates from '../ImportantDates/ImportantDates';
 import CandidatesList from '../CandidatesList/CandidatesList';
 import SpeechDates from '../SpeechDates/SpeechDates';
 import VoteNow from '../VoteNow/VoteNow';
-
+import NewElection from '../NewElection/NewElection';
+import VoterCounts from '../VoterCounts/VoterCounts';
+import VoterTurnout from '../VoterTurnout/VoterTurnout';
 
 
 class CardContainer extends Component {
 
     render() {
-        // console.log('in card', this.props.post);
+        // console.log('in card', this.props.cardText);
         let cardElement = '';
         let cardTitle = '';
         switch(this.props.cardType) {
@@ -37,7 +39,7 @@ class CardContainer extends Component {
                 cardElement = <NewPost/>;
                 break;
             case 'One Button':
-                cardElement = <OneButton cardText = 'Archive'/>
+                cardElement = <OneButton cardText={this.props.cardText}/>
                 break;
             case 'Post Comment':
                 cardElement = <PostComment post={this.props.post}/>;
@@ -46,9 +48,17 @@ class CardContainer extends Component {
                 cardElement = <SelectSeat/>;
                 cardTitle = 'Select Seat';
                 break;
+            case 'Archive':
+                cardElement = <SelectSeat/>;
+                cardTitle = 'Archived Elections';
+                break;
             case 'Application':
                 cardElement = <CandidateApp/>;
-                break;          
+                break;    
+            case 'New Election':
+                cardElement = <NewElection/>;
+                cardTitle = 'New Election';
+                break;      
             case 'Important Dates':
                 cardElement = <ImportantDates/>;
                 cardTitle = 'Important Dates';
@@ -61,9 +71,17 @@ class CardContainer extends Component {
                 cardElement = <SpeechDates/>;
                 cardTitle = 'Speech Dates and Venues';
                 break;
-             case 'Vote Now':
+            case 'Vote Now':
                 cardElement = <VoteNow/>;
                 cardTitle = 'List of Candidates';
+                break;
+            case 'Voter Turnout':
+                cardElement = <VoterCounts/>;
+                cardTitle = 'Voter Turnout';
+                break;
+            case 'Voter Count':
+                cardElement = <VoterTurnout/>;
+                cardTitle = 'Voter Count';
                 break;
             default:
                 cardElement = <p>Invalid card items passed.</p>;
