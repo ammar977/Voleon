@@ -15,8 +15,6 @@ class ElectionDashboard extends Component {
                     <CardContainer cardType="Candidates List"/>
                     <CardContainer cardType="Speech Dates"/>
                     <CardContainer cardType="Important Dates"/>
-
-                    <div id="dummy"></div>
                 </div>
             </div>
         );
