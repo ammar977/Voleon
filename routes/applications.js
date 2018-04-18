@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const fs = require('fs');
 const grid = require("gridfs-stream");
+const {ensureAuthenticated} = require('../helpers/auth');
 
 
 let conn = mongoose.connection;
@@ -16,7 +17,7 @@ conn.once('open',() => {
 });
 
 
-router.get('/:fileName',(req,res)=>{
+router.get('/:fileName',ensureAuthenticated,(req,res)=>{
     console.log('searching file');
     gfs.files.findOne({ filename: req.params.fileName }, (err, file) => {
         if (err) return res.status(400).send(err);
@@ -39,7 +40,7 @@ router.get('/:fileName',(req,res)=>{
 });
 
 
-router.post('/upload',(req, res) => {
+router.post('/upload',ensureAuthenticated,(req, res) => {
     let file = req.files.file;
     let writeStream = gfs.createWriteStream({
         filename: file.name
