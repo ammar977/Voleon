@@ -71,6 +71,7 @@ app.use(function(req,res,next){
 const users = require('./routes/users');
 const posts = require('./routes/posts');
 const application = require('./routes/applications');
+const election = require('./routes/elections');
 
 
 // Home Page
@@ -87,4 +88,5 @@ app.listen(port, () => console.log(`Server is running on ${port}`));
 app.use('/user',users);
 app.use('/post',posts);
 app.use('/application',application);
+app.use('/election',election);
 
