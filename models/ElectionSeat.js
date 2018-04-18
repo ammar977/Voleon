@@ -40,14 +40,14 @@ electionSeatSchema = new Schema({
 
     // applications:{ type: objectid,  ref: 'File'},
 
-    candidates:{
+    candidates:[{
         type: mongoose.Schema.Types.ObjectId , 
         ref: 'User'
-    },
+    }],
 
-    voteCounts:{
+    voteCounts:[{
         type: Number
-    }
+    }]
 });
 
 mongoose.model('ElectionSeat',electionSeatSchema);
