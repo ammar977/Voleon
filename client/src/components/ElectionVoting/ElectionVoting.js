@@ -14,7 +14,6 @@ class ElectionVoting extends Component {
                 <div className="page_contents">
                     <CardContainer cardType="Vote Now"/>
 
-                    <div id="dummy"></div>
                 </div>
             </div>
         );

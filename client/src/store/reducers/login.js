@@ -1,6 +1,6 @@
 import {LOGIN_TEST, VIEW_CHANGE, SIGNUP,UPLOAD} from '../actions/constants';
 
-export const loginReducer = (state={success: null, pageType: 'ElectionDashboard'}, {type, payload}) => {
+export const loginReducer = (state={success: null, pageType: 'ElectionVoting'}, {type, payload}) => {
     console.log('in login reducer', state, payload);
     switch (type) {
         case LOGIN_TEST:
