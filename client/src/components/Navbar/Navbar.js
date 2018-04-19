@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // import CardContainer from '../Card/card';
 import logo from '../../Voleon.png';
 import './Navbar.css';
-import {changePage} from '../../store/actions/form'
+import {changePage,sendNavBarReq} from '../../store/actions/form'
 
 
 class Navbar extends Component {
@@ -13,11 +13,13 @@ class Navbar extends Component {
         super();
         this.gotoPage.bind(this);
         this.getActiveClass.bind(this);
+        this.getResponse.bind(this);
     }
 
     static propTypes = {
         logged: PropTypes.object,
         changePage: PropTypes.func.isRequired,
+        sendNavBarReq: PropTypes.func.isRequired
     }
 
     gotoPage(destinationPage) {
@@ -32,6 +34,10 @@ class Navbar extends Component {
             return 'inactive';
     }
 
+    getResponse(request) {
+        this.props.sendNavBarReq(request);
+    }
+
     render() {
         return (
             <div className="navbar-fixed">
@@ -41,8 +47,8 @@ class Navbar extends Component {
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
                             <li className={this.getActiveClass('Feed')}><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
-                            <li className={this.getActiveClass('Election')}><a href="#" onClick={(e) => this.gotoPage('ElectionsList')}>Elections</a></li>
-                            <li><a href="#" onClick={(e) => this.gotoPage('Login')}>Logout</a></li>
+                            <li className={this.getActiveClass('Election')}><a href="#" onClick={(e) => this.getResponse('election')}>Elections</a></li>
+                            <li><a href="#" onClick={(e) => this.getResponse('user/logout')}>Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -57,6 +63,7 @@ const mapStateToProps = (state) => ({
 
 const dispatchToProps = (dispatch) => ({
     changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    sendNavBarReq:(request) => dispatch(sendNavBarReq(request))
 })
 
 export default connect(mapStateToProps,dispatchToProps)(Navbar);

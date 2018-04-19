@@ -44,6 +44,55 @@ router.post('/new',ensureAuthenticated,(req,res) => {
     res.json({pageType:'ElectionCreation'});
 })
 
+router.get('/',ensureAuthenticated,(req,res) => {
 
+    if (req.user.securityLevel === 2) {
+        // student council account 
+        Seat.find()
+        .then(seats_list => {
+            seats_list.map(seat => {
+                seat.voteCounts = undefined;
+                return seat;
+            }); 
+
+
+            retVal = {electionSeats: seats_list, pageType: "ElectionsList"};
+            res.json(retVal);
+        })
+
+    } else {
+        let batch = req.user.lumsId.substr(0,2);
+        let school = req.user.lumsId.substr(2,2);
+        let seatNo = '';
+
+        // SSE 
+        if (school === '10') 
+            seatNo = '1';
+        else 
+            seatNo = '2';
+
+        Seat.find({$or: [
+            {electionId : batch + '-' + seatNo},
+            {electionId : batch + '-' + '3'}
+        ]}).then(seats_list => {
+            seats_list = seats_list.map(seat => {
+                seat.voteCounts = undefined;
+                return seat;
+            });
+
+            retVal = {electionSeats: seats_list, pageType: "ElectionsList"};
+            res.json(retVal);
+        })
+    }
+    
+})
+
+router.get('/result/:electionId', ensureAuthenticated, (req,res) => {
+    Seat.find({electionId:req.params.electionId})
+    .then(seat => {
+        retVal = {results : seat.voteCounts};
+        res.json(retVal);
+    })
+})
 
 module.exports = router;

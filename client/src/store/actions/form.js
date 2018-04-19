@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION,CHANGE_NAVBAR_PAGE} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -42,4 +42,13 @@ export const sendElectionSeat = (seat) => dispatch => {
     })
     .then(res => res.json())
     .then(response => dispatch({type: NEW_ELECTION, payload: response}));
+}
+
+export const sendNavBarReq = (request) => dispatch => {
+    return fetch(`/${request}`, {
+        method: 'GET',
+        credentials:'include'
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: CHANGE_NAVBAR_PAGE, payload: response}));
 }

@@ -89,22 +89,3 @@ app.use('/user',users);
 app.use('/post',posts);
 app.use('/application',application);
 app.use('/election',election);
-
-// code to add candidate to electionseat
-// require('./models/User');
-// const User = mongoose.model('User');
-
-// require('./models/ElectionSeat');
-// const Seat = mongoose.model('ElectionSeat');
-
-// User.findOne({lumsId:"19100044"})
-// .then(user => {
-//     Seat.findOne({electionId: '19-1'})
-//     .then(seat => {
-//         // seat.update({$push : {candidates : user._id}});
-//         // console.log('done');
-//         // seat.save();
-//         seat.candidates.push(user._id);
-//         seat.save();
-//     })
-// })
