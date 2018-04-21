@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
-import './ElectionDashboard.css';
+import './ElectionDashboardPage.css';
 
 
-class ElectionDashboard extends Component {
+class ElectionDashboardPage extends Component {
 
     render() {
         return (
@@ -21,4 +21,4 @@ class ElectionDashboard extends Component {
     }
 }
 
-export default ElectionDashboard;
+export default ElectionDashboardPage;

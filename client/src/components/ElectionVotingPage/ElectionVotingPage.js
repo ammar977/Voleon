@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
-import './ElectionCreation.css';
+import './ElectionVotingPage.css';
 
 
-class ElectionCreation extends Component {
+class ElectionVotingPage extends Component {
 
     render() {
         return (
-            <div className='electionCreationPage_container'>
+            <div className='electionVotingPage_container'>
                 <Navbar/>
                 
                 <div className="page_contents">
-                    <CardContainer cardType="New Election"/>
+                    <CardContainer cardType="Vote Now"/>
 
                 </div>
             </div>
@@ -20,4 +20,4 @@ class ElectionCreation extends Component {
     }
 }
 
-export default ElectionCreation;
+export default ElectionVotingPage;
