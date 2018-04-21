@@ -1,7 +1,7 @@
 import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE} from '../actions/constants';
 
 export const loginReducer = (state={success: null, pageType: 'Login'}, {type, payload}) => {
-    console.log('in login reducer', state, payload);
+    console.log('in login reducer', type, state, payload);
     switch (type) {
         case LOGIN_TEST:
             return {...state, ...payload};

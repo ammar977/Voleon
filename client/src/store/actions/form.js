@@ -13,9 +13,9 @@ export const sendUser = (user) => dispatch => {
     .then(successLogin => dispatch({type: LOGIN_TEST, payload: successLogin}));
 }
 
-export const changePage = (destinationCard) => dispatch => {
-    console.log('changePage action to ', destinationCard);
-    dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard}});
+export const changePage = (destinationCard, args) => dispatch => {
+    console.log('changePage action to', destinationCard, args);
+    dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard, passedArgs: args}});
 }
 
 export const sendNewUser = (newUser) => dispatch => {

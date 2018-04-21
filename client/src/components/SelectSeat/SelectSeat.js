@@ -14,31 +14,35 @@ class SelectSeat extends Component{
 
     static propTypes = {
 		changePage: PropTypes.func.isRequired,
-		logged: PropTypes.object
+		logged: PropTypes.object,
     }
 
-    gotoPage(destinationPage) {
-        this.props.changePage(destinationPage);
+    gotoPage(destinationPage, seatObj) {
+    	console.log('here', destinationPage, seatObj);
+        this.props.changePage(destinationPage, seatObj);
     }
     
 	render(){
-		
-		console.log(this.props);
+		console.log('in select seat', this.props);
 		return (
 			<div>
 				<ul className = "collection">
-				    <li className = "collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard')}>
-					    <p>
-					     <img src="sample.jpg" alt=" " className="circle" hspace='10' />
-							SSE General Seat 18 
-							<a href="#" className="secondary-content">
-								<i className="material-icons"> forward </i>
-							</a>
-						</p>
-					</li>
 
-					<br/>
-					<li className = "collection-item avatar">
+					{
+						this.props.logged.electionSeats.map(seat => {
+							return <li className = "collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard', seat)}>
+							    <p>
+							     <img src="sample.jpg" alt=" " className="circle" hspace='10' />
+									{seat.electionId}
+									<a href="#" className="secondary-content">
+										<i className="material-icons"> forward </i>
+									</a>
+								</p>
+							</li>
+						})
+					}
+
+					{/*<li className = "collection-item avatar">
 					    <p>
 					     <img src="images/female.png" alt=" " className="circle" hspace='10' />
 							SSE General Seat 19
@@ -163,7 +167,7 @@ class SelectSeat extends Component{
 								<i className="material-icons"> forward </i>
 							</a>
 						</p>
-					</li>
+					</li>*/}
 				 </ul>
 			</div>
 			)
@@ -171,11 +175,11 @@ class SelectSeat extends Component{
 }
 
 const mapStateToProps = (state) => ({
-	logged:state.logged
+	logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
-    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    changePage: (destinationPage, seatObj) => dispatch(changePage(destinationPage, seatObj)),
 })
 
 export default connect(mapStateToProps,dispatchToProps)(SelectSeat);
