@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
-import './ElectionsArchive.css';
+import './ElectionsArchivePage.css';
 
 
-class ElectionsArchive extends Component {
+class ElectionsArchivePage extends Component {
 
     render() {
         return (
@@ -19,4 +19,4 @@ class ElectionsArchive extends Component {
     }
 }
 
-export default ElectionsArchive;
+export default ElectionsArchivePage;

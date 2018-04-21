@@ -6,12 +6,12 @@ import SignupPage from '../SignupPage/SignupPage';
 import FeedPage from '../FeedPage/FeedPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import ElectionsListPage from '../ElectionsListPage/ElectionsListPage';
-import ElectionsArchive from '../ElectionsArchive/ElectionsArchive';
+import ElectionsArchivePage from '../ElectionsArchivePage/ElectionsArchivePage';
 import ApplicationPage from '../ApplicationPage/ApplicationPage';
-import ElectionCreation from '../ElectionCreation/ElectionCreation';
-import ElectionDashboard from '../ElectionDashboard/ElectionDashboard';
-import ElectionVoting from '../ElectionVoting/ElectionVoting';
-import ElectionResults from '../ElectionResults/ElectionResults';
+import ElectionCreationPage from '../ElectionCreationPage/ElectionCreationPage';
+import ElectionDashboardPage from '../ElectionDashboardPage/ElectionDashboardPage';
+import ElectionVotingPage from '../ElectionVotingPage/ElectionVotingPage';
+import ElectionResultsPage from '../ElectionResultsPage/ElectionResultsPage';
 import './Page.css';
 
 
@@ -45,22 +45,22 @@ class Page extends Component {
                 pageElement = <ElectionsListPage/>;
                 break;
             case 'ElectionsArchive':
-                pageElement = <ElectionsArchive/>;
+                pageElement = <ElectionsArchivePage/>;
                 break;
             case 'ElectionApplicationPage':
                 pageElement = <ApplicationPage/>;
                 break;
             case 'ElectionCreation':
-                pageElement = <ElectionCreation/>;
+                pageElement = <ElectionCreationPage/>;
                 break;
             case 'ElectionDashboard':
-                pageElement = <ElectionDashboard/>;
+                pageElement = <ElectionDashboardPage/>;
                 break;
             case 'ElectionVoting':
-                pageElement = <ElectionVoting/>;
+                pageElement = <ElectionVotingPage/>;
                 break;
             case 'ElectionResults':
-                pageElement = <ElectionResults/>;
+                pageElement = <ElectionResultsPage/>;
                 break;
             default:
                 pageElement = <p>Invalid page type passed.</p>;

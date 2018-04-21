@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
-import './ElectionResults.css';
+import './ElectionResultsPage.css';
 
 
-class ElectionResults extends Component {
+class ElectionResultsPage extends Component {
 
     render() {
         return (
@@ -21,4 +21,4 @@ class ElectionResults extends Component {
     }
 }
 
-export default ElectionResults;
+export default ElectionResultsPage;
