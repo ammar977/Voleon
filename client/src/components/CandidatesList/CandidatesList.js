@@ -22,16 +22,24 @@ class CandidatesList extends Component{
     }
     
 	render(){
+        console.log('in candidates list', this.props);
 		return (
 			<div>
 				<ul className="collection">
-				    <li className="collection-item avatar" >
-					    <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
-					    	<a href="#" className="CandidatesEntry">Taha Bin Amir</a>
-					    </div>
-					</li>
+                    
+                    {
+                        this.props.candidates.map(candidate => {
+                            return <li className="collection-item avatar" >
+                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
+                                    <a href="#" className="CandidatesEntry">Taha Bin Amir</a>
+                                </div>
+                            </li>
+                        })
+                    }
+
+				    
 					
-					<li className="collection-item avatar" >
+					{/*<li className="collection-item avatar" >
 					    <div className="CandidateBlock">
 					   		<a href="#" className="CandidatesEntry">Kinza Habib</a>
 					    </div>
@@ -41,7 +49,7 @@ class CandidatesList extends Component{
 					    <div className="CandidateBlock">
 					   		<a href="#" className="CandidatesEntry">Ammar Ahmad</a>
 					    </div>
-					</li>
+					</li>*/}
 				</ul>	
 			</div>
 		)
