@@ -13,7 +13,8 @@ class SelectSeat extends Component{
     }
 
     static propTypes = {
-        changePage: PropTypes.func.isRequired,
+		changePage: PropTypes.func.isRequired,
+		logged: PropTypes.object
     }
 
     gotoPage(destinationPage) {
@@ -21,6 +22,8 @@ class SelectSeat extends Component{
     }
     
 	render(){
+		
+		console.log(this.props);
 		return (
 			<div>
 				<ul className = "collection">
@@ -168,6 +171,7 @@ class SelectSeat extends Component{
 }
 
 const mapStateToProps = (state) => ({
+	logged:state.logged
 })
 
 const dispatchToProps = (dispatch) => ({

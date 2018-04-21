@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP,UPLOAD} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION,CHANGE_NAVBAR_PAGE} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -29,4 +29,26 @@ export const sendNewUser = (newUser) => dispatch => {
     })
     .then(res => res.json())
     .then(verStatusObj => dispatch({type: SIGNUP, payload: verStatusObj}));
+}
+
+export const sendElectionSeat = (seat) => dispatch => {
+    return fetch('/election/new', {
+        method: 'POST',
+        headers: {
+        'content-type': 'application/json'
+        },
+        credentials:'include',
+        body: JSON.stringify(seat)
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: NEW_ELECTION, payload: response}));
+}
+
+export const sendNavBarReq = (request) => dispatch => {
+    return fetch(`/${request}`, {
+        method: 'GET',
+        credentials:'include'
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: CHANGE_NAVBAR_PAGE, payload: response}));
 }

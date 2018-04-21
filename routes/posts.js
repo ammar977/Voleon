@@ -10,7 +10,7 @@ require('../models/User')
 const User = mongoose.model('User');
 
 router.get('/',ensureAuthenticated,(req,res) => {
-
+    
     Post.find()
     .then(posts_list=> {
       retval = {posts:posts_list};

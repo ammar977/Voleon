@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const cors = require('cors');
 
 
 // database to connect - local or cloud 
@@ -37,12 +38,13 @@ app.use(busboyBodyParser({ limit: '50mb' }));
 //     upload:true
 // });
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "true");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 // express-session middleware
 app.enable('trust proxy'); 
 app.use(session({
@@ -71,6 +73,7 @@ app.use(function(req,res,next){
 const users = require('./routes/users');
 const posts = require('./routes/posts');
 const application = require('./routes/applications');
+const election = require('./routes/elections');
 
 
 // Home Page
@@ -87,4 +90,4 @@ app.listen(port, () => console.log(`Server is running on ${port}`));
 app.use('/user',users);
 app.use('/post',posts);
 app.use('/application',application);
-
+app.use('/election',election);

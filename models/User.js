@@ -42,6 +42,11 @@ const userSchema = new Schema({
 
     postIds:{
         type:String
+    },
+
+    application: {
+        type: mongoose.Schema.Types.ObjectId , 
+        ref: 'fs.files'
     }
 
     // profile_pic:{

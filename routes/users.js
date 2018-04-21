@@ -76,13 +76,13 @@ router.post('/login',(req,res,next)=>{
               return next(err); 
             }
             
-          return res.redirect('/user/feed' + user.securityLevel);
+          return res.redirect('/user/feed');
         });
     })(req,res,next);
 });
 
 // dummy request from passport authetication
-router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
+router.get('/feed',ensureAuthenticated,(req,res)=>{
     console.log('successful');
 
     Post.find()
@@ -216,7 +216,8 @@ router.get('/verify:URL',(req,res) => {
 router.get('/logout',(req,res)=> {
 
     req.logout();
-    res.redirect('/users/loginfalse');
+    retval = {success: false, pageType:'Login'};
+    res.json(retval);
 
 });
 

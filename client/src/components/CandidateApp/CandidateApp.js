@@ -34,10 +34,19 @@ class CandidateApp extends Component {
         console.log(this.state.selectedFile.name);
         const formData = new FormData()
         formData.append('file', this.state.selectedFile, this.state.selectedFile.name)
-        axios.post('http://localhost:5000/application/upload', formData,{
-            onUploadProgress: progressEvent => {
-              console.log( (progressEvent.loaded / progressEvent.total) * 100)
-            }
+        // axios.post('http://localhost:5000/application/upload', formData,{
+        //     onUploadProgress: progressEvent => {
+        //       console.log( (progressEvent.loaded / progressEvent.total) * 100)
+        //     }
+        // });
+        axios('http://localhost:5000/application/upload', {
+            method : 'POST',
+            withCredentials : true,
+            data:formData
+            }, {
+                    onUploadProgress: progressEvent => {
+                    console.log( (progressEvent.loaded / progressEvent.total) * 100)
+                }
         });
 
     };
