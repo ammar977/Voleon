@@ -14,7 +14,7 @@ class FeedPage extends Component {
     render() {
         // console.log('in feed', this.props.logged.posts);
         const post_cards = this.props.logged.posts.map(p => 
-            <CardContainer cardType="Post Comment" post={p}/>
+            <CardContainer cardType="Post Comment" post={p} key={p._id}/>
         );
         return (
             <div className='feedPage_container'>

@@ -29,7 +29,7 @@ class CandidatesList extends Component{
                     
                     {
                         this.props.candidates.map(candidate => {
-                            return <li className="collection-item avatar" >
+                            return <li className="collection-item avatar" key={candidate} >
                                 <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
                                     <a href="#" className="CandidatesEntry">Taha Bin Amir</a>
                                 </div>
