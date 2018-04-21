@@ -60,11 +60,11 @@ class CardContainer extends Component {
                 cardTitle = 'New Election';
                 break;      
             case 'Important Dates':
-                cardElement = <ImportantDates/>;
+                cardElement = <ImportantDates dates={this.props.dates}/>;
                 cardTitle = 'Important Dates';
                 break;
             case 'Candidates List':
-                cardElement = <CandidatesList/>;
+                cardElement = <CandidatesList candidates={this.props.candidates}/>;
                 cardTitle = 'List of Candidates';
                 break;
             case 'Speech Dates':

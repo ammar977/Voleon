@@ -22,17 +22,19 @@ class ImportantDates extends Component{
     }
     
 	render(){
+        console.log('in imp dates', this.props);
+        // INDEXES OF 'dates' ARRAY COME FROM 'ElectionDashboardPage'
 		return (
 			<div >
 				<ul>
 				    <li className = "ImportantDates-container" >
-					    Application Deadline: 14/04/18
+					    Application Deadline: {this.props.dates[1]}
 					</li>
 
 				    <br/>
 
 					<li className = "ImportantDates-container" >
-					    Polling Date: 20/04/18
+					    Polling Date: {this.props.dates[0]}
 					</li>
 
 						<br/>
