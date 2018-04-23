@@ -221,4 +221,23 @@ router.get('/logout',(req,res)=> {
 
 });
 
+
+router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
+    User.findOne({_id:req.params.userid})
+    .then(userObj => {
+        userObj.passHash = undefined
+        Post.find({posterId: req.params.userid})
+        .then(posts_list => {
+
+            retval = {userProfile : {
+                user : userObj,
+                posts: posts_list
+            }};
+
+            res.json(retval);
+        });
+        
+    });
+});
+
 module.exports = router;
