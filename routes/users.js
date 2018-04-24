@@ -76,13 +76,13 @@ router.post('/login',(req,res,next)=>{
               return next(err); 
             }
             
-          return res.redirect('/user/feed');
+          return res.redirect(`/user/feed${user.securityLevel}`);
         });
     })(req,res,next);
 });
 
 // dummy request from passport authetication
-router.get('/feed',ensureAuthenticated,(req,res)=>{
+router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
     console.log('successful');
 
     Post.find()
@@ -219,6 +219,25 @@ router.get('/logout',(req,res)=> {
     retval = {success: false, pageType:'Login'};
     res.json(retval);
 
+});
+
+
+router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
+    User.findOne({_id:req.params.userid})
+    .then(userObj => {
+        userObj.passHash = undefined
+        Post.find({posterId: req.params.userid})
+        .then(posts_list => {
+
+            retval = {
+                user : userObj,
+                posts: posts_list
+            };
+
+            res.json(retval);
+        });
+        
+    });
 });
 
 module.exports = router;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Card, Col, Icon,Button} from 'react-materialize';
 import './CandidatesList.css';
-import {changePage} from '../../store/actions/form'
+import {changePage, getCandidateProfiles} from '../../store/actions/form'
 
 
 class CandidatesList extends Component{
@@ -14,42 +14,37 @@ class CandidatesList extends Component{
     }
 
     static propTypes = {
+        logged: PropTypes.object,
         changePage: PropTypes.func.isRequired,
+        getCandidateProfiles: PropTypes.func.isRequired,
     }
 
-    gotoPage(destinationPage) {
-        this.props.changePage(destinationPage);
+    gotoPage(destinationPage, candidateObj) {
+        console.log('here', destinationPage, candidateObj);
+        this.props.changePage(destinationPage, candidateObj);
+    }
+
+    componentWillMount() {
+        this.props.getCandidateProfiles(this.props.candidates);
     }
     
 	render(){
-        console.log('in candidates list', this.props);
+        console.log('in candidates list', this.props.logged.candidateProfiles);
+
+        let profilesList = (this.props.logged.candidateProfiles === undefined) ? [] : this.props.logged.candidateProfiles;
 		return (
 			<div>
 				<ul className="collection">
                     
                     {
-                        this.props.candidates.map(candidate => {
-                            return <li className="collection-item avatar" key={candidate} >
-                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
-                                    <a href="#" className="CandidatesEntry">Taha Bin Amir</a>
+                        profilesList.map(candidate => {
+                            return <li className="collection-item avatar" key={candidate.user._id} >
+                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile', candidate)}>
+                                    <a href="#" className="CandidatesEntry">{candidate.user.firstName} {candidate.user.lastName}</a>
                                 </div>
                             </li>
                         })
                     }
-
-				    
-					
-					{/*<li className="collection-item avatar" >
-					    <div className="CandidateBlock">
-					   		<a href="#" className="CandidatesEntry">Kinza Habib</a>
-					    </div>
-					</li>
-
-					<li className="collection-item avatar" >
-					    <div className="CandidateBlock">
-					   		<a href="#" className="CandidatesEntry">Ammar Ahmad</a>
-					    </div>
-					</li>*/}
 				</ul>	
 			</div>
 		)
@@ -57,10 +52,12 @@ class CandidatesList extends Component{
 }
 
 const mapStateToProps = (state) => ({
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
-    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    changePage: (destinationPage, candidateObj) => dispatch(changePage(destinationPage, candidateObj)),
+    getCandidateProfiles: (userIDList) => dispatch(getCandidateProfiles(userIDList)),
 })
 
 export default connect(mapStateToProps,dispatchToProps)(CandidatesList);

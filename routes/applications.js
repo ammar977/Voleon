@@ -35,6 +35,8 @@ const addCandidate = (roll,reserved) => {
         .then(seat => {
             seat.candidates.push(user._id);
             seat.save();
+            user.securityLevel = 1;
+            user.save();
         })
     })
 };
