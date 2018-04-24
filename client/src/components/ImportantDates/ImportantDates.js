@@ -14,11 +14,12 @@ class ImportantDates extends Component{
     }
 
     static propTypes = {
+        logged: PropTypes.object,
         changePage: PropTypes.func.isRequired,
     }
 
-    gotoPage(destinationPage) {
-        this.props.changePage(destinationPage);
+    gotoPage(destinationPage, seatObj) {
+        this.props.changePage(destinationPage, seatObj);
     }
     
 	render(){
@@ -53,23 +54,25 @@ class ImportantDates extends Component{
 					</li>
 
 			    </ul>
+                
 
-			    <div className='form__submit-btn-wrapper'>
-                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionVoting')}>Vote Now</Button>
-                </div>
-                <div className='form__submit-btn-wrapper'>
-                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionResults')}>Results</Button>
-                </div>
+			    {(this.props.logged.userType !== '2') ? <div className='form__submit-btn-wrapper'>
+                                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionVoting')}>Vote Now</Button>
+                                </div> : ''}
+                {(this.props.logged.userType === '2') ? <div className='form__submit-btn-wrapper'>
+                                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionResults', this.props.logged.passedArgs)}>Results</Button>
+                                </div> : ''}
              </div>
 			)
 		}
 }
 
 const mapStateToProps = (state) => ({
+        logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
-    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    changePage: (destinationPage, seatObj) => dispatch(changePage(destinationPage, seatObj)),
 })
 
 export default connect(mapStateToProps,dispatchToProps)(ImportantDates);
