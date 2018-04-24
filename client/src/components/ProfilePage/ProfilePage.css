@@ -9,26 +9,25 @@
     padding: 0;
 }
 
-#cover {
-	display: block;
-    margin: auto
-}
 #profile-img {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
-    height: 20%;
+    width: 200px;;
+    height: 200px;
 }
 
 figure {
     display: inline-block;
-    margin: 20px; /* adjust as needed */
+    width: 200px;
+    /*margin-left: auto;
+    margin-right: auto;*/
 }
-figure img {
-    vertical-align: top;
-}
+
 figure figcaption {
     /*border: 1px dotted blue;*/
     text-align: center;
+}
+#card-content {
+	text-align: center;
 }
