@@ -24,39 +24,26 @@ class CandidatesList extends Component{
     }
 
     componentWillMount() {
-        console.log('candidaes list mounting');
         this.props.getCandidateProfiles(this.props.candidates);
     }
     
 	render(){
         console.log('in candidates list', this.props.logged.candidateProfiles);
+
+        let profilesList = (this.props.logged.candidateProfiles === undefined) ? [] : this.props.logged.candidateProfiles;
 		return (
 			<div>
 				<ul className="collection">
                     
                     {
-                        this.props.candidates.map(candidate => {
-                            return <li className="collection-item avatar" key={candidate} >
+                        profilesList.map(candidate => {
+                            return <li className="collection-item avatar" key={candidate.user._id} >
                                 <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
-                                    <a href="#" className="CandidatesEntry">Taha Bin Amir</a>
+                                    <a href="#" className="CandidatesEntry">{candidate.user.firstName} {candidate.user.lastName}</a>
                                 </div>
                             </li>
                         })
                     }
-
-				    
-					
-					{/*<li className="collection-item avatar" >
-					    <div className="CandidateBlock">
-					   		<a href="#" className="CandidatesEntry">Kinza Habib</a>
-					    </div>
-					</li>
-
-					<li className="collection-item avatar" >
-					    <div className="CandidateBlock">
-					   		<a href="#" className="CandidatesEntry">Ammar Ahmad</a>
-					    </div>
-					</li>*/}
 				</ul>	
 			</div>
 		)

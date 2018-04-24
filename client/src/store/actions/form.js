@@ -54,7 +54,6 @@ export const sendNavBarReq = (request) => dispatch => {
 }
 
 export const getCandidateProfiles = (userIDList) => dispatch => {
-    console.log('in getCandidateProfiles');
     return Promise.all(userIDList.map(userID => {
         return fetch(`/user/profile/${userID}`, {
             method: 'GET',
