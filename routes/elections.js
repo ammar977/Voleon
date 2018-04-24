@@ -52,6 +52,7 @@ router.get('/',ensureAuthenticated,(req,res) => {
         .then(seats_list => {
             seats_list.map(seat => {
                 seat.voteCounts = undefined;
+                seat.results = undefined;                
                 return seat;
             }); 
 
@@ -77,6 +78,7 @@ router.get('/',ensureAuthenticated,(req,res) => {
         ]}).then(seats_list => {
             seats_list = seats_list.map(seat => {
                 seat.voteCounts = undefined;
+                seat.results = undefined
                 return seat;
             });
 
@@ -91,9 +93,31 @@ router.get('/result/:electionId', ensureAuthenticated, (req,res) => {
     Seat.findOne({_id:req.params.electionId})
     .then(seat => {
         console.log(seat);
-        retVal = {results : seat.voteCounts};
+        retVal = {results : seat.results};
         res.json(retVal);
     })
 })
 
+
+router.post('/vote',ensureAuthenticated,(req,res) => {
+    Seat.findOne({_id:req.body.seatId})
+    .then(seat => {
+        seat.results.forEach((element,index) => {
+            console.log('req');
+            console.log(req.body.candidateId);
+            console.log('element');            
+            console.log(element.candidateIdentifier);
+            
+            if (element.candidateIdentifier === req.body.candidateId) {
+                console.log('hello')
+                element.count = element.count + 1;
+            }
+        });
+
+        seat.save();
+        console.log(seat.results);
+        retVal = {pageType : "Feed"};
+        res.json(retVal);
+    })
+})
 module.exports = router;
