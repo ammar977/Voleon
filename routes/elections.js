@@ -88,8 +88,9 @@ router.get('/',ensureAuthenticated,(req,res) => {
 })
 
 router.get('/result/:electionId', ensureAuthenticated, (req,res) => {
-    Seat.find({electionId:req.params.electionId})
+    Seat.findOne({_id:req.params.electionId})
     .then(seat => {
+        console.log(seat);
         retVal = {results : seat.voteCounts};
         res.json(retVal);
     })

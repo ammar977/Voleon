@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -61,4 +61,14 @@ export const getCandidateProfiles = (userIDList) => dispatch => {
         })
         .then(res => res.json());
     })).then(userProfileList => dispatch({type: ADD_CANDIDATE_PROFILES, payload: {candidateProfiles: userProfileList}}));
+}
+
+export const getElectionResults = (electionID) => dispatch => {
+    console.log('in getElectionResults');
+    return fetch(`/election/result/${electionID}`, {
+        method: 'GET',
+        credentials:'include'
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: GET_RESULTS, payload: response}));
 }
