@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Card, Col, Icon,Button} from 'react-materialize';
 import './CandidatesList.css';
-import {changePage} from '../../store/actions/form'
+import {changePage, getCandidateProfiles} from '../../store/actions/form'
 
 
 class CandidatesList extends Component{
@@ -14,15 +14,22 @@ class CandidatesList extends Component{
     }
 
     static propTypes = {
+        logged: PropTypes.object,
         changePage: PropTypes.func.isRequired,
+        getCandidateProfiles: PropTypes.func.isRequired,
     }
 
     gotoPage(destinationPage) {
         this.props.changePage(destinationPage);
     }
+
+    componentWillMount() {
+        console.log('candidaes list mounting');
+        this.props.getCandidateProfiles(this.props.candidates);
+    }
     
 	render(){
-        console.log('in candidates list', this.props);
+        console.log('in candidates list', this.props.logged.candidateProfiles);
 		return (
 			<div>
 				<ul className="collection">
@@ -57,10 +64,12 @@ class CandidatesList extends Component{
 }
 
 const mapStateToProps = (state) => ({
+    logged: state.logged,
 })
 
 const dispatchToProps = (dispatch) => ({
     changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    getCandidateProfiles: (userIDList) => dispatch(getCandidateProfiles(userIDList)),
 })
 
 export default connect(mapStateToProps,dispatchToProps)(CandidatesList);

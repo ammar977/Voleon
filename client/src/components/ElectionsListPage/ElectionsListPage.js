@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Navbar from '../Navbar/Navbar';
 import CardContainer from '../Card/card';
 import './ElectionsListPage.css';
 
 
 class ElectionsListPage extends Component {
+    
+    static propTypes = {
+        logged: PropTypes.object,
+    }
 
     render() {
+        console.log('in electionslist page', this.props);
         return (
             <div className='electionsListPage_container'>
                 <Navbar/>
@@ -28,5 +35,11 @@ class ElectionsListPage extends Component {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    logged: state.logged,
+})
 
-export default ElectionsListPage;
+const dispatchToProps = (dispatch) => ({
+})
+
+export default connect(mapStateToProps,dispatchToProps)(ElectionsListPage);

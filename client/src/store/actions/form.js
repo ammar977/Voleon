@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION,CHANGE_NAVBAR_PAGE} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -51,4 +51,15 @@ export const sendNavBarReq = (request) => dispatch => {
     })
     .then(res => res.json())
     .then(response => dispatch({type: CHANGE_NAVBAR_PAGE, payload: response}));
+}
+
+export const getCandidateProfiles = (userIDList) => dispatch => {
+    console.log('in getCandidateProfiles');
+    return Promise.all(userIDList.map(userID => {
+        return fetch(`/user/profile/${userID}`, {
+            method: 'GET',
+            credentials:'include'
+        })
+        .then(res => res.json());
+    })).then(userProfileList => dispatch({type: ADD_CANDIDATE_PROFILES, payload: {candidateProfiles: userProfileList}}));
 }

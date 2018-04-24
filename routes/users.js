@@ -229,10 +229,10 @@ router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
         Post.find({posterId: req.params.userid})
         .then(posts_list => {
 
-            retval = {userProfile : {
+            retval = {
                 user : userObj,
                 posts: posts_list
-            }};
+            };
 
             res.json(retval);
         });
