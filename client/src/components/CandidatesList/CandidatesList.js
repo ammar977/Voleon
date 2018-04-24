@@ -19,8 +19,9 @@ class CandidatesList extends Component{
         getCandidateProfiles: PropTypes.func.isRequired,
     }
 
-    gotoPage(destinationPage) {
-        this.props.changePage(destinationPage);
+    gotoPage(destinationPage, candidateObj) {
+        console.log('here', destinationPage, candidateObj);
+        this.props.changePage(destinationPage, candidateObj);
     }
 
     componentWillMount() {
@@ -38,7 +39,7 @@ class CandidatesList extends Component{
                     {
                         profilesList.map(candidate => {
                             return <li className="collection-item avatar" key={candidate.user._id} >
-                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile')}>
+                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile', candidate)}>
                                     <a href="#" className="CandidatesEntry">{candidate.user.firstName} {candidate.user.lastName}</a>
                                 </div>
                             </li>
@@ -55,7 +56,7 @@ const mapStateToProps = (state) => ({
 })
 
 const dispatchToProps = (dispatch) => ({
-    changePage: (destinationPage) => dispatch(changePage(destinationPage)),
+    changePage: (destinationPage, candidateObj) => dispatch(changePage(destinationPage, candidateObj)),
     getCandidateProfiles: (userIDList) => dispatch(getCandidateProfiles(userIDList)),
 })
 

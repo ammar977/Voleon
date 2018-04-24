@@ -35,6 +35,7 @@ class ElectionsListPage extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => ({
     logged: state.logged,
 })

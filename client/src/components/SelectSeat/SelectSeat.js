@@ -26,11 +26,11 @@ class SelectSeat extends Component{
 		console.log('in select seat', this.props);
 		return (
 			<div>
-				<ul className = "collection">
+				<ul className="collection">
 
 					{
 						this.props.logged.electionSeats.map(seat => {
-							return <li className = "collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard', seat)} key={seat._id}>
+							return <li className="collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard', seat)} key={seat._id}>
 							    <p>
 							     <img src="sample.jpg" alt=" " className="circle" hspace='10' />
 									{seat.electionId}
