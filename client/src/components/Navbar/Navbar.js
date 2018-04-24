@@ -39,13 +39,14 @@ class Navbar extends Component {
     }
 
     render() {
+        console.log('in navbaar', this.props);
         return (
             <div className="navbar-fixed">
                 <nav>
                     <div className="nav-wrapper blue lighten-1">
                         <img src={ logo } className="App-logo" alt="logo"/>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li>
+                            {(this.props.logged.userType !== '0') ? <li className={this.getActiveClass('Profile')}><a href="#" onClick={(e) => this.gotoPage('Profile')}>Profile</a></li> : ''}
                             <li className={this.getActiveClass('Feed')}><a href="#" onClick={(e) => this.gotoPage('Feed')}>Newsfeed</a></li>
                             <li className={this.getActiveClass('Election')}><a href="#" onClick={(e) => this.getResponse('election')}>Elections</a></li>
                             <li><a href="#" onClick={(e) => this.getResponse('user/logout')}>Logout</a></li>

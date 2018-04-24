@@ -21,15 +21,15 @@ class ElectionsListPage extends Component {
                 <div className="page_contents">
                     <CardContainer cardType="Select Seat"/>
 
-                    <div className='oneButtonContainer'>
+                    {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
                          <CardContainer cardType="One Button" cardText="New Election"/>
-                    </div>
-                    <div className='oneButtonContainer'>
+                    </div> : ''}
+                    {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
                          <CardContainer cardType="One Button" cardText="Archive"/>
-                    </div>
-                    <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Application"/>
-                    </div>
+                    </div> : ''}
+                    {(this.props.logged.userType === '0') ? <div className='oneButtonContainer'>
+                                             <CardContainer cardType="One Button" cardText="Application"/>
+                                        </div> :''}
                 </div>
             </div>
         );

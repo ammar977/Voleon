@@ -21,7 +21,7 @@ class FeedPage extends Component {
 				<Navbar/>
 				
 				<div className="page_contents">
-                    <CardContainer cardType="New Post"/>
+                    {(this.props.logged.userType !== '0') ? <CardContainer cardType="New Post"/> : ''}
 
                     <div className="post-cards-container">
                         {post_cards}
