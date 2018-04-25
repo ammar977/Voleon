@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS, VOTE_CAST} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -15,7 +15,10 @@ export const sendUser = (user) => dispatch => {
 
 export const changePage = (destinationCard, args) => dispatch => {
     console.log('changePage action to', destinationCard, args);
-    dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard, passedArgs: args}});
+    if (destinationCard === 'ElectionDashboard')
+        dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard, currentSeat: args, passedArgs: args}});
+    else
+        dispatch({type: VIEW_CHANGE, payload: {success: null, pageType: destinationCard, passedArgs: args}});
 }
 
 export const sendNewUser = (newUser) => dispatch => {
@@ -71,4 +74,17 @@ export const getElectionResults = (electionID) => dispatch => {
     })
     .then(res => res.json())
     .then(response => dispatch({type: GET_RESULTS, payload: response}));
+}
+
+export const castVote = (voteObj) => dispatch => {
+    return fetch('/election/vote', {
+        method: 'POST',
+        headers: {
+        'content-type': 'application/json'
+        },
+        credentials:'include',
+        body: JSON.stringify(voteObj)
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: VOTE_CAST, payload: response}));
 }

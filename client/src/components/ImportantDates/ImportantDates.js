@@ -57,7 +57,7 @@ class ImportantDates extends Component{
                 
 
 			    {(this.props.logged.userType !== '2') ? <div className='form__submit-btn-wrapper'>
-                                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionVoting')}>Vote Now</Button>
+                                    <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionVoting', {})}>Vote Now</Button>
                                 </div> : ''}
                 {(this.props.logged.userType === '2') ? <div className='form__submit-btn-wrapper'>
                                     <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionResults', this.props.logged.passedArgs)}>Results</Button>

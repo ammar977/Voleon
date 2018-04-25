@@ -47,6 +47,15 @@ electionSeatSchema = new Schema({
 
     voteCounts:[{
         type: Number
+    }],
+
+    results: [{
+        candidateIdentifier:{ // mongo ID of candidate
+            type:String
+        },
+        count : {
+            type:Number
+        }
     }]
 });
 

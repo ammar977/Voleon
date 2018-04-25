@@ -87,15 +87,20 @@ router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
 
     Post.find()
     .then(posts_list => {
-        if (posts_list.length === 0) {
+        User.findOne({lumsId:req.user.lumsId})
+        .then(user => {
+            user.postIds = undefined; 
+            user.passHash = undefined;
+            if (posts_list.length === 0) {
 
-            retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+                retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+                res.json(retval);
+                
+            }
+    
+            retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
             res.json(retval);
-            
-        }
-
-        retval = {success: true, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
-        res.json(retval);
+        })
         
     })
     
@@ -225,7 +230,8 @@ router.get('/logout',(req,res)=> {
 router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
     User.findOne({_id:req.params.userid})
     .then(userObj => {
-        userObj.passHash = undefined
+        userObj.passHash = undefined;
+        userObj.postIds = undefined;
         Post.find({posterId: req.params.userid})
         .then(posts_list => {
 

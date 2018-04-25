@@ -18,7 +18,7 @@ class OneButton extends Component{
     }
 
     gotoPage(destinationPage) {
-        this.props.changePage(destinationPage);
+        this.props.changePage(destinationPage, {});
     }
     
     render(){

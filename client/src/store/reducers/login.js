@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS} from '../actions/constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS, VOTE_CAST} from '../actions/constants';
 
 export const loginReducer = (state={success: null, pageType: 'Login'}, {type, payload}) => {
     console.log('in login reducer', type, state, payload);
@@ -16,7 +16,9 @@ export const loginReducer = (state={success: null, pageType: 'Login'}, {type, pa
         case ADD_CANDIDATE_PROFILES:
             return {...state, ...payload};
         case GET_RESULTS:
-            return {...state, ...payload};               
+            return {...state, ...payload};        
+        case VOTE_CAST:
+            return {...state, ...payload};       
         default:
             return state;
     }
