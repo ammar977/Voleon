@@ -20,7 +20,7 @@ class ProfilePage extends Component {
         console.log('in profile page', this.props.logged.passedArgs);
 
         const user_post = this.props.logged.passedArgs.posts.map(p => 
-            <CardContainer cardType="New Post" post={p} key={p._id}/>
+            <CardContainer cardType="Post Comment" post={p} key={p._id}/>
         );
         return (
             <div className='profilePage_container'>
@@ -34,7 +34,7 @@ class ProfilePage extends Component {
 
                     <div className="row">
                         <div className="col s16 m4">
-                            <div className=" blue lighten-4 black-text">
+                            <div className="card-panel blue lighten-4 black-text">
                                 <div id="card-content">
                                     <h5 className="center"><b>Manifesto</b></h5>
                                     <p className="manifesto">As the voice of the students,my vision is to bring to light the universities greatest resource,the power of the students and their well being,specifically supporting more social activities.</p>
@@ -47,7 +47,6 @@ class ProfilePage extends Component {
                         {user_post}
                     </div> 
 
-	                <div id="dummy"></div>
                 </div>
             </div>
         );
