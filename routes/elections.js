@@ -118,7 +118,7 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
     .then(vote => {
 
         if (vote){
-            retVal = {pageType : "Feed", error_msg : "Vote already ast but not verified"};
+            retVal = {pageType : "Feed", error : "Vote already ast but not verified"};
             res.json(retVal);
         }
     
@@ -149,7 +149,7 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
             }
         });
 
-        retVal = {pageType : "Feed"};
+        retVal = {pageType : "Feed",error:""};
         res.json(retVal);
 
     })
@@ -197,9 +197,7 @@ router.get('/vote/verify/:str',ensureAuthenticated,(req,res) => {
 
                 seat.save();
                 vote.remove()
-                retVal = {pageType : "Feed"};
-                res.json(retVal);
-                res.send('Your Vote has been registered.')
+                res.send('Your Vote has been verified.')
 
             })
 
