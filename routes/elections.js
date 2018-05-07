@@ -103,10 +103,6 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
     Seat.findOne({_id:req.body.seatId})
     .then(seat => {
         seat.results.forEach((element,index) => {
-            console.log('req');
-            console.log(req.body.candidateId);
-            console.log('element');            
-            console.log(element.candidateIdentifier);
             
             if (element.candidateIdentifier === req.body.candidateId) {
                 console.log('hello')
@@ -115,7 +111,6 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
         });
 
         seat.save();
-        console.log(seat.results);
         retVal = {pageType : "Feed"};
         res.json(retVal);
     })
