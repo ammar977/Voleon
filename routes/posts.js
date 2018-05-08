@@ -39,20 +39,27 @@ router.get('/:username', ensureAuthenticated,(req,res) => {
 
 router.post('/new', ensureAuthenticated,(req,res) => {
 
+    let errors = [];
+
     if (req.user.securityLevel === 0) {
-        retval = {error:"User has no posting rights"}
+        errors.push({text:"User does not have posting privilege"});
+        retval = {pageType:'Feed', err:errors}
         res.json(retval)
+
+    } else {
+        t = new Date();
+        newPost = new Post({
+            posterId:req.user._id,
+            posterName: req.user.firstName + req.user.lastName ,
+            textContent:req.body.textContent,
+            timeStamp:t
+        })
+        
+        newPost.save();
+        res.redirect('/post/')
     }
 
-    newPost = new Post({
-        posterId:req.user._id,
-        textContent:req.body.textContent,
-        timeStamp:Date.now()
-    })
     
-    newPost.save()
-    res.redirect('/post/')
-
 })
 
 module.exports =  router;
