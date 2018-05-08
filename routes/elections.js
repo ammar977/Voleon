@@ -22,22 +22,31 @@ smtpTransport = nodemailer.createTransport({
 });
 
 router.post('/new',ensureAuthenticated,(req,res) => {
-    console.log('in new election');
-    console.log(req.body);
+
+    temp = new Date(req.body.pollingDate)
+    str = temp.toLocaleString()
+    t = new Date(str);
+    h = Number(req.body.pollingStartTime.substr(0,2))
+    m = Number(req.body.pollingStartTime.substr(3,2))
+    tempDate = new Date(t.getFullYear(),t.getMonth(),t.getDate(),h,m,0,0)
+    h1 = Number(req.body.pollingEndTime.substr(0,2))
+    m1 = Number(req.body.pollingEndTime.substr(3,2))
+    tempDate1 = new Date(t.getFullYear(),t.getMonth(),t.getDate(),h1,m1,0,0)
+    
     const newSeat = new Seat({
         electionId:req.body.electionId + '-' + '1',
         date: req.body.pollingDate,
         applicationEndDate: req.body.applicationDeadline,
-        pollingStartTime:req.body.pollingStartTime,
-        pollingEndTime:req.body.pollingEndTime
+        pollingStartTime:tempDate,
+        pollingEndTime:tempDate1
     });
 
     const newSeat2 = new Seat({
         electionId:req.body.electionId + '-' + '2',
         date: req.body.pollingDate,
         applicationEndDate: req.body.applicationDeadline,
-        pollingStartTime:req.body.pollingStartTime,
-        pollingEndTime:req.body.pollingEndTime
+        pollingStartTime:tempDate,
+        pollingEndTime:tempDate1
     });
 
 
@@ -45,15 +54,15 @@ router.post('/new',ensureAuthenticated,(req,res) => {
         electionId:req.body.electionId + '-' + '3',
         date: req.body.pollingDate,
         applicationEndDate: req.body.applicationDeadline,
-        pollingStartTime:req.body.pollingStartTime,
-        pollingEndTime:req.body.pollingEndTime
+        pollingStartTime:tempDate,
+        pollingEndTime:tempDate1
     });
 
     newSeat.save();
     newSeat2.save(); 
     newSeat3.save();
 
-    res.json({pageType:'ElectionCreation'});
+    res.redirect('/election/');
 })
 
 router.get('/',ensureAuthenticated,(req,res) => {
@@ -179,12 +188,14 @@ router.get('/vote/verify/:str',(req,res) => {
             .then(seat => {
 
                 t = new Date();
-                if (t.getUTCDate()!==seat.date.getUTCDate()) {
-                    console.log(t.getUTCDate())
+                sec = t.getTime();
+
+                if (!(sec > seat.pollingStartTime.getTime() && sec < seat.pollingEndTime.getTime() )) {
+                    console.log(t.getTime())
                     console.log('seat date')
-                    console.log(seat.date.getUTCDate())
+                    console.log(seat.date.getTime())
                     vote.remove()
-                    res.send('Polling Time has Passed. Your vote has not been cast.')
+                    res.send('Your vote has not been cast. Not in Polling Time')
                 
                 } else {
                     seat.results.forEach((element,index) => {
