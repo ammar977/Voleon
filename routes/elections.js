@@ -122,11 +122,14 @@ router.get('/result/:electionId', ensureAuthenticated, (req,res) => {
 
 router.post('/vote',ensureAuthenticated,(req,res) => {
 
+    let errors = []
+
     User.findOne({lumsId:req.user.lumsId})
     .then(user => {
         // If user has already voted
         if (user.voteStatus === 'Y') {
-            retVal = {pageType:'Feed',error:"User has already voted."}
+            errors.push({text:"User has already voted."})
+            retVal = {pageType:'Feed',err:errors}
             res.json(retVal)
         
         } else {
@@ -136,7 +139,8 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
             .then(vote => {
 
                 if (vote){
-                    retVal = {pageType : "Feed", error : "Vote already cast but not verified"};
+                    errors.push({text:"Vote already cast but not verified"})
+                    retVal = {pageType : "Feed", err : errors};
                     res.json(retVal);
                 } else {
 
@@ -167,7 +171,7 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
                         }
                     });
 
-                    retVal = {pageType : "Feed",error:""};
+                    retVal = {pageType : "Feed",err:errors};
                     res.json(retVal);
                 }
 
