@@ -32,6 +32,10 @@ class ProfilePage extends Component {
                         <figcaption> <b>{this.props.logged.profile.user.firstName} {this.props.logged.profile.user.lastName}</b></figcaption>
                     </figure>   
 
+                    <div className="user_post-container">
+                        {user_post}
+                    </div>
+
                     <div className="row">
                         <div className="col s16 m4">
                             <div className="card-panel blue lighten-4 black-text">
