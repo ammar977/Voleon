@@ -113,66 +113,63 @@ router.get('/result/:electionId', ensureAuthenticated, (req,res) => {
 
 router.post('/vote',ensureAuthenticated,(req,res) => {
 
-    // If tempvote of this user already exists then 
-    TempVote.findOne({lumsId:req.user.lumsId,seatId:req.body.seatId})
-    .then(vote => {
+    User.findOne({lumsId:req.user.lumsId})
+    .then(user => {
+        // If user has already voted
+        if (user.voteStatus === 'Y') {
+            retVal = {pageType:'Feed',error:"User has already voted."}
+            res.json(retVal)
+        
+        } else {
 
-        if (vote){
-            retVal = {pageType : "Feed", error : "Vote already ast but not verified"};
-            res.json(retVal);
-        }
-    
-        str = randomstring.generate()
-        const newVote = new TempVote({
-            lumsId:req.user.lumsId,
-            seatId:req.body.seatId,
-            candidateId:req.body.candidateId,
-            url:str
-        })
-        newVote.save()
+            // If tempvote of this user already exists then 
+            TempVote.findOne({lumsId:req.user.lumsId,seatId:req.body.seatId})
+            .then(vote => {
 
-        link="http://"+req.get('host')+ "/election/vote/verify/" + str 
+                if (vote){
+                    retVal = {pageType : "Feed", error : "Vote already cast but not verified"};
+                    res.json(retVal);
+                } else {
 
-        mailOptions={
-            to : req.user.email,
-            subject : "Please confirm your Vote",
-            html : "Hello,<br> Please Click on the link to verify your vote.<br> <a href="+link+">Click here to verify</a>" 
-        }
+                    str = randomstring.generate()
+                    const newVote = new TempVote({
+                        lumsId:req.user.lumsId,
+                        seatId:req.body.seatId,
+                        candidateId:req.body.candidateId,
+                        url:str
+                    })
+                    newVote.save()
 
-        smtpTransport.sendMail(mailOptions, function(error, response){
-            if(error){
-                console.log(error);
-                res.end("error");
-            }else{
-                console.log("Message sent: " + response.message);
-                res.end("sent");
-            }
-        });
+                    link="http://"+req.get('host')+ "/election/vote/verify/" + str 
 
-        retVal = {pageType : "Feed",error:""};
-        res.json(retVal);
+                    mailOptions={
+                        to : req.user.email,
+                        subject : "Please confirm your Vote",
+                        html : "Hello,<br> Please Click on the link to verify your vote.<br> <a href="+link+">Click here to verify</a>" 
+                    }
+
+                    smtpTransport.sendMail(mailOptions, function(error, response){
+                        if(error){
+                            console.log(error);
+                            // res.end("error");
+                        }else{
+                            console.log("Message sent: " + response.message);
+                            // res.end("sent");
+                        }
+                    });
+
+                    retVal = {pageType : "Feed",error:""};
+                    res.json(retVal);
+                }
+
+            })
+        }  
 
     })
-
-    
-    // Seat.findOne({_id:req.body.seatId})
-    // .then(seat => {
-    //     seat.results.forEach((element,index) => {
-            
-    //         if (element.candidateIdentifier === req.body.candidateId) {
-    //             console.log('hello')
-    //             element.count = element.count + 1;
-    //         }
-    //     });
-
-    //     seat.save();
-    //     retVal = {pageType : "Feed"};
-    //     res.json(retVal);
-    // })
 })
 
 
-router.get('/vote/verify/:str',ensureAuthenticated,(req,res) => {
+router.get('/vote/verify/:str',(req,res) => {
 
     TempVote.findOne({url: req.params.str })
     .then(vote => {
@@ -181,23 +178,38 @@ router.get('/vote/verify/:str',ensureAuthenticated,(req,res) => {
             Seat.findOne({_id:vote.seatId})
             .then(seat => {
 
-                t = Date.now();
-                if (!(t > seat.pollingStartTime && t <= seat.pollingEndTime)) {
-                    res.send('Polling Time has Passed. Your vote has not been cast.')
+                t = new Date();
+                if (t.getUTCDate()!==seat.date.getUTCDate()) {
+                    console.log(t.getUTCDate())
+                    console.log('seat date')
+                    console.log(seat.date.getUTCDate())
                     vote.remove()
-                }
-
-                seat.results.forEach((element,index) => {
+                    res.send('Polling Time has Passed. Your vote has not been cast.')
+                
+                } else {
+                    seat.results.forEach((element,index) => {
                     
-                    if (element.candidateIdentifier === vote.candidateId) {
-                        console.log('hello')
-                        element.count = element.count + 1;
-                    }
-                });
-
-                seat.save();
-                vote.remove()
-                res.send('Your Vote has been verified.')
+                        if (element.candidateIdentifier === vote.candidateId) {
+                            console.log('hello')
+                            element.count = element.count + 1;
+                        }
+                    });
+    
+                    // Change user's vote status
+                    User.findOne({lumsId:vote.lumsId})
+                    .then(user => {
+    
+                        if (user.voteStatus === 'N') {
+                            user.voteStatus = 'I'
+                        } else if (user.voteStatus === 'I') {
+                            user.voteStatus = 'Y'
+                        }
+                        user.save()
+                        seat.save();
+                        vote.remove()
+                        res.send('Your Vote has been verified.')
+                    })
+                }
 
             })
 
