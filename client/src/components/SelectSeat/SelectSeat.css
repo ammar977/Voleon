@@ -1,3 +1,25 @@
 .Heading{
 	margin: auto;
 }
+
+.collection .collection-item {
+	padding: 20px 20px;
+}
+
+.collection .collection-item.avatar {
+	line-height: 42px;
+	cursor: pointer;
+}
+
+.collection .collection-item.avatar:hover {
+    background-color: #e3f2fd; 
+}
+
+.collection a.collection-item {
+	color: black; 
+
+}
+
+.collection .collection-item.avatar i.circle {
+	margin-left: 0;
+} 
