@@ -228,6 +228,7 @@ router.get('/logout',(req,res)=> {
 
 
 router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
+
     User.findOne({_id:req.params.userid})
     .then(userObj => {
         userObj.passHash = undefined;
@@ -245,5 +246,30 @@ router.get('/profile/:userid',ensureAuthenticated,(req,res) => {
         
     });
 });
+
+
+router.get('/myprofile',ensureAuthenticated,(req,res) => {
+
+    User.findOne({_id:req.user._id})
+    .then(userObj => {
+        userObj.passHash = undefined;
+        userObj.postIds = undefined;
+        Post.find({posterId: req.user._id})
+        .then(posts_list => {
+
+            retval = {
+                pageType:'MyProfile',
+                profile: {
+                    user : userObj,
+                    posts: posts_list
+                }
+            };
+
+            res.json(retval);
+        });
+        
+    });
+});
+
 
 module.exports = router;

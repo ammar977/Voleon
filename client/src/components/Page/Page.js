@@ -5,6 +5,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import FeedPage from '../FeedPage/FeedPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import MyProfilePage from '../MyProfilePage/MyProfilePage';
 import ElectionsListPage from '../ElectionsListPage/ElectionsListPage';
 import ElectionsArchivePage from '../ElectionsArchivePage/ElectionsArchivePage';
 import ApplicationPage from '../ApplicationPage/ApplicationPage';
@@ -40,6 +41,9 @@ class Page extends Component {
                 break;
             case 'Profile':
                 pageElement = <ProfilePage/>;
+                break;
+            case 'MyProfile':
+                pageElement = <MyProfilePage/>;
                 break;
             case 'ElectionsList':
                 pageElement = <ElectionsListPage/>;
