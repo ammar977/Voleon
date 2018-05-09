@@ -14,6 +14,7 @@
 }
 
 .CandidatesList_container .collection .collection-item.avatar {
+    cursor: pointer;
     line-height: 42px;
     padding-left: 72px;
 }
