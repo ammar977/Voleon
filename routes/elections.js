@@ -195,9 +195,7 @@ router.get('/vote/verify/:str',(req,res) => {
                 sec = t.getTime();
 
                 if (!(sec > seat.pollingStartTime.getTime() && sec < seat.pollingEndTime.getTime() )) {
-                    console.log(t.getTime())
-                    console.log('seat date')
-                    console.log(seat.date.getTime())
+
                     vote.remove()
                     res.send('Your vote has not been cast. Not in Polling Time')
                 
@@ -205,7 +203,6 @@ router.get('/vote/verify/:str',(req,res) => {
                     seat.results.forEach((element,index) => {
                     
                         if (element.candidateIdentifier === vote.candidateId) {
-                            console.log('hello')
                             element.count = element.count + 1;
                         }
                     });
