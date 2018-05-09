@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {Card, Col, Icon,Button} from 'react-materialize';
 import './CandidatesList.css';
 import {changePage, getCandidateProfiles} from '../../store/actions/form'
+import picture from '../../picture.jpg';
 
 
 class CandidatesList extends Component{
@@ -33,16 +34,15 @@ class CandidatesList extends Component{
 
         let profilesList = (this.props.logged.candidateProfiles === undefined) ? [] : this.props.logged.candidateProfiles;
 		return (
-			<div>
+			<div className='CandidatesList_container'>
 				<ul className="collection">
                     
                     {
                         profilesList.map(candidate => {
-                            return <li className="collection-item avatar" key={candidate.user._id} >
-                                <div className="CandidateBlock" onClick={(e) => this.gotoPage('Profile', candidate)}>
-                                    <a href="#" className="CandidatesEntry">{candidate.user.firstName} {candidate.user.lastName}</a>
-                                </div>
-                            </li>
+                            return <li className="collection-item avatar" key={candidate.user._id} onClick={(e) => this.gotoPage('Profile', candidate)} >
+                                    <img src={picture}  class = "circle" id="img"/>
+                                    <span className="title">{candidate.user.firstName} {candidate.user.lastName}</span>
+                                    </li>       
                         })
                     }
 				</ul>	

@@ -27,32 +27,23 @@ class ImportantDates extends Component{
         // INDEXES OF 'dates' ARRAY COME FROM 'ElectionDashboardPage'
 		return (
 			<div >
-				<ul>
-				    <li className = "ImportantDates-container" >
-					    Application Deadline: {this.props.dates[1]}
+				<ul className="collection">
+				    <li className = "collection-item avatar" id="App-deadline" >
+                        <i className="small material-icons circle">event</i>
+                        <span className="title">Application Deadline: {this.props.dates[1]}</span>
 					</li>
-
-				    <br/>
-
-					<li className = "ImportantDates-container" >
-					    Polling Date: {this.props.dates[0]}
+					<li className = "collection-item avatar" id="polling-date" >
+                        <i className="small material-icons circle">event</i>
+                        <span className="title">Polling Date: {this.props.dates[0]}</span>
 					</li>
-
-						<br/>
-					<li className = "ImportantDates-container" >
-					    Polling Time: 9AM to 5PM
+					<li className = "collection-item avatar" id="polling-time" >
+					    <i className="small material-icons circle">access_time</i>
+                        <span className="title">Polling Time: 9AM to 5PM</span>
 					</li>
-
-					<br/>
-					<li className = "ImportantDates-container" >
-					    Results Day: 22/04/18
+					<li className = "collection-item avatar" id="results-day" >
+					    <i className="small material-icons circle">event</i>
+                        <span className="title">Results Day: 22/9/2018</span>
 					</li>
-
-					<br/>
-					<li className = "ImportantDates-container" >
-					    Oath Taking 23/04/18
-					</li>
-
 			    </ul>
                 
 

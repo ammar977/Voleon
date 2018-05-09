@@ -3,3 +3,18 @@
 	color:  #4d4d4d;
 	margin-left: 20px;
 }
+/*.material-icons {
+    margin-left: 0;
+}
+*/
+.collection .collection-item.avatar i.circle {
+    margin-left: 0;
+    background-color: transparent;
+} 
+.collection .collection-item {
+    padding: 20px 20px;
+}
+
+.collection .collection-item.avatar {
+    line-height: 42px;
+}
