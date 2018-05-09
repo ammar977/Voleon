@@ -16,9 +16,9 @@
 ul.dropdown-content.select-dropdown li span {
     color: #64b5f6; /* blue lighten 2 */
 }
-input[type=Time]:focus{
-    border-bottom: 1px solid #42a5f5;
-} 
+/*input[type=Time]:focus{
+    border-bottom: 1px solid red;
+} */
 
 
 .picker__date-display {
