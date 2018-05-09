@@ -93,12 +93,12 @@ router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
             user.passHash = undefined;
             if (posts_list.length === 0) {
 
-                retval = {success: true, loginerr: false, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+                retval = {success: true, loginerr: false, err: [], userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
                 res.json(retval);
                 
             }
     
-            retval = {success: true, loginerr: false, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list.reverse()};
+            retval = {success: true, loginerr: false, err: [], userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list.reverse()};
             res.json(retval);
         })
         

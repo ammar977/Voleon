@@ -19,6 +19,12 @@ class FeedPage extends Component {
         return (
             <div className='feedPage_container'>
 				<Navbar/>
+
+                {
+                    (this.props.logged.err) ? 
+                        this.props.logged.err.map((errObj => window.Materialize.toast(errObj.text, 3000)))
+                        : ''
+                }
 				
 				<div className="page_contents">
                     {(this.props.logged.userType !== '0') ? <CardContainer cardType="New Post"/> : ''}

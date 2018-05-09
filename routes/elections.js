@@ -170,8 +170,9 @@ router.post('/vote',ensureAuthenticated,(req,res) => {
                             // res.end("sent");
                         }
                     });
-
-                    retVal = {pageType : "Feed",err:errors};
+                    
+                    errors.push({text: 'Verify this vote through your email.'})
+                    retVal = {pageType: "Feed", err: errors};
                     res.json(retVal);
                 }
 
