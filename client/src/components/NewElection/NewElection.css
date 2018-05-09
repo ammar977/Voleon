@@ -13,4 +13,20 @@
     line-height: 150%;
     font-size: .85em;
 }
+ul.dropdown-content.select-dropdown li span {
+    color: #64b5f6; /* blue lighten 2 */
+}
+input[type=Time]:focus{
+    border-bottom: 1px solid #42a5f5;
+} 
 
+
+.picker__date-display {
+  background-color:#42a5f5; /*blue-lighten 1 */
+}
+.picker__weekday-display {
+  background-color:#42a5f5;
+}
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color:#42a5f5;
+}
