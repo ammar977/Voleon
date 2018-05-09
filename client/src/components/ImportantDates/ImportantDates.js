@@ -25,6 +25,10 @@ class ImportantDates extends Component{
 	render(){
         console.log('in imp dates', this.props);
         // INDEXES OF 'dates' ARRAY COME FROM 'ElectionDashboardPage'
+        
+        let current_date = new Date();
+        let isPollingTimePassed = current_date >= this.props.dates[3].getTime();
+
 		return (
 			<div >
 				<ul>
@@ -53,10 +57,11 @@ class ImportantDates extends Component{
 					    Oath Taking 23/04/18
 					</li>
 
-			    </ul>
+			    </ul> 
                 
 
-			    {(this.props.logged.userType !== '2') ? <div className='form__submit-btn-wrapper'>
+			    {
+                    (this.props.logged.userType !== '2' && !isPollingTimePassed) ? <div className='form__submit-btn-wrapper'>
                                     <Button className='blue lighten-1' waves='light' onClick={(e) => this.gotoPage('ElectionVoting', {})}>Vote Now</Button>
                                 </div> : ''}
                 {(this.props.logged.userType === '2') ? <div className='form__submit-btn-wrapper'>

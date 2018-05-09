@@ -14,6 +14,11 @@ class ElectionsListPage extends Component {
 
     render() {
         console.log('in electionslist page', this.props);
+    
+        let current_date = new Date();
+        let deadline = new Date(this.props.logged.electionSeats[0].applicationEndDate);
+        let isDeadlinePassed = current_date >= deadline.getTime();
+
         return (
             <div className='electionsListPage_container'>
                 <Navbar/>
@@ -27,9 +32,9 @@ class ElectionsListPage extends Component {
                     {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
                          <CardContainer cardType="One Button" cardText="Archive"/>
                     </div> : ''}
-                    {(this.props.logged.userType === '0') ? <div className='oneButtonContainer'>
-                                             <CardContainer cardType="One Button" cardText="Application"/>
-                                        </div> :''}
+                    {(this.props.logged.userType === '0' && !isDeadlinePassed) ? <div className='oneButtonContainer'>
+                         <CardContainer cardType="One Button" cardText="Application"/>
+                    </div> :''}
                 </div>
             </div>
         );
