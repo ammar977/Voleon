@@ -31,8 +31,8 @@ class SelectSeat extends Component{
                 {
                     this.props.logged.electionSeats.map(seat => {
                         return <li className="collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard', seat)} key={seat._id}>
-                               <i class="material-icons circle">chevron_right</i>
-                               <span class="title">{seat.electionId}</span>
+                               <i className="material-icons circle">chevron_right</i>
+                               <span className="title">{seat.electionId}</span>
                                </li>
                         })
                 }

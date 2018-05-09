@@ -2,24 +2,26 @@
 	margin: auto;
 }
 
-.collection .collection-item {
+.electionsListPage_container .collection .collection-item {
 	padding: 20px 20px;
 }
 
-.collection .collection-item.avatar {
+.electionsListPage_container .collection .collection-item.avatar {
 	line-height: 42px;
 	cursor: pointer;
+    padding-left: 72px;
 }
 
-.collection .collection-item.avatar:hover {
+.electionsListPage_container .collection .collection-item.avatar:hover {
     background-color: #e3f2fd; 
 }
 
-.collection a.collection-item {
+.electionsListPage_container .collection a.collection-item {
 	color: black; 
 
 }
 
-.collection .collection-item.avatar i.circle {
+.electionsListPage_container .collection .collection-item.avatar i.circle {
 	margin-left: 0;
+    background-color: transparent;
 } 
