@@ -15,11 +15,16 @@
 
 #profile-image {
 	border-radius: 50%;
-	height: 55px;
-	width: 55px;
+	height: 60px;
+	width: 60px;
+    margin-left: 12px;
+    margin-top: 15px;
 }
 .post-content {
 	display: inline-block;
+    width: 600px;
+    height: 70px;
+    margin-left: 70px; 
 }
 
 .Post-button{
@@ -36,26 +41,19 @@
 	bottom: 0;
 	right: 0;
 	float: right;
-	margin-right: 10px; 
+	margin-right: -10px; 
+    margin-top: -14px;
 
 }
+#form { 
+    vertical-align: middle;
 
-#camera {
-	margin-left: 295px; 
-	width: 5px;
-	height:5px;
-	margin-top: 18px;
-	
+}
+.form-wrap {
+    margin-top: -20px;
 }
 
-#file-input {
-  	width:1px;
-  	height:1px;
-  	position:absolute;
-  	margin-left: 300px; 
-  /*	margin-top: 5px;*/
-  	visibility: hidden;
-}
+
 
 .material-icons {
 	margin-left: 295px; 
@@ -64,12 +62,33 @@
 	
 }
 
-
-
-#text{
+#post_text{
 	border: solid 5px #e0e0e0;
 	resize: none;
-	font-size: 25px;
-	width: 650px;
-	height: 80px;
+	font-size: 20px;
+	width: 600px;
+	height: 70px;
+    margin-left: 20px; 
+    margin-bottom: 50px;
+
+}
+#post_text:focus {
+    outline: none;
+}
+
+#camera {
+    margin-left: 295px; 
+    width: 5px;
+    height:5px;
+    margin-top: 18px;
+    
+}
+
+#file-input {
+    width:1px;
+    height:1px;
+    position:absolute;
+    margin-left: 300px; 
+  /*    margin-top: 5px;*/
+    visibility: hidden;
 }
