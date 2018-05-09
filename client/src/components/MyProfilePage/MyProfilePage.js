@@ -47,10 +47,6 @@ class ProfilePage extends Component {
                         </div>
                     </div>  
                      
-                    <div className="user-post">
-                        {user_post}
-                    </div> 
-
                 </div>
             </div>
         );
