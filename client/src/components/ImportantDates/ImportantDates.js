@@ -29,18 +29,18 @@ class ImportantDates extends Component{
 			<div >
 				<ul>
 				    <li className = "ImportantDates-container" >
-					    Application Deadline: {this.props.dates[1]}
+					    Application Deadline: {this.props.dates[1].toDateString()}
 					</li>
 
 				    <br/>
 
 					<li className = "ImportantDates-container" >
-					    Polling Date: {this.props.dates[0]}
+					    Polling Date: {this.props.dates[0].toDateString()}
 					</li>
 
 						<br/>
 					<li className = "ImportantDates-container" >
-					    Polling Time: 9AM to 5PM
+					    Polling Time: {this.props.dates[2].toTimeString()} to {this.props.dates[3].toTimeString()}
 					</li>
 
 					<br/>

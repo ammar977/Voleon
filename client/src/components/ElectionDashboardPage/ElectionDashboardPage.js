@@ -27,8 +27,10 @@ class ElectionDashboardPage extends Component {
         console.log('in dashboard page', this.props);
         let datesList = [
             this.props.logged.passedArgs.date, 
-            this.props.logged.passedArgs.applicationEndDate
-        ];
+            this.props.logged.passedArgs.applicationEndDate,
+            this.props.logged.passedArgs.pollingStartTime,
+            this.props.logged.passedArgs.pollingEndTime,
+        ].map(date => new Date(date));
 
         return (
             <div className='electionDashboardPage_container'>
