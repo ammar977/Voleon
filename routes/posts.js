@@ -62,4 +62,22 @@ router.post('/new', ensureAuthenticated,(req,res) => {
     
 })
 
+
+router.get('/delete/:postId',ensureAuthenticated,(req,res) => {
+
+    errors = []
+    if (req.user.securityLevel !== 2) {
+        errors.push({text:"You dont have delete privileges."})
+        retval = {err:errors}
+        res.json(retval)
+    } else {
+        Post.findOne({_id:req.params.postId})
+        .then(post => {
+            post.remove()
+            res.redirect('/post/')
+        })
+    }
+})
+
+
 module.exports =  router;
