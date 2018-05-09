@@ -25,14 +25,30 @@ class SelectSeat extends Component{
   
     render(){
         console.log('in select seat', this.props);
+
         return (
             <div className='Selectseat_container'>
                 <ul className="collection">
                 {
                     this.props.logged.electionSeats.map(seat => {
+                        let seatInfo = seat.electionId.split('-');
+                        let seatTitle = 'Batch of 20' + seatInfo[0] + ' - ';
+                        
+                        switch(seatInfo[1]) {
+                            case '1':
+                                seatTitle += 'SSE Seat';
+                                break;
+                            case '2':
+                                seatTitle += 'General Seat';
+                                break;
+                            case '3':
+                                seatTitle += 'Reserved Female Seat';
+                                break;
+                        }
+
                         return <li className="collection-item avatar" onClick={(e) => this.gotoPage('ElectionDashboard', seat)} key={seat._id}>
                                <i className="material-icons circle">chevron_right</i>
-                               <span className="title">{seat.electionId}</span>
+                               <span className="title">{seatTitle}</span>
                                </li>
                         })
                 }
