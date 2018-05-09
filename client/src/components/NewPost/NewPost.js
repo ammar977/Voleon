@@ -39,8 +39,8 @@ class NewPost extends Component {
                 <div className="card-image">
                         <img src={picture} alt="profile-image" id="profile-image"/>
                  </div>
-                
-                <form onSubmit={this.sendPost.bind(this)}>
+                <div className="form-wrap">
+                <form onSubmit={this.sendPost.bind(this)} id="form">
                     <div className="post-content">
                         <textarea id="post_text" placeholder="What's on your mind?"></textarea> 
                     </div>
@@ -49,14 +49,8 @@ class NewPost extends Component {
                             <span className="">Post</span>
                         </button>
                     </div>
-                    <div id="camera">
-                        <label htmlFor="file-input">
-                            <i className="material-icons blue-text text-lighten-3">&#xe439;</i>
-                        </label>
-                        <input accept="image/*" id="file-input" type="file"></input>
-                    </div>
                 </form>
-             
+                </div>
            </div>
         );
     }
