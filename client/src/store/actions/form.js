@@ -1,4 +1,4 @@
-import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS, VOTE_CAST, NEW_POST} from './constants';
+import {LOGIN_TEST, VIEW_CHANGE, SIGNUP, NEW_ELECTION, CHANGE_NAVBAR_PAGE, ADD_CANDIDATE_PROFILES, GET_RESULTS, VOTE_CAST, NEW_POST, DEL_POST} from './constants';
 
 export const sendUser = (user) => dispatch => {
     return fetch('/user/login', {
@@ -101,4 +101,14 @@ export const sendNewPost = (newPost) => dispatch => {
     })
     .then(res => res.json())
     .then(res => dispatch({type: NEW_POST, payload: res}));
+}
+
+export const deletePost = (postid) => dispatch => {
+    console.log('in deletePost action');
+    return fetch(`/post/delete/${postid}`, {
+        method: 'GET',
+        credentials:'include'
+    })
+    .then(res => res.json())
+    .then(response => dispatch({type: DEL_POST, payload: response}));
 }

@@ -7,14 +7,19 @@ import picture2 from '../../picture2.jpg';
 import NewcommentForm from '../NewcommentForm/NewcommentForm'
 import CardContainer from '../Card/card';
 import './PostComment.css';
+import {deletePost} from '../../store/actions/form'
 
 
 class PostComment extends Component {
 
     static propTypes = {
+        deletePost: PropTypes.func.isRequired,
         logged: PropTypes.object,
     }
 
+    delPost(postid) {
+        this.props.deletePost(postid);
+    }
 
        // onClick(e) {
        //     this.setState({
@@ -37,7 +42,9 @@ class PostComment extends Component {
                                                                                 })}
                     </p>
                 </div>
-            
+
+                {(this.props.logged.userType === '2') ? <a className="link" href="#" onClick={this.delPost.bind(this, this.props.post._id)}><i className="material-icons blue-text text-lighten-4">delete</i></a> : ''}
+                
                 <div className= 'post'>
                     <p id="post-text"> {this.props.post.textContent} </p>
                 </div>
@@ -47,7 +54,7 @@ class PostComment extends Component {
 
                 <NewcommentForm/>
                 <div className="comment-link">
-                    <a className="link" href="https://github.com/ammar977/Voleon"><u>View all comments</u></a>
+                    <a className="link" href="#"><u>View all comments</u></a>
                 </div>
 
             </div>
@@ -59,7 +66,9 @@ const mapStateToProps = (state) => ({
     logged: state.logged
 })
 
-const dispatchToProps = (dispatch) => ({})
+const dispatchToProps = (dispatch) => ({
+    deletePost: (postid) => dispatch(deletePost(postid)),
+})
 
 export default connect(mapStateToProps, dispatchToProps)(PostComment);
 
