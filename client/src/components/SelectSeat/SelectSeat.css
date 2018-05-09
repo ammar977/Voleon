@@ -1,3 +1,27 @@
 .Heading{
 	margin: auto;
 }
+
+.electionsListPage_container .collection .collection-item {
+	padding: 20px 20px;
+}
+
+.electionsListPage_container .collection .collection-item.avatar {
+	line-height: 42px;
+	cursor: pointer;
+    padding-left: 72px;
+}
+
+.electionsListPage_container .collection .collection-item.avatar:hover {
+    background-color: #e3f2fd; 
+}
+
+.electionsListPage_container .collection a.collection-item {
+	color: black; 
+
+}
+
+.electionsListPage_container .collection .collection-item.avatar i.circle {
+	margin-left: 0;
+    background-color: transparent;
+} 

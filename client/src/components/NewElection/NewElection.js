@@ -33,10 +33,10 @@ class NewElection extends Component {
 					<div className="formRow">
 						<div className='form__field-wrapper left_child'>
 						  <label className="heading-field" htmlFor='batch'>
-	                           Batch
+	                        	Batch
 	                       </label>
-						  <Input type='select' defaultValue='2' id = 'batch'>
-						    <option value='18'>2018</option>
+						  <Input type='select' defaultValue='2' id = 'batch' className= "dropdown lighten-4 black-text">
+						    <option value='18' className= "dropdown lighten-4 black-text">2018</option>
 						    <option value='19'>2019</option>
 						    <option value='20'>2020</option>
 						    <option value='21'>2021</option>
@@ -48,51 +48,47 @@ class NewElection extends Component {
 					<div className="formRow">
 						<div className='form__field-wrapper left_child'>
 						<label className="heading-field" htmlFor='gender'>
-	                          Application Deadline
-	                       </label>
-							<Input name='on' type='date' id = 'applicationDeadline' onChange={function(e, value) {}} />
+	                    	Application Deadline
+	                    </label>
+						<Input name='on' type='date' id = 'applicationDeadline' onChange={function(e, value) {}} />
 				      	</div>	
-				      	</div>
+				    </div>
 					
 
-						<div className="formRow">
+					<div className="formRow">
 						<div className='form__field-wrapper left_child'>
 						<label className="heading-field" htmlFor='gender'>
-	                         Polling Date
-	                       </label>
-					 		 <Input name='on' type='date' id = 'pollingDate' onChange={function(e, value) {}} />
+	                    	Polling Date
+	                    </label>
+					    <Input name='on' type='date' id = 'pollingDate' onChange={function(e, value) {}} />
 					    </div>
 					</div>
 
 					<div className="formRow">
 		                <div className='form__field-wrapper left_child'>
 		                <label className="heading-field" htmlFor='gender'>
-		                        Polling Start Time
-		                       </label>
-						  <Input name='on' type='Time' id = 'pollingStartTime' onChange={function(e, value) {}} />
-						</div >
+		                	Polling Start Time
+		                </label>
+						<Input name='on' type='Time' id = 'pollingStartTime' onChange={function(e, value) {}} />
 						</div>
+					</div>
 
-						<div className="formRow">
-							<div className='form__field-wrapper left_child'>
-			                <label className="heading-field" htmlFor='gender'>
-			                        Polling End Time
-			                       </label>
-							  <Input name='on' type='Time' id = 'pollingEndTime' onChange={function(e, value) {}} />
-							</div >
+					<div className="formRow">
+						<div className='form__field-wrapper left_child'>
+			            <label className="heading-field" htmlFor='gender'>
+			            	Polling End Time
+			            </label>
+					    <Input name='on' type='Time' id = 'pollingEndTime' onChange={function(e, value) {}} />
+						</div>
 					</div>
 
 
-					 <div className='form__submit-btn-wrapper'>
-	                            <Button className='blue lighten-1' waves='light'>Login</Button>
-	                 </div>
-	            </form>     
-
-				
-
-
-			</div>
-			)
+					<div className='form__submit-btn-wrapper'>
+	                	<Button className='blue lighten-1' waves='light'>Create</Button>
+	                </div>
+	            </form>    
+			 </div>
+		)
 	}
 }
 

@@ -76,3 +76,8 @@
     color: #f44336; /*red*/
     font-size: 12px;
 }
+
+/*input[type=password]:focus{
+    border-bottom: 1px solid #42a5f5;
+} */
+
