@@ -17,15 +17,20 @@ class NewPost extends Component {
 
     sendPost(e) {
         e.preventDefault();
-        console.log(e.target.post_text.value);
+
+        let post_text = e.target.post_text.value.trim();
+        console.log(post_text);
 
         const newPost = {
-            textContent: e.target.post_text.value,
+            textContent: post_text,
         };
 
-        e.target.post_text.value = ''
-        
-        this.props.sendNewPost(newPost);
+        if (post_text !== '') {
+            e.target.post_text.value = ''
+            this.props.sendNewPost(newPost);
+        } else {
+            console.log('empty post');
+        }
     }
 
     render() {
