@@ -16,8 +16,8 @@ class ElectionsListPage extends Component {
         console.log('in electionslist page', this.props);
     
         let current_date = new Date();
-        let deadline = new Date(this.props.logged.electionSeats[0].applicationEndDate);
-        let isDeadlinePassed = current_date >= deadline.getTime();
+        let deadline = new Date(this.props.logged.electionSeats[1].applicationEndDate);
+        let isDeadlinePassed = current_date.getTime() >= deadline.getTime();
 
         return (
             <div className='electionsListPage_container'>
