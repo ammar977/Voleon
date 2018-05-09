@@ -11,7 +11,9 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Ammar Ahmed, Rabeez Riaz, Taha bin Amir, Kinza Habib, Tooba Mukhtar",
-  "devDependencies": {},
+  "devDependencies": {
+    "randomstring": "^1.1.5"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
@@ -24,9 +26,11 @@
     "express-session": "^1.15.6",
     "gridfs-stream": "^1.1.1",
     "mongoose": "5.0.12",
+    "nodemailer": "^4.6.4",
     "nodemon": "^1.14.7",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "randomstring": "^1.1.5",
     "redux-file-upload": "0.0.19"
   }
 }

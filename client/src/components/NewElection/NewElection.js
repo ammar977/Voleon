@@ -14,7 +14,7 @@ class NewElection extends Component {
 
 	createElectionHandler(e) {
 		e.preventDefault();
-		console.log(e.target.batch.value);
+		console.log(e.target.pollingStartTime.value);
 		const seat = {
 			electionId : e.target.batch.value,
 			pollingDate: e.target.pollingDate.value,

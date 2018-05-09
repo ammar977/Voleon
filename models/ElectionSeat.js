@@ -30,11 +30,11 @@ electionSeatSchema = new Schema({
         type: Date
     },
 
-    pollingStartTimestamp:{  
+    pollingStartTime:{  
         type: Date 
     },
 
-    pollingEndTimestamp:{ 
+    pollingEndTime:{ 
         type: Date
     },
 
