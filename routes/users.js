@@ -49,7 +49,7 @@ router.get('/loginfalse',(req,res) => {
 
     console.log('unsuccessful');
     // send false to client
-    retval = {success: false};
+    retval = {success: false, loginerr: true};
     res.json(retval);
 });
 
@@ -93,12 +93,12 @@ router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
             user.passHash = undefined;
             if (posts_list.length === 0) {
 
-                retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
+                retval = {success: true, loginerr: false, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts : []};
                 res.json(retval);
                 
             }
     
-            retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list.reverse()};
+            retval = {success: true, loginerr: false, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list.reverse()};
             res.json(retval);
         })
         
@@ -221,7 +221,7 @@ router.get('/verify:URL',(req,res) => {
 router.get('/logout',(req,res)=> {
 
     req.logout();
-    retval = {success: false, pageType:'Login'};
+    retval = {success: false, pageType:'Login', loginerr: false};
     res.json(retval);
 
 });

@@ -66,7 +66,7 @@ class LoginForm extends Component {
                             </label>
                         </div>
                         <div className="loginErrMsg">
-                            { (this.props.logged.success === false) ? "Incorrect Username or Password" : ""  }
+                            { (this.props.logged.loginerr === true) ? "Incorrect Username or Password" : ""  }
                         </div>
                         <div className='form__submit-btn-wrapper'>
                             <Button className='blue lighten-1' waves='light' >Login</Button>
