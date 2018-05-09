@@ -91,8 +91,9 @@ export const castVote = (voteObj) => dispatch => {
 
 export const sendNewPost = (newPost) => dispatch => {
     console.log('in sendNewPost action');
-    return fetch('/posts/new', {
+    return fetch('/post/new', {
         method: 'POST',
+        credentials: 'include',
         headers: {
         'content-type': 'application/json'
         },

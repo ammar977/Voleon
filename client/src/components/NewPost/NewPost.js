@@ -23,6 +23,8 @@ class NewPost extends Component {
             textContent: e.target.post_text.value,
         };
 
+        e.target.post_text.value = ''
+        
         this.props.sendNewPost(newPost);
     }
 
