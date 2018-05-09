@@ -98,7 +98,7 @@ router.get('/feed:securityLevel',ensureAuthenticated,(req,res)=>{
                 
             }
     
-            retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list};
+            retval = {success: true, userObj: user, pageType: 'Feed', userType:req.params.securityLevel, posts: posts_list.reverse()};
             res.json(retval);
         })
         

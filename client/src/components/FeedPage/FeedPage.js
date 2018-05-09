@@ -13,7 +13,7 @@ class FeedPage extends Component {
 
     render() {
         // console.log('in feed', this.props.logged.posts);
-        const post_cards = this.props.logged.posts.reverse().map(p => 
+        const post_cards = this.props.logged.posts.map(p => 
             <CardContainer cardType="Post Comment" post={p} key={p._id}/>
         );
         return (

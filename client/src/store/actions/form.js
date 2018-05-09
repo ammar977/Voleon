@@ -99,10 +99,6 @@ export const sendNewPost = (newPost) => dispatch => {
         },
         body: JSON.stringify(newPost)
     })
-    .then(x => {
-        console.log(x);
-        return x;
-    })
     .then(res => res.json())
     .then(res => dispatch({type: NEW_POST, payload: res}));
 }

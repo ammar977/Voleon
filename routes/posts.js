@@ -13,7 +13,7 @@ router.get('/',ensureAuthenticated,(req,res) => {
     
     Post.find()
     .then(posts_list=> {
-      retval = {posts:posts_list};
+      retval = {posts:posts_list.reverse()};
       res.json(retval);
     })
 
@@ -23,7 +23,7 @@ router.get('/:username', ensureAuthenticated,(req,res) => {
 
     User.findOne({lumsId : req.params.username})
     .then(user => {
-        Post.find({posterId:user._id})
+        Post.find({posterId:user._id.reverse()})
         .then(posts_list => {
 
             if (!posts_list) {
@@ -50,7 +50,7 @@ router.post('/new', ensureAuthenticated,(req,res) => {
         t = new Date();
         newPost = new Post({
             posterId:req.user._id,
-            posterName: req.user.firstName + req.user.lastName ,
+            posterName: req.user.firstName + ' ' + req.user.lastName ,
             textContent:req.body.textContent,
             timeStamp:t
         })
