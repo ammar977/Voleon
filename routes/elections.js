@@ -233,5 +233,50 @@ router.get('/vote/verify/:str',(req,res) => {
     })
 })
 
+router.post('/deletecandidate',ensureAuthenticated,(req,res) => {
+
+    errors = []
+    if (req.user.securityLevel !== 2) {
+        errors.push({text:"You dont have delete privileges."})
+        retval = {err:errors}
+        res.json(retval)
+    } else {
+            Seat.findOne({_id:req.body.seatId})
+            .then(seat => {
+            let to_del = 0;
+            seat.candidates.forEach((candidate,index) => {
+                if (candidate === req.body.candidateId) {
+                    to_del = index;
+                    return
+                }
+                
+            });
+
+            seat.candidates.splice(to_del,1);
+
+            seat.results.forEach((obj,index) => {
+                if (obj.candidateIdentifier === req.body.candidateId) {
+                    to_del = index;
+                    return
+                }
+            })
+
+            seat.results.splice(to_del,1);
+            seat.save()
+
+            User.findOne({_id:req.body.candidateId})
+            .then(user => {
+                if (user.securityLevel === 1) {
+                    user.securityLevel = 0;
+                    user.save();
+                }
+
+                res.redirect('/election/');
+            })
+
+        })
+    }
+})
+
 
 module.exports = router;
