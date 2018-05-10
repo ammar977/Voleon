@@ -2,9 +2,27 @@
     margin-top: 800px;
 }
 
+.page_contents {
+    width: 100%;
+}
+
+.profilePage_container > .page_contents {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 800px;
+    padding: 0;
+}
+
 .profilePage_container > .page_contents > .card-container {
     margin: 0 auto;
     margin-top: 50px;
+    width: 800px;
+    padding: 0;
+}
+
+.user-post .card-container {
+    margin: 0 auto;
+    margin-top: 30px;
     width: 800px;
     padding: 0;
 }
@@ -18,16 +36,22 @@
 }
 
 figure {
-    display: inline-block;
+    /*display: inline-block;*/
     width: 200px;
-    /*margin-left: auto;
-    margin-right: auto;*/
+    float: left;
+    /*margin-left: auto;*/
 }
 
 figure figcaption {
     /*border: 1px dotted blue;*/
     text-align: center;
 }
+
+.row {
+    /*display: inline-block;*/
+    margin-left: 200px;
+}
+
 #card-content {
-	text-align: center;
+    text-align: center;
 }
