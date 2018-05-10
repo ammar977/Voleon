@@ -24,9 +24,14 @@ class ElectionResultsPage extends Component {
                 <Navbar/>
                 
                 <div className="page_contents">
-                    <CardContainer cardType="Voter Turnout"/>
-                    <CardContainer cardType="Voter Count"/>
-
+                    <div className='row'>
+                        <div className='col s6'>
+                            <CardContainer cardType="Voter Turnout"/>
+                        </div>
+                        <div className='col s6'>
+                            <CardContainer cardType="Voter Count"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
