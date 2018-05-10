@@ -54,6 +54,7 @@ class CardContainer extends Component {
                 break;
             case 'Application':
                 cardElement = <CandidateApp/>;
+                cardTitle = 'Candidate Application';
                 break;    
             case 'New Election':
                 cardElement = <NewElection/>;

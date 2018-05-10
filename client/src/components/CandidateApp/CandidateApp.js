@@ -15,9 +15,9 @@ class CandidateApp extends Component {
         super(props);
         this.state = {selectedFile: null}
     }
-    // static propTypes = {
-    //     fileSubmit:PropTypes.func.isRequired
-    // }
+    static propTypes = {
+        logged:PropTypes.object
+    }
 
     // fileSubmit(e) {
     //     e.preventDefault();
@@ -65,19 +65,17 @@ class CandidateApp extends Component {
     };
 
     render() {
+        console.log('in candapp', this.props)
         return (
            <div className= "CandidateApp_container">
                 <form id="upload">
-                    <div id="title">
-                        <h1> <em><u>Candidate Application</u></em> </h1>
-                    </div>
                     <div id="detail-1">
                         <p> Please download the application form and fill it in a word processing software.Upload the completed form below
                         before the deadline </p>
                     </div>
 
                     <div id="detail-2">
-                        <p> You are eligible to apply for <b>SSE General Seat '19</b> only. </p>
+                        <p> You are eligible to apply for <b>seat</b> only. </p>
                     </div>
 
                     <div id="detail-3">
@@ -85,19 +83,19 @@ class CandidateApp extends Component {
                     </div>
 
                     <div id="download">
-                        <button className="blue lighten-1 waves-effect waves-light btn" type="submit" onClick = {this.downloadHandler.bind(this)}>
+                        <button className="blue lighten-1 waves-effect waves-light btn" type="submit" id="download" onClick = {this.downloadHandler.bind(this)}>
                             <span className="">Download</span>
                             <i className="material-icons right">arrow_downward</i>
                         </button>
                     </div>
 
                     <div id="uploadFile">
-                        <input type="file" onChange={this.fileChangedHandler.bind(this)}/>
-                        <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="submit" onClick = {this.uploadHandler.bind(this)}>
-                            <span className="">Submit</span>
-                            <i className="material-icons right">send</i>
-                        </button>
+                        <input type="file" id="filebutton" onChange={this.fileChangedHandler.bind(this)}/>
                     </div>
+                    <button className="btn blue lighten-1 waves-effect waves-light" type="submit" id="submit" onClick = {this.uploadHandler.bind(this)}>
+                        <span className="">Submit</span>
+                        <i className="material-icons right">send</i>
+                    </button>
 
                 </form>
              
@@ -106,12 +104,12 @@ class CandidateApp extends Component {
     }
 }
 
-// const mapStateToProps = ({});
+const mapStateToProps = (state) => ({
+    logged: state.logged,
+});
 
-// const dispatchToProps = (dispatch) => ({
-//     //  fileSubmit: file => dispatch(fileSubmit(file))
-// });
-export default CandidateApp;
+const dispatchToProps = (dispatch) => ({
+});
 
-// export default connect(mapStateToProps,dispatchToProps)(CandidateApp);
+export default connect(mapStateToProps,dispatchToProps)(CandidateApp);
 
