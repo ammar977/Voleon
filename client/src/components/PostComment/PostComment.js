@@ -48,14 +48,7 @@ class PostComment extends Component {
                 <div className= 'post'>
                     <p id="post-text"> {this.props.post.textContent} </p>
                 </div>
-                <div className= 'comments'>
-                    <p id="comment-text"> {this.props.post.comments} </p>
-                </div>
 
-                <NewcommentForm/>
-                <div className="comment-link">
-                    <a className="link" href="#"><u>View all comments</u></a>
-                </div>
 
             </div>
         );
