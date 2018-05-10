@@ -33,17 +33,14 @@ class VoteNow extends Component{
 					<ul className = "collection">
 					{
 						this.props.logged.candidateProfiles.map(candidate => {
-							return <li className = "collection-item avatar" key={candidate.user._key} >
-								<div className="CandidateBlock">
-									<div className="card-image">
-										<img src={ profile} alt="profile-image"  align="left"/> 
-									</div>
+							return <li className = "collection-item avatar" key={candidate.user._key}>
+								<div className="card-image">
+									<img src={ profile} alt="profile-image"  align="left"/> 
+								</div>
+								<label className="CandidatesList">{candidate.user.firstName} {candidate.user.lastName}</label>
 
-									<label className="CandidatesList">{candidate.user.firstName} {candidate.user.lastName}</label>
-
-									<div className="radioButton">
-										<Input name='selectedCandidate' type='radio' value={candidate.user._id}  />
-									</div>
+								<div className="radioButton">
+									<Input name='selectedCandidate' type='radio' value={candidate.user._id}  />
 								</div>
 							</li>
 						})

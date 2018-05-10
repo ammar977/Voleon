@@ -9,3 +9,7 @@
     padding: 24px 0 24px 0 !important;
     border-radius: 0 0 2px 2px;
 }
+
+.card-title {
+    text-align: center;
+}
