@@ -37,9 +37,19 @@ class ElectionDashboardPage extends Component {
                 <Navbar/>
                 
                 <div className="page_contents">
-                    <CardContainer cardType="Candidates List" candidates={this.props.logged.passedArgs.candidates}/>
-                    <CardContainer cardType="Speech Dates"/>
-                    <CardContainer cardType="Important Dates" dates={datesList}/>
+                    <div className='row'>
+                        <div className='col s6'>
+                            <div className='row'>
+                                <CardContainer cardType="Candidates List" candidates={this.props.logged.passedArgs.candidates}/>
+                            </div>
+                            <div className='row'>
+                                <CardContainer cardType="Speech Dates"/>
+                            </div>
+                        </div>
+                        <div className='col s6'>
+                            <CardContainer cardType="Important Dates" dates={datesList}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
