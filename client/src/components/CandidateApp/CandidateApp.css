@@ -66,6 +66,24 @@
 	justify-content: center; 
 	margin-right: 30px;
 }
+#download {
+  margin-top: 30px;
+
+}
+#filebutton {
+  width: 200px;
+  height: 23px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+#submit {
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
 
 em {
   font-family: 'EB Garamond', serif;
