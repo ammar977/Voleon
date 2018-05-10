@@ -32,12 +32,12 @@ class ProfilePage extends Component {
                         <figcaption> <b>{this.props.logged.profile.user.firstName} {this.props.logged.profile.user.lastName}</b></figcaption>
                     </figure>   
 
-                    <div className="row">
+                    <div className="row manifesto">
                         <div className="col s16 m8">
                             <div className="card-panel blue lighten-5 black-text">
                                 <div id="card-content">
                                     <h5 className="center"><b>Manifesto</b></h5>
-                                    <p className="manifesto">As the voice of the students,my vision is to bring to light the universities greatest resource,the power of the students and their well being,specifically supporting more social activities.</p>
+                                    <p>As the voice of the students,my vision is to bring to light the universities greatest resource,the power of the students and their well being,specifically supporting more social activities.</p>
                                 </div>  
                             </div>
                         </div>

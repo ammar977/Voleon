@@ -89,11 +89,9 @@ class CardContainer extends Component {
         
         return (
             <div className="card-container">
-                <Col m={6} s={6}>
                     <Card className='white darken-1 z-depth-3' title={cardTitle}>
                         {cardElement}
                     </Card>
-                </Col>
             </div>
         );
     }

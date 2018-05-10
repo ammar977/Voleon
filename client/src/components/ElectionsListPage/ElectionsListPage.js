@@ -24,17 +24,30 @@ class ElectionsListPage extends Component {
                 <Navbar/>
                 
                 <div className="page_contents">
-                    <CardContainer cardType="Select Seat"/>
 
-                    {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="New Election"/>
-                    </div> : ''}
-                    {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Archive"/>
-                    </div> : ''}
-                    {(this.props.logged.userType === '0' && !isDeadlinePassed) ? <div className='oneButtonContainer'>
-                         <CardContainer cardType="One Button" cardText="Application"/>
-                    </div> :''}
+                    <div className='row'>
+                        <div className='col s6'>
+                            <CardContainer cardType="Select Seat"/>
+                        </div>
+                        
+                        <div className='col s6'>
+                            <div className='row'>
+                                {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
+                                     <CardContainer cardType="One Button" cardText="New Election"/>
+                                </div> : ''}
+                            </div>
+                            <div className='row'>
+                                {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
+                                     <CardContainer cardType="One Button" cardText="Archive"/>
+                                </div> : ''}
+                            </div>
+                            <div className='row'>
+                                {(this.props.logged.userType === '0' && !isDeadlinePassed) ? <div className='oneButtonContainer'>
+                                     <CardContainer cardType="One Button" cardText="Application"/>
+                                </div> :''}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
