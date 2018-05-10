@@ -26,11 +26,11 @@ class ElectionsListPage extends Component {
                 <div className="page_contents">
 
                     <div className='row'>
-                        <div className='col s6'>
+                        <div className='col s8'>
                             <CardContainer cardType="Select Seat"/>
                         </div>
                         
-                        <div className='col s6'>
+                        <div className='col s4'>
                             <div className='row'>
                                 {(this.props.logged.userType === '2') ? <div className='oneButtonContainer'>
                                      <CardContainer cardType="One Button" cardText="New Election"/>
