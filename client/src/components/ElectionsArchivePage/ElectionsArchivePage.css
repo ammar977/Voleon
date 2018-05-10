@@ -8,3 +8,27 @@
     width: 800px;
     padding: 0;
 }
+
+.electionsArchivePage_container .collection .collection-item {
+    padding: 20px 20px;
+}
+
+.electionsArchivePage_container .collection .collection-item.avatar {
+    line-height: 42px;
+    cursor: pointer;
+    padding-left: 72px;
+}
+
+.electionsArchivePage_container .collection .collection-item.avatar:hover {
+    background-color: #e3f2fd; 
+}
+
+.electionsArchivePage_container .collection a.collection-item {
+    color: black; 
+
+}
+
+.electionsArchivePage_container .collection .collection-item.avatar i.circle {
+    margin-left: 0;
+    background-color: transparent;
+} 

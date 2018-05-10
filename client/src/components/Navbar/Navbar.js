@@ -28,7 +28,7 @@ class Navbar extends Component {
 
     getActiveClass(item) {
         // Accounts for 'ElectionsList', 'ElectionsVote', 'ElectionsResults' etc
-        if (item.startsWith(item) && this.props.logged.pageType.startsWith(item))
+        if (item.includes(item) && this.props.logged.pageType.includes(item))
             return 'active';
         else
             return 'inactive';
