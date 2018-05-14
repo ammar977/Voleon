@@ -9,7 +9,6 @@ class LoginPage extends Component {
         return (
             <div className='loginPage_container'>
                 <img src={ logo } className="App-logo" alt="logo"/>
-                
                 <CardContainer cardType='Login'/>
             </div>
         );
