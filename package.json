@@ -8,10 +8,15 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
+    "test": "jest",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Ammar Ahmed, Rabeez Riaz, Taha bin Amir, Kinza Habib, Tooba Mukhtar",
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
     "randomstring": "^1.1.5"
   },
   "dependencies": {
