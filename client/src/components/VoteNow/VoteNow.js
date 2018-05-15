@@ -26,7 +26,7 @@ class VoteNow extends Component{
 	}
 
 	render(){
-		console.log('in voteNow', this.props);
+		// console.log('in voteNow', this.props);
 		return (
 			<div>
 				<form className='votingForm' onSubmit = {this.formSubmit.bind(this)} >
@@ -60,6 +60,7 @@ class VoteNow extends Component{
 
 
 }
+export default VoteNow;
 
 const mapStateToProps = (state) => ({
     logged: state.logged,
@@ -69,4 +70,4 @@ const dispatchToProps = (dispatch) => ({
 	castVote: selectedCandidate => dispatch(castVote(selectedCandidate)),
 })
 
-export default connect(mapStateToProps,dispatchToProps)(VoteNow);
+// export default connect(mapStateToProps,dispatchToProps)(VoteNow);
