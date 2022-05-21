@@ -38,3 +38,5 @@ npm run client
 ### Version
 
 1.0.0
+
+Hosted on heroku : https://afternoon-hollows-68950.herokuapp.com/
